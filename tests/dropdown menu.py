@@ -3,6 +3,28 @@ from direct.gui.OnscreenText import OnscreenText
 from direct.gui.DirectGui import *
 from panda3d.core import *
 
+def P3DCreateAxes(lineThickness=1):
+    ls = LineSegs()
+    ls.setThickness(lineThickness)
+
+    # X axis
+    ls.setColor(1.0, 0.0, 0.0, 1.0)
+    ls.moveTo(0.0, 0.0, 0.0)
+    ls.drawTo(1.0, 0.0, 0.0)
+
+    # Y axis
+    ls.setColor(0.0, 1.0, 0.0, 1.0)
+    ls.moveTo(0.0, 0.0, 0.0)
+    ls.drawTo(0.0, 1.0, 0.0)
+
+    # Z axis
+    ls.setColor(0.0, 0.0, 1.0, 1.0)
+    ls.moveTo(0.0, 0.0, 0.0)
+    ls.drawTo(0.0, 0.0, 1.0)
+
+    node = ls.create()
+    return NodePath(node)
+
 # Add some text
 bk_text = "DirectOptionMenu Demo"
 textObject = OnscreenText(text=bk_text, pos=(-1,-1), scale=0.07,
