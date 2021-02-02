@@ -3,29 +3,46 @@
 
 from pandac.PandaModules import WindowProperties
 
-from direct.showbase.ShowBase import ShowBase
 import win32gui, win32con
-from view.camera import *
-from view.ucs import *
-from view.grid import *
-from view.menu import *
-from view.direct_tooltip import *
+from src.view.camera import *
+from src.view.ucs import *
+from src.view.grid import *
+from src.view.menu import *
+from src.view.distance import *
+from src.view.direct_tooltip import *
+
+"""
+This example module shows various types of documentation available for use
+with pydoc.  To generate HTML documentation for this module issue the
+command:
+
+    pydoc -w foo
+
+"""
+
 
 class App(ShowBase):
+    """
+    App's main class, it initialize on Windows and maximize the window
+    """
     def __init__(self):
+        """Docstring for A."""
         ShowBase.__init__(self)
         # To enable the camera
         self.disable_mouse()
         # Maximizing window
         self.hwnd = win32gui.GetForegroundWindow()
         win32gui.PostMessage(self.hwnd, win32con.WM_SYSCOMMAND, win32con.SC_MAXIMIZE, 0)
-        camera = CameraController(self)
+
+
 
 
 app = App()
 Menu(app)
+CameraController(app)
 UCS(app)
 Grid(app)
+Distance(app)
 
 tt = DirectTooltip()
 tt.show("my test message")
@@ -37,4 +54,4 @@ app.win.requestProperties(props)
 app.setBackgroundColor(0, 0, 0)
 # Configuration of camera and running
 app.camera.setPos(4, -10, 2)
-app.run()
+#app.run()

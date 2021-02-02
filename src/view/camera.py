@@ -1,14 +1,18 @@
 from direct.showbase.DirectObject import DirectObject
 from panda3d.core import Point3, Point2, Vec3, Plane
 
-# Class to control camera
+"""
+Class to control camera using mouse
+"""
 class CameraController:
 
-    def __init__(self, showbase):
 
+    def __init__(self, showbase):
+        """
+        Constructor and variable initializing
+        """
         self.showbase = showbase
         self.task_mgr = showbase.task_mgr
-        self.mouse_watcher = showbase.mouseWatcherNode
         self.world = showbase.render
         self.cam = showbase.camera
         self.cam_lens = showbase.camLens
