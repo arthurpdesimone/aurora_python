@@ -41,7 +41,7 @@ class CameraController:
         win_props = self.showbase.win.get_properties()
         w, h = win_props.get_x_size(), win_props.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
-        self.mouse_prev = Point2(self.mouse_watcher.get_mouse())
+        self.mouse_prev = Point2(self.showbase.mouseWatcherNode.get_mouse())
         self.task_mgr.add(self.orbit, "transform_cam")
         self.listener.ignore("mouse2")
         self.listener.accept_once("mouse1-up", self.stop_navigating)
@@ -53,8 +53,8 @@ class CameraController:
 
         """
 
-        if self.mouse_watcher.has_mouse():
-            mouse_pos = self.mouse_watcher.get_mouse()
+        if self.showbase.mouseWatcherNode.has_mouse():
+            mouse_pos = self.showbase.mouseWatcherNode.get_mouse()
             speed_x, speed_y = self.orbit_speed
             d_h, d_p = (mouse_pos - self.mouse_prev)
             d_h *= speed_x
