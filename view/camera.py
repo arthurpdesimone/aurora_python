@@ -1,11 +1,11 @@
 from direct.showbase.DirectObject import DirectObject
 from panda3d.core import Point3, Point2, Vec3, Plane
 
-"""
-Class to control camera using mouse
-"""
-class CameraController:
 
+class CameraController:
+    """
+    Class to control camera using mouse
+    """
 
     def __init__(self, showbase):
         """
@@ -25,43 +25,62 @@ class CameraController:
         w, h = win_props.get_x_size(), win_props.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
-        self.listener = listener = DirectObject()
-        listener.accept_once("mouse1", self.start_orbiting)
-        listener.accept_once("mouse2", self.start_panning)
-        listener.accept("wheel_up", self.zoom_step_in)
-        listener.accept("wheel_down", self.zoom_step_out)
+        self.listener = DirectObject()
+        self.listener.accept_once("mouse1", self.start_orbiting)
+        self.listener.accept_once("mouse2", self.start_panning)
+
+    def set_zoom_listener(self):
+        """
+        Method to attach the mouse wheel to
+        :meth:`~camera.CameraController.zoom_step_in` and
+        :meth:`~camera.CameraController.zoom_step_out`
+        """
+        self.listener.accept("wheel_up", self.zoom_step_in)
+        self.listener.accept("wheel_down", self.zoom_step_out)
 
     def stop_navigating(self):
-
+        """
+        Method to stop orbiting and start to accept other mouse inputs
+        """
         self.task_mgr.remove("transform_cam")
         self.listener.accept_once("mouse1", self.start_orbiting)
         self.listener.accept_once("mouse2", self.start_panning)
 
     def start_orbiting(self):
-
+        """
+        Method to start orbiting
+        """
         win_props = self.showbase.win.get_properties()
         w, h = win_props.get_x_size(), win_props.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
+        """ Store the mouse previous position"""
         self.mouse_prev = Point2(self.showbase.mouseWatcherNode.get_mouse())
+        """ Add to task manager the orbit method """
         self.task_mgr.add(self.orbit, "transform_cam")
+        """ Add mouse buttons to ignore or to accept only once to stop orbiting"""
         self.listener.ignore("mouse2")
+        self.listener.ignore("mouse3")
         self.listener.accept_once("mouse1-up", self.stop_navigating)
 
     def orbit(self, task):
         """
         Orbit the camera about its target point by offsetting the orientation
         of the target node with the mouse motion.
-
+        It captures the difference between the mouse previous position and the current
+        and establishes a heading, a pitch and a roll value to the camera
         """
 
         if self.showbase.mouseWatcherNode.has_mouse():
             mouse_pos = self.showbase.mouseWatcherNode.get_mouse()
             speed_x, speed_y = self.orbit_speed
+            """ Captures the heading and the pitch """
             d_h, d_p = (mouse_pos - self.mouse_prev)
+            """ Increases the heading and the pitch by the speed x,y of the mouse"""
             d_h *= speed_x
             d_p *= speed_y
+            """ Sets camera new angle """
             target = self.cam_target
-            target.set_hpr(target.get_h() - d_h, target.get_p() + d_p, 0.)
+            target.set_hpr(target.get_h() - d_h, target.get_p() + d_p, 0)
             self.mouse_prev = Point2(mouse_pos)
 
         return task.cont
@@ -98,7 +117,10 @@ class CameraController:
         return True
 
     def start_panning(self):
-
+        """ Method to initialize the pan process
+        It starts ignoring the left button of the mouse and defining the stop
+        condition (wheel up)
+        """
         if not self.mouse_watcher.has_mouse():
             return
 
@@ -108,7 +130,12 @@ class CameraController:
         self.task_mgr.add(self.pan, "transform_cam")
 
     def pan(self, task):
+        """ Method to set camera position
 
+        :param: task: Task manager's task object
+        :type task: :class:`direct.task`
+        :return: Task.cont meaning it happens every frame
+        """
         pan_pos = Point3()
 
         if not self.__get_pan_pos(pan_pos):

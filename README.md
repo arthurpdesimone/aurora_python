@@ -8,3 +8,8 @@ To install dependencies use pip:
 _pip install panda3d_
 
 _pip install pywin32_
+
+_pip install sphinx_materialdesign_theme_
+
+
+

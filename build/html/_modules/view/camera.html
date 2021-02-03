@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>view.camera &mdash; Aurora 2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Aurora
+          
+
+          
+            
+            <img src="../../_static/icon.bmp" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Aurora</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>view.camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for view.camera</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.showbase.DirectObject</span> <span class="kn">import</span> <span class="n">DirectObject</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">Point2</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">,</span> <span class="n">Plane</span>
+
+
+<div class="viewcode-block" id="CameraController"><a class="viewcode-back" href="../../index.html#view.camera.CameraController">[docs]</a><span class="k">class</span> <span class="nc">CameraController</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to control camera using mouse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor and variable initializing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span> <span class="o">=</span> <span class="n">showbase</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_mgr</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">task_mgr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">render</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">camera</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">mouseWatcherNode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_lens</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">camLens</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">attach_new_node</span><span class="p">(</span><span class="s2">&quot;camera_target&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">reparent_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_prev</span> <span class="o">=</span> <span class="n">Point2</span><span class="p">()</span>
+        <span class="n">win_props</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">win_props</span><span class="o">.</span><span class="n">get_x_size</span><span class="p">(),</span> <span class="n">win_props</span><span class="o">.</span><span class="n">get_y_size</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbit_speed</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="n">h</span> <span class="o">*</span> <span class="o">.</span><span class="mi">15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pan_start_pos</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span> <span class="o">=</span> <span class="n">DirectObject</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse1&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_orbiting</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_panning</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CameraController.set_zoom_listener"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.set_zoom_listener">[docs]</a>    <span class="k">def</span> <span class="nf">set_zoom_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to attach the mouse wheel to</span>
+<span class="sd">        :meth:`~camera.CameraController.zoom_step_in` and</span>
+<span class="sd">        :meth:`~camera.CameraController.zoom_step_out`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;wheel_up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom_step_in</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;wheel_down&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom_step_out</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CameraController.stop_navigating"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.stop_navigating">[docs]</a>    <span class="k">def</span> <span class="nf">stop_navigating</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to stop orbiting and start to accept other mouse inputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_mgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;transform_cam&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse1&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_orbiting</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_panning</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CameraController.start_orbiting"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.start_orbiting">[docs]</a>    <span class="k">def</span> <span class="nf">start_orbiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to start orbiting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">win_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">win_props</span><span class="o">.</span><span class="n">get_x_size</span><span class="p">(),</span> <span class="n">win_props</span><span class="o">.</span><span class="n">get_y_size</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbit_speed</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="n">h</span> <span class="o">*</span> <span class="o">.</span><span class="mi">15</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Store the mouse previous position&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_prev</span> <span class="o">=</span> <span class="n">Point2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">get_mouse</span><span class="p">())</span>
+        <span class="sd">&quot;&quot;&quot; Add to task manager the orbit method &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_mgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbit</span><span class="p">,</span> <span class="s2">&quot;transform_cam&quot;</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Add mouse buttons to ignore or to accept only once to stop orbiting&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;mouse2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;mouse3&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse1-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_navigating</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CameraController.orbit"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.orbit">[docs]</a>    <span class="k">def</span> <span class="nf">orbit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Orbit the camera about its target point by offsetting the orientation</span>
+<span class="sd">        of the target node with the mouse motion.</span>
+<span class="sd">        It captures the difference between the mouse previous position and the current</span>
+<span class="sd">        and establishes a heading, a pitch and a roll value to the camera</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">has_mouse</span><span class="p">():</span>
+            <span class="n">mouse_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">get_mouse</span><span class="p">()</span>
+            <span class="n">speed_x</span><span class="p">,</span> <span class="n">speed_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbit_speed</span>
+            <span class="sd">&quot;&quot;&quot; Captures the heading and the pitch &quot;&quot;&quot;</span>
+            <span class="n">d_h</span><span class="p">,</span> <span class="n">d_p</span> <span class="o">=</span> <span class="p">(</span><span class="n">mouse_pos</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_prev</span><span class="p">)</span>
+            <span class="sd">&quot;&quot;&quot; Increases the heading and the pitch by the speed x,y of the mouse&quot;&quot;&quot;</span>
+            <span class="n">d_h</span> <span class="o">*=</span> <span class="n">speed_x</span>
+            <span class="n">d_p</span> <span class="o">*=</span> <span class="n">speed_y</span>
+            <span class="sd">&quot;&quot;&quot; Sets camera new angle &quot;&quot;&quot;</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">set_hpr</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">get_h</span><span class="p">()</span> <span class="o">-</span> <span class="n">d_h</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">get_p</span><span class="p">()</span> <span class="o">+</span> <span class="n">d_p</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mouse_prev</span> <span class="o">=</span> <span class="n">Point2</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span></div>
+
+<div class="viewcode-block" id="CameraController.zoom_step_in"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.zoom_step_in">[docs]</a>    <span class="k">def</span> <span class="nf">zoom_step_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Translate the camera along its positive local Y-axis to zoom in&quot;&quot;&quot;</span>
+
+        <span class="n">target_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="o">-</span><span class="n">target_dist</span> <span class="o">*</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CameraController.zoom_step_out"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.zoom_step_out">[docs]</a>    <span class="k">def</span> <span class="nf">zoom_step_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Translate the camera along its negative local Y-axis to zoom out&quot;&quot;&quot;</span>
+
+        <span class="n">target_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="n">target_dist</span> <span class="o">*</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__get_pan_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span><span class="o">.</span><span class="n">has_mouse</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span>
+        <span class="n">target_pos</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">get_relative_vector</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">))</span>
+        <span class="n">plane</span> <span class="o">=</span> <span class="n">Plane</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">)</span>
+        <span class="n">m_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span><span class="o">.</span><span class="n">get_mouse</span><span class="p">()</span>
+        <span class="n">near_point</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>
+        <span class="n">far_point</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_lens</span><span class="o">.</span><span class="n">extrude</span><span class="p">(</span><span class="n">m_pos</span><span class="p">,</span> <span class="n">near_point</span><span class="p">,</span> <span class="n">far_point</span><span class="p">)</span>
+        <span class="n">near_point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">get_relative_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="n">near_point</span><span class="p">)</span>
+        <span class="n">far_point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">get_relative_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="n">far_point</span><span class="p">)</span>
+        <span class="n">plane</span><span class="o">.</span><span class="n">intersects_line</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">near_point</span><span class="p">,</span> <span class="n">far_point</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="CameraController.start_panning"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.start_panning">[docs]</a>    <span class="k">def</span> <span class="nf">start_panning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to initialize the pan process</span>
+<span class="sd">        It starts ignoring the left button of the mouse and defining the stop</span>
+<span class="sd">        condition (wheel up)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span><span class="o">.</span><span class="n">has_mouse</span><span class="p">():</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;mouse1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span><span class="o">.</span><span class="n">accept_once</span><span class="p">(</span><span class="s2">&quot;mouse2-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_navigating</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__get_pan_pos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pan_start_pos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_mgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pan</span><span class="p">,</span> <span class="s2">&quot;transform_cam&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CameraController.pan"><a class="viewcode-back" href="../../index.html#view.camera.CameraController.pan">[docs]</a>    <span class="k">def</span> <span class="nf">pan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to set camera position</span>
+
+<span class="sd">        :param: task: Task manager&#39;s task object</span>
+<span class="sd">        :type task: :class:`direct.task`</span>
+<span class="sd">        :return: Task.cont meaning it happens every frame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pan_pos</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_pan_pos</span><span class="p">(</span><span class="n">pan_pos</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pan_start_pos</span> <span class="o">-</span> <span class="n">pan_pos</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Arthur Pendragon De Simone.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
