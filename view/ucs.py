@@ -7,7 +7,7 @@ class UCS:
     # Constructor
     def __init__(self, showbase):
         self.render = showbase.render
-        self.P3DCreateAxes(3)
+        self.P3DCreateAxes(5)
         self.UCS_text()
 
     def P3DCreateAxes(self,lineThickness=1):
@@ -61,3 +61,26 @@ class UCS:
         text_node_path.setScale(0.15)
         text_node_path.reparentTo(self.render)
         return text_node_path
+
+    def draw_cross(self,x,z,thickness=3):
+        ls = LineSegs()
+        ls.setThickness(thickness)
+        size = 0.25
+
+        # X axis
+        ls.setColor(1.0, 0.0, 0.0, 1.0)
+        ls.moveTo(-size, 0.0, 0.0)
+        ls.drawTo(size, 0.0, 0.0)
+
+        # Y axis
+        ls.setColor(0.0, 1.0, 0.0, 1.0)
+        ls.moveTo(0.0, -size, 0.0)
+        ls.drawTo(0.0, size, 0.0)
+
+        # Z axis
+        ls.setColor(0.0, 0.0, 1.0, 1.0)
+        ls.moveTo(0.0,0.0,-size)
+        ls.drawTo(0.0,0.0,size)
+        node = ls.create()
+
+        return NodePath(node)

@@ -15,6 +15,7 @@ class CameraController:
         self.task_mgr = showbase.task_mgr
         self.world = showbase.render
         self.cam = showbase.camera
+        self.mouse_watcher = showbase.mouseWatcherNode
         self.cam_lens = showbase.camLens
         self.cam_target = showbase.render.attach_new_node("camera_target")
         self.cam.reparent_to(self.cam_target)

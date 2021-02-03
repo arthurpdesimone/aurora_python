@@ -7,14 +7,15 @@ from panda3d.core import TextNode
 from direct.gui.DirectGui import DirectLabel
 
 class DirectTooltip():
-    def __init__(self):
+    def __init__(self,distance):
 
+        self.distance = distance
         self.tooltipText = DirectLabel(
-            text = "Tooltip",
+            text = "[0.00,0.00,0.00]",
             text_fg = (1,1,1,1),
             text_scale = 0.05,
             text_align = TextNode.ALeft,
-            frameColor = (0, 0, 0, 0.75),
+            frameColor = (0, 0, 0, 0.2),
             borderWidth = (0.05, 0.05))
         self.tooltipText.setTransparency(True)
 
@@ -109,10 +110,13 @@ class DirectTooltip():
             # move the tooltip to the new position
             self.tooltipText.setX(self.tooltipText.getX() + xShift)
             self.tooltipText.setZ(self.tooltipText.getZ() + yShift)
-            self.tooltipText.setText('['+str(self.tooltipText.getX())+','+str(self.tooltipText.getZ())+']')
+
+            x = '{:.2f}'.format(self.distance.position.x)
+            y = '{:.2f}'.format(self.distance.position.y)
+            z = '{:.2f}'.format(self.distance.position.z)
+            self.tooltipText.setText('['+x+','+y+','+z+']')
         else:
             self.tooltipText.hide()
-
 
         # continue the task until it got manually stopped
         return task.cont

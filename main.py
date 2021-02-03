@@ -12,6 +12,7 @@ from view.menu import *
 from view.direct_tooltip import *
 from view.distance import *
 
+
 class App(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
@@ -23,14 +24,22 @@ class App(ShowBase):
         camera = CameraController(self)
 
 
+from direct.gui.DirectGui import DirectSlider
+
+
+def showValue():
+    print(slider['value'])
+
+
+slider = DirectSlider(range=(0, 100), value=0, pageSize=3, scale=0.2, command=showValue,
+                      pos=(1.6, 0, -0.95))
+
 app = App()
 Menu(app)
 UCS(app)
 Grid(app)
-Distance(app)
-
-tt = DirectTooltip()
-tt.show("my test message")
+distance = Distance(app)
+DirectTooltip(distance).show()
 
 # Configuring window
 props = WindowProperties()
