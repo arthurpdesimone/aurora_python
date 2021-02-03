@@ -6,9 +6,11 @@ from panda3d.core import NodePath, LineSegs, TextNode
 class UCS:
     # Constructor
     def __init__(self, showbase):
+        self.size = 2
         self.render = showbase.render
         self.P3DCreateAxes(5)
         self.UCS_text()
+
 
     def P3DCreateAxes(self,lineThickness=1):
         ls = LineSegs()
@@ -17,17 +19,17 @@ class UCS:
         # X axis
         ls.setColor(1.0, 0.0, 0.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
-        ls.drawTo(1.0, 0.0, 0.0)
+        ls.drawTo(self.size, 0.0, 0.0)
 
         # Y axis
         ls.setColor(0.0, 1.0, 0.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
-        ls.drawTo(0.0, 1.0, 0.0)
+        ls.drawTo(0.0, self.size, 0.0)
 
         # Z axis
         ls.setColor(0.0, 0.0, 1.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
-        ls.drawTo(0.0, 0.0, 1.0)
+        ls.drawTo(0.0, 0.0, self.size)
 
         node = ls.create()
         NodePath(node).reparentTo(self.render)
@@ -38,17 +40,17 @@ class UCS:
         txt_x = TextNode('xText')
         txt_x.setText("x")
         txt_x_node = self.text_customize(txt_x)
-        txt_x_node.setPos(1, 0, 0)
+        txt_x_node.setPos(self.size, 0, 0)
         # y text
         txt_y = TextNode('yText')
         txt_y.setText("y")
         txt_y_node = self.text_customize(txt_y)
-        txt_y_node.setPos(0, 1, 0)
+        txt_y_node.setPos(0, self.size, 0)
         # z text
         txt_z = TextNode('zText')
         txt_z.setText("z")
         txt_z_node = self.text_customize(txt_z)
-        txt_z_node.setPos(0, 0, 1)
+        txt_z_node.setPos(0, 0, self.size)
 
     def text_customize(self,text_node):
         # Configuring aspects to a black background
@@ -58,7 +60,7 @@ class UCS:
         text_node.setCardDecal(True)
         # Creating a NodePath object
         text_node_path = NodePath(text_node)
-        text_node_path.setScale(0.15)
+        text_node_path.setScale(0.25)
         text_node_path.reparentTo(self.render)
         return text_node_path
 
