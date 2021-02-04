@@ -55,9 +55,6 @@
           
 
           
-            
-            <img src="../../_static/icon.bmp" class="logo" alt="Logo"/>
-          
           </a>
 
           
@@ -252,13 +249,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="n">target_dist</span> <span class="o">*</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__get_pan_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
-
+        <span class="sd">&quot;&quot;&quot; Method to get pan position on screen&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span><span class="o">.</span><span class="n">has_mouse</span><span class="p">():</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam_target</span>
         <span class="n">target_pos</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
-        <span class="n">normal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">get_relative_vector</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">))</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">get_relative_vector</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
         <span class="n">plane</span> <span class="o">=</span> <span class="n">Plane</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">)</span>
         <span class="n">m_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_watcher</span><span class="o">.</span><span class="n">get_mouse</span><span class="p">()</span>
         <span class="n">near_point</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>

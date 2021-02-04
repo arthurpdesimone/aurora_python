@@ -26,6 +26,8 @@ author = 'Arthur Pendragon De Simone'
 release = '2021'
 
 
+master_doc = 'index'
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -50,7 +52,7 @@ exclude_patterns = []
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = '../img/icon.bmp'
+#html_logo = '../img/icon.bmp'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.

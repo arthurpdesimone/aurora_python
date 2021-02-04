@@ -55,9 +55,6 @@
           
 
           
-            
-            <img src="_static/icon.bmp" class="logo" alt="Logo"/>
-          
           </a>
 
           
@@ -300,6 +297,51 @@ this class also has a method to draw a plane to serve as reference to drawing</p
 <dd><p>Configuring the menu file and architecture</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="view.gui.Gui.menu_close_file">
+<code class="sig-name descname">menu_close_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/gui.html#Gui.menu_close_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.gui.Gui.menu_close_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to handle confirmation dialog to close application</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.gui.Gui.menu_open">
+<code class="sig-name descname">menu_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/gui.html#Gui.menu_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.gui.Gui.menu_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to handle DirectFolderBrowser
+<a class="reference external" href="https://github.com/fireclawthefox/DirectFolderBrowser">https://github.com/fireclawthefox/DirectFolderBrowser</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.gui.Gui.menu_open_file">
+<code class="sig-name descname">menu_open_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/gui.html#Gui.menu_open_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.gui.Gui.menu_open_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to handle confirmation dialog to open file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.gui.Gui.menu_option">
+<code class="sig-name descname">menu_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/gui.html#Gui.menu_option"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.gui.Gui.menu_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to handle all the options of the menu</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>str</em>) – The caption of the menu selected</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <span class="target" id="module-view.menu"></span><span class="target" id="module-view.tooltip"></span><p>This snippet shows how to create a tooltip text that will be attached
@@ -307,7 +349,7 @@ to the cursor and check it’s position to not move out of the screen.</p>
 <span class="target" id="module-view.ucs"></span><dl class="py class">
 <dt id="view.ucs.UCS">
 <em class="property">class </em><code class="sig-prename descclassname">view.ucs.</code><code class="sig-name descname">UCS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/ucs.html#UCS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.ucs.UCS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an UCS symbol on point (0,0,0)</p>
+<dd><p>Create an UCS symbol on point (0,0,0) and draw a mini-UCS at the mouse position</p>
 <dl class="py method">
 <dt id="view.ucs.UCS.P3DCreateAxes">
 <code class="sig-name descname">P3DCreateAxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/ucs.html#UCS.P3DCreateAxes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.ucs.UCS.P3DCreateAxes" title="Permalink to this definition">¶</a></dt>
@@ -319,6 +361,18 @@ to the cursor and check it’s position to not move out of the screen.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="view.ucs.UCS.UCS_text">
+<code class="sig-name descname">UCS_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/ucs.html#UCS.UCS_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.ucs.UCS.UCS_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw X, Y, Z at the tip of each of the UCS axis</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.ucs.UCS.text_customize">
+<code class="sig-name descname">text_customize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_node</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/ucs.html#UCS.text_customize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.ucs.UCS.text_customize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customize the axis label to fit into a black background</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -327,7 +381,6 @@ to the cursor and check it’s position to not move out of the screen.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
 

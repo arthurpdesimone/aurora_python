@@ -99,13 +99,13 @@ class CameraController:
         self.cam.set_y(self.cam, target_dist * .1)
 
     def __get_pan_pos(self, pos):
-
+        """ Method to get pan position on screen"""
         if not self.mouse_watcher.has_mouse():
             return False
 
         target = self.cam_target
         target_pos = target.get_pos()
-        normal = self.world.get_relative_vector(target, Vec3(0., 1., 0.))
+        normal = self.world.get_relative_vector(target, Vec3(0, 1, 0))
         plane = Plane(normal, target_pos)
         m_pos = self.mouse_watcher.get_mouse()
         near_point = Point3()

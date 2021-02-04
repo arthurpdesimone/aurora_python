@@ -55,9 +55,6 @@
           
 
           
-            
-            <img src="../../_static/icon.bmp" class="logo" alt="Logo"/>
-          
           </a>
 
           
@@ -154,9 +151,9 @@
 <span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">NodePath</span><span class="p">,</span> <span class="n">LineSegs</span><span class="p">,</span> <span class="n">TextNode</span>
 
 <div class="viewcode-block" id="UCS"><a class="viewcode-back" href="../../index.html#view.ucs.UCS">[docs]</a><span class="k">class</span> <span class="nc">UCS</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Create an UCS symbol on point (0,0,0) &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; Create an UCS symbol on point (0,0,0) and draw a mini-UCS at the mouse position &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">render</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">render</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">P3DCreateAxes</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">UCS_text</span><span class="p">()</span>
@@ -170,53 +167,54 @@
         <span class="n">ls</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">()</span>
         <span class="n">ls</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="n">thickness</span><span class="p">)</span>
 
-        <span class="c1"># X axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; X axis &quot;&quot;&quot;</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="c1"># Y axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Y axis &quot;&quot;&quot;</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="c1"># Z axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Z axis &quot;&quot;&quot;</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 
         <span class="n">node</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
         <span class="n">NodePath</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span></div>
 
-    <span class="c1"># Format X,Y,Z text indications</span>
-    <span class="k">def</span> <span class="nf">UCS_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># x text</span>
+<div class="viewcode-block" id="UCS.UCS_text"><a class="viewcode-back" href="../../index.html#view.ucs.UCS.UCS_text">[docs]</a>    <span class="k">def</span> <span class="nf">UCS_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Draw X, Y, Z at the tip of each of the UCS axis&quot;&quot;&quot;</span>
+
+        <span class="sd">&quot;&quot;&quot; X text &quot;&quot;&quot;</span>
         <span class="n">txt_x</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="s1">&#39;xText&#39;</span><span class="p">)</span>
         <span class="n">txt_x</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
         <span class="n">txt_x_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_customize</span><span class="p">(</span><span class="n">txt_x</span><span class="p">)</span>
         <span class="n">txt_x_node</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="c1"># y text</span>
+        <span class="sd">&quot;&quot;&quot; Y text &quot;&quot;&quot;</span>
         <span class="n">txt_y</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="s1">&#39;yText&#39;</span><span class="p">)</span>
         <span class="n">txt_y</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
         <span class="n">txt_y_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_customize</span><span class="p">(</span><span class="n">txt_y</span><span class="p">)</span>
         <span class="n">txt_y_node</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="c1"># z text</span>
+        <span class="sd">&quot;&quot;&quot; Z text &quot;&quot;&quot;</span>
         <span class="n">txt_z</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="s1">&#39;zText&#39;</span><span class="p">)</span>
         <span class="n">txt_z</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
         <span class="n">txt_z_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_customize</span><span class="p">(</span><span class="n">txt_z</span><span class="p">)</span>
-        <span class="n">txt_z_node</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">txt_z_node</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">text_customize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">text_node</span><span class="p">):</span>
-        <span class="c1"># Configuring aspects to a black background</span>
+<div class="viewcode-block" id="UCS.text_customize"><a class="viewcode-back" href="../../index.html#view.ucs.UCS.text_customize">[docs]</a>    <span class="k">def</span> <span class="nf">text_customize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">text_node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Customize the axis label to fit into a black background &quot;&quot;&quot;</span>
         <span class="n">text_node</span><span class="o">.</span><span class="n">setFrameColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">text_node</span><span class="o">.</span><span class="n">setCardColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">text_node</span><span class="o">.</span><span class="n">setCardAsMargin</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
         <span class="n">text_node</span><span class="o">.</span><span class="n">setCardDecal</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="c1"># Creating a NodePath object</span>
+        <span class="sd">&quot;&quot;&quot; Creating a NodePath object&quot;&quot;&quot;</span>
         <span class="n">text_node_path</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="n">text_node</span><span class="p">)</span>
         <span class="n">text_node_path</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
         <span class="n">text_node_path</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">text_node_path</span>
+        <span class="k">return</span> <span class="n">text_node_path</span></div>
 
     <span class="k">def</span> <span class="nf">draw_cross</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">ls</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">()</span>
@@ -224,19 +222,19 @@
         <span class="n">size</span> <span class="o">=</span> <span class="mf">0.25</span>
 
         <span class="c1"># X axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="c1"># Y axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="c1"># Z axis</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="n">size</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">NodePath</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></div>

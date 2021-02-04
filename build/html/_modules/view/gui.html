@@ -55,9 +55,6 @@
           
 
           
-            
-            <img src="../../_static/icon.bmp" class="logo" alt="Logo"/>
-          
           </a>
 
           
@@ -152,12 +149,16 @@
             
   <h1>Source code for view.gui</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">DirectFolderBrowser.DirectFolderBrowser</span> <span class="kn">import</span> <span class="n">DirectFolderBrowser</span>
+
+
 <div class="viewcode-block" id="Gui"><a class="viewcode-back" href="../../index.html#view.gui.Gui">[docs]</a><span class="k">class</span> <span class="nc">Gui</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Class holding all elements at the Graphical User Interface &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slider</span> <span class="o">=</span> <span class="n">DirectSlider</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
                                    <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value_grid_select</span><span class="p">,</span>
-                                    <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">))</span>
+                                   <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Gui.menu"><a class="viewcode-back" href="../../index.html#view.gui.Gui.menu">[docs]</a>    <span class="k">def</span> <span class="nf">menu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -167,7 +168,8 @@
                          <span class="n">initialitem</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                          <span class="n">scale</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span>
                          <span class="n">textMayChange</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                         <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">))</span>
+                         <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span>
+                         <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">)</span>
 
         <span class="n">DirectOptionMenu</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Arquitetura&#39;</span><span class="p">,</span> <span class="s1">&#39;Laje&#39;</span><span class="p">,</span> <span class="s1">&#39;Viga&#39;</span><span class="p">,</span> <span class="s1">&#39;Pilar&#39;</span><span class="p">,</span> <span class="s1">&#39;Fundação&#39;</span><span class="p">],</span>
                          <span class="n">initialitem</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -175,8 +177,65 @@
                          <span class="n">textMayChange</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                          <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.48</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">))</span></div>
 
+<div class="viewcode-block" id="Gui.menu_option"><a class="viewcode-back" href="../../index.html#view.gui.Gui.menu_option">[docs]</a>    <span class="k">def</span> <span class="nf">menu_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to handle all the options of the menu</span>
+
+<span class="sd">        :param arg: The caption of the menu selected</span>
+<span class="sd">        :type arg: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Novo&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Abrir&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span> <span class="o">=</span> <span class="n">DirectFolderBrowser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_open</span><span class="p">,</span> <span class="n">fileBrowser</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Fechar&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">close_dialog</span> <span class="o">=</span> <span class="n">YesNoDialog</span><span class="p">(</span><span class="n">dialogName</span><span class="o">=</span><span class="s2">&quot;CloseDialog&quot;</span><span class="p">,</span> <span class="n">buttonTextList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sim&#39;</span><span class="p">,</span> <span class="s1">&#39;Não&#39;</span><span class="p">],</span>
+                                      <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Deseja fechar o programa?&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_close_file</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.menu_open"><a class="viewcode-back" href="../../index.html#view.gui.Gui.menu_open">[docs]</a>    <span class="k">def</span> <span class="nf">menu_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Method to handle DirectFolderBrowser</span>
+<span class="sd">        https://github.com/fireclawthefox/DirectFolderBrowser</span>
+
+<span class="sd">        :param arg: The value ok = True, cancel = False</span>
+<span class="sd">        :type arg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># print the selected file</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">open_dialog</span> <span class="o">=</span> <span class="n">YesNoDialog</span><span class="p">(</span><span class="n">dialogName</span><span class="o">=</span><span class="s2">&quot;OpenDialog&quot;</span><span class="p">,</span> <span class="n">buttonTextList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sim&#39;</span><span class="p">,</span> <span class="s1">&#39;Não&#39;</span><span class="p">],</span>
+                                 <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Deseja abrir &quot;</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_open_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Gui.menu_open_file"><a class="viewcode-back" href="../../index.html#view.gui.Gui.menu_open_file">[docs]</a>    <span class="k">def</span> <span class="nf">menu_open_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to handle confirmation dialog to open file</span>
+
+<span class="sd">        :param arg: The value ok = True, cancel = False</span>
+<span class="sd">        :type arg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">open_dialog</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Gui.menu_close_file"><a class="viewcode-back" href="../../index.html#view.gui.Gui.menu_close_file">[docs]</a>    <span class="k">def</span> <span class="nf">menu_close_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to handle confirmation dialog to close application</span>
+
+<span class="sd">        :param arg: The value ok = True, cancel = False</span>
+<span class="sd">        :type arg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">open_dialog</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
+
     <span class="k">def</span> <span class="nf">value_grid_select</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slider</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slider</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span></div>
 </pre></div>
 
            </div>
