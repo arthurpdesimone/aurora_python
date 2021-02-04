@@ -9,6 +9,7 @@ colorama==0.4.4
 DirectFolderBrowser==20.11
 DirectGuiExtension==20.12
 docutils==0.16
+ezdxf==0.15.1
 future==0.18.2
 idna==2.10
 imagesize==1.2.0
