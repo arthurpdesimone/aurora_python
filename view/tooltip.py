@@ -1,8 +1,6 @@
 """This snippet shows how to create a tooltip text that will be attached
 to the cursor and check it's position to not move out of the screen."""
 
-import sys
-
 from panda3d.core import TextNode
 from direct.gui.DirectGui import DirectLabel
 

@@ -28,6 +28,7 @@ class CameraController:
         self.listener = DirectObject()
         self.listener.accept_once("mouse1", self.start_orbiting)
         self.listener.accept_once("mouse2", self.start_panning)
+        self.set_zoom_listener()
 
     def set_zoom_listener(self):
         """

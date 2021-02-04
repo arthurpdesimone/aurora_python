@@ -5,13 +5,12 @@
 
    Author: Arthur Pendragon De Simone
 """
-
-from pandac.PandaModules import WindowProperties
 from view.app import *
 from view.gui import *
 from view.grid import *
 from view.tooltip import *
 from view.distance import *
+from view.camera import *
 
 
 if __name__ == "__main__":
@@ -21,13 +20,5 @@ if __name__ == "__main__":
     Grid(app)
     distance = Distance(app)
     Tooltip(distance).show()
-
-    # Configuring window
-    props = WindowProperties()
-    props.setTitle('Aurora Python')
-    props.setIconFilename('img/icon.ico')
-    app.win.requestProperties(props)
-    app.setBackgroundColor(0, 0, 0)
-    # Configuration of camera and running
-    app.camera.setPos(4, -10, 2)
+    CameraController(app)
     app.run()

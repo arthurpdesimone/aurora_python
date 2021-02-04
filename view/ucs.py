@@ -1,32 +1,33 @@
 from panda3d.core import NodePath, LineSegs, TextNode
 
-
-# Class to draw a simple coordinate system
-
 class UCS:
-    # Constructor
+    """ Create an UCS symbol on point (0,0,0) """
     def __init__(self, showbase):
         self.size = 2
         self.render = showbase.render
         self.P3DCreateAxes(5)
         self.UCS_text()
 
+    def P3DCreateAxes(self,thickness=1):
+        """ Create the UCS using the class :class:`panda3d.core.LineSegs`
 
-    def P3DCreateAxes(self,lineThickness=1):
+        :param thickness: The UCS thickness
+        :type thickness: int
+        """
         ls = LineSegs()
-        ls.setThickness(lineThickness)
+        ls.setThickness(thickness)
 
-        # X axis
+        """ X axis """
         ls.setColor(1.0, 0.0, 0.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
         ls.drawTo(self.size, 0.0, 0.0)
 
-        # Y axis
+        """ Y axis """
         ls.setColor(0.0, 1.0, 0.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
         ls.drawTo(0.0, self.size, 0.0)
 
-        # Z axis
+        """ Z axis """
         ls.setColor(0.0, 0.0, 1.0, 1.0)
         ls.moveTo(0.0, 0.0, 0.0)
         ls.drawTo(0.0, 0.0, self.size)
@@ -34,9 +35,9 @@ class UCS:
         node = ls.create()
         NodePath(node).reparentTo(self.render)
 
-    # Format X,Y,Z text indications
     def UCS_text(self):
-        # x text
+        """ Draw X, Y, Z at the tip of each of the UCS axis"""
+
         txt_x = TextNode('xText')
         txt_x.setText("x")
         txt_x_node = self.text_customize(txt_x)

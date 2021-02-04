@@ -1,5 +1,5 @@
 from direct.showbase.ShowBase import ShowBase
-from panda3d.core import Plane, Vec3, Point3, CardMaker
+from panda3d.core import Plane, Vec3, Point3
 
 from view.ucs import UCS
 class Distance(ShowBase):
@@ -21,16 +21,19 @@ class Distance(ShowBase):
         Method to calculate the intersection between the camera point and
         a plane specified. Also responsible for placing the UCS cursor following the mouse
         """
+        #.. math::
+        #    (a + b)^2 = a^2 + 2ab + b^2
+
         if base.mouseWatcherNode.hasMouse():
             mpos = base.mouseWatcherNode.getMouse()
             pos3d = Point3()
             nearPoint = Point3()
             farPoint = Point3()
             base.camLens.extrude(mpos, nearPoint, farPoint)
-            if self.plane.intersectsLine(pos3d,
-                                         render.getRelativePoint(camera, nearPoint),
-                                         render.getRelativePoint(camera, farPoint)):
-                # print("Mouse ray intersects ground plane at ", pos3d)
+            relativeNearPoint = render.getRelativePoint(camera, nearPoint)
+            relativeFarPoint = render.getRelativePoint(camera, farPoint)
+
+            if self.plane.intersectsLine(pos3d,relativeNearPoint,relativeFarPoint):
                 # Round the point
                 pos3d = Point3(round(pos3d.x,0),round(pos3d.y,0),round(pos3d.z,0))
                 self.model.setPos(render, pos3d)
