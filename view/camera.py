@@ -20,11 +20,18 @@ class CameraController:
         w, h = win_props.get_x_size(), win_props.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
+        self.zoom_step_factor = 1  # additional zoom step multiplier
         self.listener = listener = DirectObject()
         listener.accept_once("mouse1", self.start_orbiting)
         listener.accept_once("mouse3", self.start_panning)
         listener.accept("wheel_up", self.zoom_step_in)
         listener.accept("wheel_down", self.zoom_step_out)
+        listener.accept("control-wheel_up", self.zoom_step_in_const)
+        listener.accept("control-wheel_down", self.zoom_step_out_const)
+        listener.accept("-", self.decr_zoom_step_factor)
+        listener.accept("--repeat", self.decr_zoom_step_factor)
+        listener.accept("+", self.incr_zoom_step_factor)
+        listener.accept("+-repeat", self.incr_zoom_step_factor)
 
     def stop_navigating(self):
 
@@ -65,13 +72,53 @@ class CameraController:
         """Translate the camera along its positive local Y-axis to zoom in"""
 
         target_dist = self.cam.get_y()
+        print('Target dist : ',target_dist)
         self.cam.set_y(self.cam, -target_dist * .1)
 
     def zoom_step_out(self):
         """Translate the camera along its negative local Y-axis to zoom out"""
 
         target_dist = self.cam.get_y()
+        print('Target dist : ', target_dist)
         self.cam.set_y(self.cam, target_dist * .1)
+
+    def zoom_step_in_const(self):
+        """Zoom in using a constant step value"""
+
+        current_dist = self.cam.get_y()
+        new_dist = current_dist + .1 * self.zoom_step_factor
+
+        # Prevent the camera to move past its target node
+        if new_dist > -.01:
+            new_dist = -.01
+
+        print('Camera y',self.cam.get_y())
+        self.cam.set_y(new_dist)
+
+
+    def zoom_step_out_const(self):
+        """Zoom out using a constant step value"""
+
+        current_dist = self.cam.get_y()
+        new_dist = current_dist - .5 * self.zoom_step_factor
+        self.cam.set_y(new_dist)
+
+    def decr_zoom_step_factor(self):
+        """Decrease the value with which to multiply the zoom steps"""
+
+        self.zoom_step_factor -= 1 # Or some value that you prefer
+
+        # Prevent the multiplier from becoming too small
+        if self.zoom_step_factor < .1:
+            self.zoom_step_factor = .1
+
+        print("self.zoom_step_factor:", self.zoom_step_factor)
+
+    def incr_zoom_step_factor(self):
+        """Increase the value with which to multiply the zoom steps"""
+
+        self.zoom_step_factor += .1 # Or some value that you prefer
+        print("self.zoom_step_factor:", self.zoom_step_factor)
 
     def __get_pan_pos(self, pos):
 
