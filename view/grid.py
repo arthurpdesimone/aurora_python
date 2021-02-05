@@ -28,7 +28,7 @@ class Grid:
         :param z_shift: Displacement of grid in relation to xy plane
         :type z_shift: float
         """
-        ls = LineSegs()
+        ls = LineSegs('Grid')
         ls.setThickness(thickness)
         ls.setColor(color)
 

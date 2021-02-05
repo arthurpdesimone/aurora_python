@@ -16,9 +16,9 @@ from view.camera import *
 if __name__ == "__main__":
     app = App()
     Gui(app)
-    UCS(app)
+    ucs = UCS(app)
     Grid(app)
-    distance = Distance(app)
+    distance = Distance(app, ucs)
     Tooltip(distance).show()
     CameraController(app)
     app.run()

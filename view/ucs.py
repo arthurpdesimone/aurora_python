@@ -14,7 +14,7 @@ class UCS:
         :param thickness: The UCS thickness
         :type thickness: int
         """
-        ls = LineSegs()
+        ls = LineSegs('UCS')
         ls.setThickness(thickness)
 
         """ X axis """
@@ -67,7 +67,7 @@ class UCS:
         return text_node_path
 
     def draw_cross(self,x,z,thickness=3):
-        ls = LineSegs()
+        ls = LineSegs('UCS mouse')
         ls.setThickness(thickness)
         size = 0.25
 

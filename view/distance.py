@@ -6,11 +6,11 @@ class Distance(ShowBase):
     """
     Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)
     """
-    def __init__(self, showbase):
+    def __init__(self, showbase, UCS):
         self.app = showbase
         z = 0
         self.plane = Plane(Vec3(0, 0, 1), Point3(0, 0, z))
-        self.model = UCS(self.app).draw_cross(0, 0)
+        self.model = UCS.draw_cross(0, 0)
         self.model.reparentTo(render)
         self.position = Point3()
         taskMgr.add(self.get_mouse_pos, "_Distance__get_mouse_pos")

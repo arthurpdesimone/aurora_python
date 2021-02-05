@@ -10,27 +10,29 @@ class Gui:
     """ Class holding all elements at the Graphical User Interface """
 
     def __init__(self, showbase):
-        self.slider = DirectSlider(range=(0, 100), value=0, pageSize=3, scale=0.2,
-                                   command=self.slider_grid_select,
-                                   pos=(1.5, 0, -0.95))
+        self.showbase = showbase
+        #self.slider = DirectSlider(range=(0, 100), value=0, pageSize=3, scale=0.2,
+        #                           command=self.slider_grid_select,
+        #                           pos=(1.5, 0, -0.95))
         self.menu()
         self.file = ''
 
     def menu(self):
         """Configuring the menu file and architecture"""
 
-        DirectOptionMenu(items=['Arquivo', 'Novo', 'Abrir','Abrir planta (DXF)', 'Salvar', 'Fechar'],
+        DirectOptionMenu(items=['Arquivo', 'Novo', 'Abrir', 'Salvar', 'Fechar'],
                          initialitem=0,
                          scale=.05,
                          textMayChange=0,
                          pos=(-1.7, 0, 0.95),
                          command=self.menu_option)
 
-        DirectOptionMenu(items=['Arquitetura', 'Laje', 'Viga', 'Pilar', 'Fundação'],
+        DirectOptionMenu(items=['Arquitetura','Abrir DXF','Limpar DXF', 'Laje', 'Viga', 'Pilar', 'Fundação'],
                          initialitem=0,
                          scale=.05,
                          textMayChange=0,
-                         pos=(-1.48, 0, 0.95))
+                         pos=(-1.4, 0, 0.95),
+                         command=self.menu_option)
 
     def menu_option(self, arg):
         """ Method to handle all the options of the menu
@@ -40,12 +42,13 @@ class Gui:
         """
         if arg == 'Novo':
             pass
-        elif arg == 'Abrir planta (DXF)':
+        elif arg == 'Abrir DXF':
             self.browser = DirectFolderBrowser(self.menu_open, fileBrowser=True, defaultPath='C:\\')
+        elif arg == 'Limpar DXF':
+            DXF(self.showbase).clear_dxf()
         elif arg == 'Fechar':
             self.close_dialog = YesNoDialog(dialogName="CloseDialog", buttonTextList=['Sim', 'Não'],
                                       text="Deseja fechar o programa?", command=self.menu_close_file)
-
 
     def menu_open(self, arg):
         """Method to handle DirectFolderBrowser and open a file to the model
@@ -72,7 +75,7 @@ class Gui:
         :type arg: int
         """
         if arg:
-            DXF(base).read_dxf(self.file)
+            DXF(self.showbase).read_dxf(self.file)
         else:
             pass
         self.open_dialog.cleanup()

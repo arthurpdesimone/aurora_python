@@ -28,7 +28,7 @@ class DXF:
                     color = (1, 1, 1, 0.1)
                     start_point = e.dxf.start
                     end_point = e.dxf.end
-                    ls = LineSegs()
+                    ls = LineSegs('DXF')
                     ls.setThickness(thickness)
                     ls.setColor(color)
 
@@ -43,7 +43,8 @@ class DXF:
                     ls.drawTo(end.x,end.y,end.z)
 
                     node = ls.create()
-                    NodePath(node).reparentTo(self.app.render)
+                    node_path = NodePath(node)
+                    node_path.reparentTo(self.app.render)
 
         except IOError:
             print(f'Not a DXF file or a generic I/O error.')
@@ -54,3 +55,8 @@ class DXF:
 
     def save_dxf(self,path):
         pass
+
+    def clear_dxf(self):
+        for children in self.app.render.getChildren():
+            if children.getName() == 'DXF':
+                children.removeNode()
