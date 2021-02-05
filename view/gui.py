@@ -2,6 +2,7 @@ from direct.gui.DirectGui import *
 from DirectFolderBrowser.DirectFolderBrowser import DirectFolderBrowser
 from DirectGuiExtension.DirectGridSizer import DirectGridSizer
 
+from dxf.dxf import DXF
 from view.grid import Grid
 
 
@@ -18,7 +19,7 @@ class Gui:
     def menu(self):
         """Configuring the menu file and architecture"""
 
-        DirectOptionMenu(items=['Arquivo', 'Novo', 'Abrir', 'Salvar', 'Fechar'],
+        DirectOptionMenu(items=['Arquivo', 'Novo', 'Abrir','Abrir planta (DXF)', 'Salvar', 'Fechar'],
                          initialitem=0,
                          scale=.05,
                          textMayChange=0,
@@ -39,7 +40,7 @@ class Gui:
         """
         if arg == 'Novo':
             pass
-        elif arg == 'Abrir':
+        elif arg == 'Abrir planta (DXF)':
             self.browser = DirectFolderBrowser(self.menu_open, fileBrowser=True)
         elif arg == 'Fechar':
             self.close_dialog = YesNoDialog(dialogName="CloseDialog", buttonTextList=['Sim', 'Não'],
@@ -56,6 +57,7 @@ class Gui:
         if arg == True:
             # print the selected file
             file = self.browser.get()
+            DXF(base).read_dxf(file)
             self.browser.hide()
             self.browser.destroy()
             self.open_dialog = YesNoDialog(dialogName="OpenDialog", buttonTextList=['Sim', 'Não'],
