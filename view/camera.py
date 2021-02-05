@@ -20,7 +20,7 @@ class CameraController:
         w, h = win_props.get_x_size(), win_props.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
-        self.zoom_step_factor = 1  # additional zoom step multiplier
+        self.zoom_step_factor = 10  # additional zoom step multiplier
         self.listener = listener = DirectObject()
         listener.accept_once("mouse1", self.start_orbiting)
         listener.accept_once("mouse3", self.start_panning)
@@ -62,7 +62,7 @@ class CameraController:
             d_h, d_p = (mouse_pos - self.mouse_prev)
             d_h *= speed_x
             d_p *= speed_y
-            target = self.cam_target
+            target = self.cam
             target.set_hpr(target.get_h() - d_h, target.get_p() + d_p, 0.)
             self.mouse_prev = Point2(mouse_pos)
 
@@ -72,14 +72,12 @@ class CameraController:
         """Translate the camera along its positive local Y-axis to zoom in"""
 
         target_dist = self.cam.get_y()
-        print('Target dist : ',target_dist)
         self.cam.set_y(self.cam, -target_dist * .1)
 
     def zoom_step_out(self):
         """Translate the camera along its negative local Y-axis to zoom out"""
 
         target_dist = self.cam.get_y()
-        print('Target dist : ', target_dist)
         self.cam.set_y(self.cam, target_dist * .1)
 
     def zoom_step_in_const(self):
@@ -89,10 +87,11 @@ class CameraController:
         new_dist = current_dist + .1 * self.zoom_step_factor
 
         # Prevent the camera to move past its target node
-        if new_dist > -.01:
-            new_dist = -.01
+        #if new_dist > -.01:
+        #    new_dist = -.01
 
-        print('Camera y',self.cam.get_y())
+        self.print_status('zoom step in')
+
         self.cam.set_y(new_dist)
 
 
@@ -101,6 +100,8 @@ class CameraController:
 
         current_dist = self.cam.get_y()
         new_dist = current_dist - .5 * self.zoom_step_factor
+
+        self.print_status('zoom step out')
         self.cam.set_y(new_dist)
 
     def decr_zoom_step_factor(self):
@@ -156,6 +157,10 @@ class CameraController:
         if not self.__get_pan_pos(pan_pos):
             return task.cont
 
-        self.cam_target.set_pos(self.cam_target.get_pos() + (self.pan_start_pos - pan_pos))
+        self.cam.set_pos(self.cam.get_pos() + (self.pan_start_pos - pan_pos))
+        self.print_status('pan')
 
         return task.cont
+
+    def print_status(self,action=''):
+        print(action,' - Camera :',self.cam.get_pos()," Target :",self.cam_target.getPos())
