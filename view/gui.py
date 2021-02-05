@@ -14,7 +14,7 @@ class Gui:
                                    command=self.slider_grid_select,
                                    pos=(1.5, 0, -0.95))
         self.menu()
-
+        self.file = ''
 
     def menu(self):
         """Configuring the menu file and architecture"""
@@ -41,7 +41,7 @@ class Gui:
         if arg == 'Novo':
             pass
         elif arg == 'Abrir planta (DXF)':
-            self.browser = DirectFolderBrowser(self.menu_open, fileBrowser=True)
+            self.browser = DirectFolderBrowser(self.menu_open, fileBrowser=True, defaultPath='C:\\')
         elif arg == 'Fechar':
             self.close_dialog = YesNoDialog(dialogName="CloseDialog", buttonTextList=['Sim', 'Não'],
                                       text="Deseja fechar o programa?", command=self.menu_close_file)
@@ -56,12 +56,11 @@ class Gui:
         """
         if arg == True:
             # print the selected file
-            file = self.browser.get()
-            DXF(base).read_dxf(file)
+            self.file = self.browser.get()
             self.browser.hide()
             self.browser.destroy()
             self.open_dialog = YesNoDialog(dialogName="OpenDialog", buttonTextList=['Sim', 'Não'],
-                                 text="Deseja abrir " + file + "?", command=self.menu_open_file)
+                                 text="Deseja abrir " + self.file + "?", command=self.menu_open_file)
         if arg == False:
             self.browser.hide()
             self.browser.destroy()
@@ -73,7 +72,7 @@ class Gui:
         :type arg: int
         """
         if arg:
-            pass
+            DXF(base).read_dxf(self.file)
         else:
             pass
         self.open_dialog.cleanup()
