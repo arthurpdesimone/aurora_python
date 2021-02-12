@@ -6,7 +6,7 @@
    Author: Arthur Pendragon De Simone
 """
 from view.app import *
-from view.gui import *
+from view.userinterface import *
 from view.grid import *
 from view.tooltip import *
 from view.distance import *
@@ -15,7 +15,7 @@ from view.camera import *
 
 if __name__ == "__main__":
     app = App()
-    Gui(app)
+    UserInterface(app)
     ucs = UCS(app)
     Grid(app)
     distance = Distance(app, ucs)
