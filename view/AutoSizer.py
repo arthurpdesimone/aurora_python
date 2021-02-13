@@ -114,7 +114,7 @@ class AutoSizer(DirectFrame):
         # actual resizing of our child element
         #self.child["frameSize"] = [l/childScale,r/childScale,b/childScale,t/childScale]
         self.child["frameSize"] = [self.left, self.right,1,self.top]
-        #self["frameSize"] = self.child["frameSize"]
+        self["frameSize"] = self.child["frameSize"]
 
         base.messenger.send(self.uniqueName("update-size"))
         if self['childUpdateSizeFunc'] is not None:

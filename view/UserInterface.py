@@ -39,9 +39,18 @@ class UserInterface:
             DirectMenuItemEntry("Fundação", self.menu_option, ["Fechar"])
         ]
         archMenu = DirectMenuItem(text="Arquitetura", scale=0.07, item_relief=2, items=archList)
+        """Configuring the menu loads"""
+        loadList = [
+            DirectMenuItemEntry("Carga em área", print, [False]),
+            DirectMenuItemEntry("Carga em linha", print, [True]),
+            DirectMenuItemEntry("Carga em ponto", self.menu_option, ["Fechar"]),
+            DirectMenuItemEntry("Carga térmica", self.menu_option, ["Fechar"])
+        ]
+        loadMenu = DirectMenuItem(text="Cargas", scale=0.07, item_relief=2, items=loadList)
         boxSizer = DirectBoxSizer(itemAlign=DirectBoxSizer.A_Left)
         boxSizer.addItem(fileMenu)
         boxSizer.addItem(archMenu)
+        boxSizer.addItem(loadMenu)
 
         self.mainBox.addItem(boxSizer)
 
