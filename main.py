@@ -5,12 +5,12 @@
 
    Author: Arthur Pendragon De Simone
 """
-from view.app import *
-from view.userinterface import *
-from view.grid import *
-from view.tooltip import *
-from view.distance import *
-from view.camera import *
+from view.App import *
+from view.UserInterface import *
+from view.Grid import *
+from view.Tooltip import *
+from view.Distance import *
+from view.Camera import *
 
 
 if __name__ == "__main__":

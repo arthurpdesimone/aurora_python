@@ -1,7 +1,7 @@
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import Plane, Vec3, Point3
 
-from view.ucs import UCS
+from view.UCS import UCS
 class Distance(ShowBase):
     """
     Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)
