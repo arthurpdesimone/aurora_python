@@ -22,6 +22,7 @@ class UserInterface:
 
 
     def menu(self):
+
         """Configuring the menu file"""
         fileList = [
             DirectMenuItemEntry("Novo", print, [False]),
