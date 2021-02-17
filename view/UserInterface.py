@@ -122,27 +122,14 @@ class UserInterface:
 
     def menu_arch_footing(self, arg):
         if arg == "shallow":
-            # Add some text
-            bk_text = "DirectDialog- YesNoDialog Demo"
-            textObject = OnscreenText(text=bk_text, pos=(0.85, 0.85),
-                                      scale=0.07, fg=(1, 0.5, 0.5, 1), align=TextNode.ACenter, mayChange=1)
 
-            # Add some text
-            output = ""
-            textObject = OnscreenText(text=output, pos=(0.95, -0.95),
-                                      scale=0.07, fg=(1, 0.5, 0.5, 1), align=TextNode.ACenter, mayChange=1)
+            # clear the text
+            def clearText():
+                entry.enterText('')
 
-            # Callback function to set text
-            def itemSel(arg):
-                if arg:
-                    output = "Button Selected is: Yes"
-                else:
-                    output = "Button Selected is: No"
-                textObject.setText(output)
+            # add text entry
+            entry = DirectEntry(text="", scale=.05,initialText="Type Something", numLines=1, focus=1, focusInCommand=clearText)
 
-            # Create a frame
-            dialog = YesNoDialog(dialogName="YesNoCancelDialog", text="Please choose:",
-                                 command=itemSel)
         elif arg == "pile":
             pass
         pass
