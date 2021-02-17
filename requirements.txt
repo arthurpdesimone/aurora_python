@@ -29,8 +29,6 @@ pyinstaller==4.2
 pyinstaller-hooks-contrib==2020.11
 pyparsing==2.4.7
 pytz==2021.1
-pywin32==300
-pywin32-ctypes==0.2.0
 requests==2.25.1
 six==1.15.0
 snowballstemmer==2.1.0
