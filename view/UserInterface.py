@@ -1,10 +1,12 @@
+from DirectGuiExtension.DirectAutoSizer import DirectAutoSizer
 from direct.gui.DirectGui import *
 from direct.gui import DirectGuiGlobals as DGG
 from DirectGuiExtension.DirectBoxSizer import DirectBoxSizer
 from DirectGuiExtension.DirectMenuItem import DirectMenuItem, DirectMenuItemEntry, DirectMenuItemSubMenu
 from DirectFolderBrowser.DirectFolderBrowser import DirectFolderBrowser
+from panda3d.core import TextNode
+
 from dxf.dxf import DXF
-from view.AutoSizer import AutoSizer
 
 
 class UserInterface:
@@ -12,8 +14,8 @@ class UserInterface:
 
     def __init__(self, showbase):
         self.showbase = showbase
-        self.mainBox = DirectBoxSizer(orientation=DGG.VERTICAL, autoUpdateFrameSize=False)
-        AutoSizer(child=self.mainBox,extendHorizontal=False,childUpdateSizeFunc=self.mainBox.refresh)
+        self.mainBox = DirectBoxSizer(orientation=DGG.VERTICAL,relief=None, autoUpdateFrameSize=False)
+        DirectAutoSizer(child=self.mainBox,relief=None,childUpdateSizeFunc=self.mainBox.refresh)
         self.menu()
         """Let the GUI system create the layout"""
         self.file = ''
@@ -34,9 +36,13 @@ class UserInterface:
         """Configuring the menu architecture"""
         archList = [
             DirectMenuItemEntry("Laje", print, [False]),
-            DirectMenuItemEntry("Viga", print, [True]),
+            DirectMenuItemEntry("Viga", self.menu_option, [True]),
             DirectMenuItemEntry("Pilar", self.menu_option, ["Fechar"]),
-            DirectMenuItemEntry("Fundação", self.menu_option, ["Fechar"])
+            DirectMenuItemSubMenu("Fundação >", [
+                DirectMenuItemEntry("Fundação rasa", self.menu_arch_footing, ["shallow"]),
+                DirectMenuItemEntry("Fundação contínua", self.menu_arch_footing, ["continuous"]),
+                DirectMenuItemEntry("Fundação profunda", self.menu_option, ["pile"]),
+            ])
         ]
         archMenu = DirectMenuItem(text="Arquitetura", scale=0.07, item_relief=2, items=archList)
         """Configuring the menu loads"""
@@ -112,3 +118,30 @@ class UserInterface:
             exit()
         else:
             self.close_dialog.cleanup()
+
+    def menu_arch_footing(self, arg):
+        if arg == "shallow":
+            # Add some text
+            bk_text = "DirectDialog- YesNoDialog Demo"
+            textObject = OnscreenText(text=bk_text, pos=(0.85, 0.85),
+                                      scale=0.07, fg=(1, 0.5, 0.5, 1), align=TextNode.ACenter, mayChange=1)
+
+            # Add some text
+            output = ""
+            textObject = OnscreenText(text=output, pos=(0.95, -0.95),
+                                      scale=0.07, fg=(1, 0.5, 0.5, 1), align=TextNode.ACenter, mayChange=1)
+
+            # Callback function to set text
+            def itemSel(arg):
+                if arg:
+                    output = "Button Selected is: Yes"
+                else:
+                    output = "Button Selected is: No"
+                textObject.setText(output)
+
+            # Create a frame
+            dialog = YesNoDialog(dialogName="YesNoCancelDialog", text="Please choose:",
+                                 command=itemSel)
+        elif arg == "pile":
+            pass
+        pass
