@@ -19,7 +19,7 @@ class App(ShowBase):
         self.win.requestProperties(props)
         self.setBackgroundColor(0, 0, 0)
         """ Configuration of camera and running """
-        self.camera.setPos(4, -10, 2)
+        self.camera.setPos(2, -20, 2)
 
         """ To maximize window under windows"""
         #self.hwnd = win32gui.GetForegroundWindow()

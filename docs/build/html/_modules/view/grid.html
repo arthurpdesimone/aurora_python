@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>view.grid &mdash; Aurora 2021 documentation</title>
+  <title>view.Grid &mdash; Aurora 2021 documentation</title>
   
 
   
@@ -132,7 +132,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>view.grid</li>
+      <li>view.Grid</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,11 +147,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for view.grid</h1><div class="highlight"><pre>
+  <h1>Source code for view.Grid</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">LineSegs</span><span class="p">,</span> <span class="n">NodePath</span><span class="p">,</span><span class="n">CardMaker</span><span class="p">,</span> <span class="n">GeomNode</span>
 
 
-<div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../index.html#view.grid.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+<div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../index.html#view.Grid.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to draw a simple grid in the scene,</span>
 <span class="sd">    this class also has a method to draw a plane to serve as reference to drawing</span>
@@ -164,7 +164,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">draw_grid</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">draw_plane</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Grid.draw_grid"><a class="viewcode-back" href="../../index.html#view.grid.Grid.draw_grid">[docs]</a>    <span class="k">def</span> <span class="nf">draw_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">z_shift</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="viewcode-block" id="Grid.draw_grid"><a class="viewcode-back" href="../../index.html#view.Grid.Grid.draw_grid">[docs]</a>    <span class="k">def</span> <span class="nf">draw_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">z_shift</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Method to draw a simple finite grid in the scene</span>
 
 <span class="sd">        :param lines: Number of lines</span>
@@ -178,7 +178,7 @@
 <span class="sd">        :param z_shift: Displacement of grid in relation to xy plane</span>
 <span class="sd">        :type z_shift: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ls</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">()</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">(</span><span class="s1">&#39;Grid&#39;</span><span class="p">)</span>
         <span class="n">ls</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="n">thickness</span><span class="p">)</span>
         <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 
@@ -192,7 +192,7 @@
         <span class="n">node</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
         <span class="n">NodePath</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Grid.draw_plane"><a class="viewcode-back" href="../../index.html#view.grid.Grid.draw_plane">[docs]</a>    <span class="k">def</span> <span class="nf">draw_plane</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mi">1</span><span class="p">)):</span>
+<div class="viewcode-block" id="Grid.draw_plane"><a class="viewcode-back" href="../../index.html#view.Grid.Grid.draw_plane">[docs]</a>    <span class="k">def</span> <span class="nf">draw_plane</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mi">1</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot; Method to draw a plane using :class:`panda3d.core.CardMaker`</span>
 
 <span class="sd">        :param a: The card&#39;s initial point</span>

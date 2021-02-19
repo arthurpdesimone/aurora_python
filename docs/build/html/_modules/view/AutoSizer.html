@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>view.AutoSizer &mdash; Aurora 2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Aurora
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Aurora</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>view.AutoSizer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for view.AutoSizer</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains the DirectAutoSizer class.&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AutoSizer&#39;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectFrame</span> <span class="kn">import</span> <span class="n">DirectFrame</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectGuiBase</span> <span class="kn">import</span> <span class="n">DirectGuiWidget</span>
+<span class="kn">from</span> <span class="nn">direct.showbase</span> <span class="kn">import</span> <span class="n">ShowBaseGlobal</span>
+
+<div class="viewcode-block" id="AutoSizer"><a class="viewcode-back" href="../../index.html#view.AutoSizer.AutoSizer">[docs]</a><span class="k">class</span> <span class="nc">AutoSizer</span><span class="p">(</span><span class="n">DirectFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A frame to Automatically resize the given other DirectGui element</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">child</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">optiondefs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s1">&#39;extendHorizontal&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>      <span class="kc">None</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;extendVertical&#39;</span><span class="p">,</span>   <span class="kc">True</span><span class="p">,</span>      <span class="kc">None</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;minSize&#39;</span><span class="p">,</span>          <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;maxSize&#39;</span><span class="p">,</span>          <span class="kc">None</span><span class="p">,</span>      <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;updateOnWindowResize&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">setUpdateOnWindowResize</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;childUpdateSizeFunc&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>   <span class="kc">None</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="c1"># Merge keyword options with default options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defineoptions</span><span class="p">(</span><span class="n">kw</span><span class="p">,</span> <span class="n">optiondefs</span><span class="p">)</span>
+
+        <span class="c1"># Initialize superclasses</span>
+        <span class="n">DirectFrame</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentObject</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">child</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Call option initialization functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialiseoptions</span><span class="p">(</span><span class="n">AutoSizer</span><span class="p">)</span>
+
+        <span class="c1">#Initialiazing variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">setUpdateOnWindowResize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;updateOnWindowResize&#39;</span><span class="p">]:</span>
+            <span class="c1"># Make sure the sizer scales with window size changes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">screenSize</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;window-event&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">windowEventHandler</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># stop updating on window resize events</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="s1">&#39;window-event&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">screenSize</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">windowEventHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">window</span> <span class="o">!=</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="p">:</span>
+            <span class="c1"># This event isn&#39;t about our window.</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AutoSizer.refresh"><a class="viewcode-back" href="../../index.html#view.AutoSizer.AutoSizer.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resize the sizer and its child element&quot;&quot;&quot;</span>
+        <span class="c1"># store left/right/bottom/top</span>
+        <span class="n">l</span><span class="o">=</span><span class="n">r</span><span class="o">=</span><span class="n">b</span><span class="o">=</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="c1"># dependent on our parent, make sure the size values are set correct</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentObject</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentObject</span> <span class="o">==</span> <span class="n">ShowBaseGlobal</span><span class="o">.</span><span class="n">aspect2d</span><span class="p">:</span>
+            <span class="c1"># the default parent of directGui widgets</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">l</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">a2dLeft</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">r</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">a2dRight</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">a2dBottom</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="n">t</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">a2dTop</span>
+        <span class="k">elif</span> <span class="n">DirectGuiWidget</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parentObject</span><span class="p">)):</span>
+            <span class="c1"># We have a &quot;normal&quot; DirectGui widget here</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentObject</span><span class="o">.</span><span class="n">bounds</span>
+            <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">bounds</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1">#TODO: Check which type of object we got here. Maybe add some more</span>
+            <span class="c1">#      checks for NodePaths</span>
+            <span class="n">l</span><span class="o">=</span><span class="n">b</span><span class="o">=-</span><span class="mi">1</span>
+            <span class="n">r</span><span class="o">=</span><span class="n">t</span><span class="o">=</span><span class="mi">1</span>
+
+        <span class="n">childSize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="s1">&#39;frameSize&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">childSize</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">childSize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">getBounds</span><span class="p">()</span>
+
+        <span class="n">childScale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">childScale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">childScale</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;extendHorizontal&#39;</span><span class="p">]:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">childSize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">childScale</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">childSize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">childScale</span>
+
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;extendVertical&#39;</span><span class="p">]:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">childSize</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">childScale</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">childSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">childScale</span>
+
+        <span class="c1">#TODO: Better check for positive/negative numbers</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]:</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]:</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;maxSize&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="c1"># recalculate size according to position</span>
+        <span class="n">l</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">getX</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">getX</span><span class="p">()</span>
+        <span class="n">b</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span>
+        <span class="c1"># actual resizing of our child element</span>
+        <span class="c1">#self.child[&quot;frameSize&quot;] = [l/childScale,r/childScale,b/childScale,t/childScale]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="s2">&quot;frameSize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;frameSize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="p">[</span><span class="s2">&quot;frameSize&quot;</span><span class="p">]</span>
+
+        <span class="n">base</span><span class="o">.</span><span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uniqueName</span><span class="p">(</span><span class="s2">&quot;update-size&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;childUpdateSizeFunc&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;childUpdateSizeFunc&#39;</span><span class="p">]()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Arthur Pendragon De Simone.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

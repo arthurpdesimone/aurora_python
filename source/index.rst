@@ -12,21 +12,21 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
-.. automodule:: view.app
+.. automodule:: view.App
    :members:
-.. automodule:: view.camera
+.. automodule:: view.AutoSizer
    :members:
-.. automodule:: view.distance
+.. automodule:: view.Camera
    :members:
-.. automodule:: view.grid
+.. automodule:: view.Distance
    :members:
-.. automodule:: view.gui
+.. automodule:: view.Grid
    :members:
-.. automodule:: view.menu
+.. automodule:: view.Tooltip
    :members:
-.. automodule:: view.tooltip
+.. automodule:: view.UCS
    :members:
-.. automodule:: view.ucs
+.. automodule:: view.UserInterface
    :members:
 
 
@@ -35,3 +35,4 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
+* :ref:`search`
