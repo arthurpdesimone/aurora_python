@@ -3,13 +3,15 @@ from model.StructuralElement import StructuralElement
 
 class Footing(StructuralElement):
     """Class to define a footing"""
-    def __init__(self,x,y):
+    def __init__(self,x,y,column):
         """Initializer
 
         :param x: The center X position
         :type x: float
         :param y: The center Y position
         :type y: float
+        :param column: The column that unloads at the footing
+        :type column: model.Column
         """
         self.x = x
         self.y = y
@@ -37,3 +39,6 @@ class ShallowFooting(Footing):
         self.b = b
         self.z = z
 
+    def draw(self):
+        render = self.render
+        pass

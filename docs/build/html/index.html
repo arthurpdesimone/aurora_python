@@ -162,7 +162,7 @@
 <p>Author: Arthur Pendragon De Simone</p>
 <span class="target" id="module-model.Footing"></span><dl class="py class">
 <dt id="model.Footing.Footing">
-<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">column</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a footing</p>
 <p>Initializer</p>
 <dl class="field-list simple">
@@ -170,6 +170,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
 <li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
+<li><p><strong>column</strong> (<em>model.Column</em>) – The column that unloads at the footing</p></li>
 </ul>
 </dd>
 </dl>
@@ -195,7 +196,7 @@
 
 <span class="target" id="module-model.Column"></span><dl class="py class">
 <dt id="model.Column.Column">
-<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">beams</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a column</p>
 </dd></dl>
 

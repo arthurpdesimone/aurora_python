@@ -153,13 +153,15 @@
 
 <div class="viewcode-block" id="Footing"><a class="viewcode-back" href="../../index.html#model.Footing.Footing">[docs]</a><span class="k">class</span> <span class="nc">Footing</span><span class="p">(</span><span class="n">StructuralElement</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Class to define a footing&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">column</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initializer</span>
 
 <span class="sd">        :param x: The center X position</span>
 <span class="sd">        :type x: float</span>
 <span class="sd">        :param y: The center Y position</span>
 <span class="sd">        :type y: float</span>
+<span class="sd">        :param column: The column that unloads at the footing</span>
+<span class="sd">        :type column: model.Column</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span></div>
@@ -185,8 +187,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
 
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">render</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span>
+        <span class="k">pass</span></div>
 </pre></div>
 
            </div>
