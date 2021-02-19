@@ -164,12 +164,22 @@
 <dt id="model.footing.Footing.Footing">
 <em class="property">class </em><code class="sig-prename descclassname">model.footing.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/footing/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.footing.Footing.Footing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a footing</p>
+<p>Initializer
+:param x: The center X position
+:type x: float
+:param y: The center Y position
+:type y: float</p>
 </dd></dl>
 
 <dl class="py class">
 <dt id="model.footing.Footing.ShallowFooting">
 <em class="property">class </em><code class="sig-prename descclassname">model.footing.Footing.</code><code class="sig-name descname">ShallowFooting</code><a class="reference internal" href="_modules/model/footing/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.footing.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a shallow footing</p>
+<p>Initializer
+:param x: The center X position
+:type x: float
+:param y: The center Y position
+:type y: float</p>
 </dd></dl>
 
 <span class="target" id="module-dxf.DXF"></span><dl class="py class">
@@ -199,12 +209,28 @@
 <dt id="view.App.App">
 <em class="property">class </em><code class="sig-prename descclassname">view.App.</code><code class="sig-name descname">App</code><a class="reference internal" href="_modules/view/App.html#App"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.App.App" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to encapsulate the app and maximize window on Windows environment</p>
+<p>Opens a window, sets up a 3-D and several 2-D scene graphs, and
+everything else needed to render the scene graph to the window.</p>
+<p>To prevent a window from being opened, set windowType to the string
+‘none’ (or ‘offscreen’ to create an offscreen buffer).  If this is not
+specified, the default value is taken from the ‘window-type’
+configuration variable.</p>
+<p>This constructor will add various things to the Python builtins scope,
+including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
 </dd></dl>
 
 <span class="target" id="module-view.Camera"></span><span class="target" id="module-view.Distance"></span><dl class="py class">
 <dt id="view.Distance.Distance">
 <em class="property">class </em><code class="sig-prename descclassname">view.Distance.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em>, <em class="sig-param"><span class="n">UCS</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)</p>
+<p>Opens a window, sets up a 3-D and several 2-D scene graphs, and
+everything else needed to render the scene graph to the window.</p>
+<p>To prevent a window from being opened, set windowType to the string
+‘none’ (or ‘offscreen’ to create an offscreen buffer).  If this is not
+specified, the default value is taken from the ‘window-type’
+configuration variable.</p>
+<p>This constructor will add various things to the Python builtins scope,
+including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
 <dl class="py method">
 <dt id="view.Distance.Distance.get_mouse_pos">
 <code class="sig-name descname">get_mouse_pos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance.get_mouse_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance.get_mouse_pos" title="Permalink to this definition">¶</a></dt>
@@ -219,6 +245,7 @@ a plane specified. Also responsible for placing the UCS cursor following the mou
 <em class="property">class </em><code class="sig-prename descclassname">view.Grid.</code><code class="sig-name descname">Grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Grid.html#Grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Grid.Grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to draw a simple grid in the scene,
 this class also has a method to draw a plane to serve as reference to drawing</p>
+<p>Constructor method</p>
 <dl class="py method">
 <dt id="view.Grid.Grid.draw_grid">
 <code class="sig-name descname">draw_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">spacing</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">(0.1, 0.1, 0.1, 0.1)</span></em>, <em class="sig-param"><span class="n">z_shift</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Grid.html#Grid.draw_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Grid.Grid.draw_grid" title="Permalink to this definition">¶</a></dt>

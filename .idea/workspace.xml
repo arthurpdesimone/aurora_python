@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Enabling cross-platform fullscreen and removing custom AutoSizer">
-      <change afterPath="$PROJECT_DIR$/model/footing/Footing.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dxf/DXF.py" beforeDir="false" afterPath="$PROJECT_DIR$/dxf/DXF.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/footing/Footing.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -533,7 +529,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613757051765</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Creating Footing class">
+      <created>1613759791580</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1613759791580</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Creating Footing class">
+      <created>1613759799901</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1613759799901</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -570,7 +580,8 @@
     <MESSAGE value="Docs changed place" />
     <MESSAGE value="Updating ReadTheDocs" />
     <MESSAGE value="Enabling cross-platform fullscreen and removing custom AutoSizer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enabling cross-platform fullscreen and removing custom AutoSizer" />
+    <MESSAGE value="Creating Footing class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating Footing class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
