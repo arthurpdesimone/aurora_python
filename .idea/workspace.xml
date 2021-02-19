@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Created StructuralElement class">
       <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Column.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Footing.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/StructuralElement.html" afterDir="false" />
@@ -221,13 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Drawing UCS">
-      <created>1612098703759</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1612098703759</updated>
     </task>
     <task id="LOCAL-00004" summary="Drawing UCS, camera controlling">
       <created>1612104012547</created>
@@ -565,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613761465201</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Created StructuralElement class">
+      <created>1613772224294</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1613772224296</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -603,7 +603,8 @@
     <MESSAGE value="Updating ReadTheDocs" />
     <MESSAGE value="Enabling cross-platform fullscreen and removing custom AutoSizer" />
     <MESSAGE value="Creating Footing class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating Footing class" />
+    <MESSAGE value="Created StructuralElement class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created StructuralElement class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

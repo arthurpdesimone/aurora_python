@@ -19,6 +19,7 @@ class ShallowFooting(Footing):
     """Class to define a shallow footing"""
     def __init__(self,A,B,a,b,z):
         """Initializer
+
         :param A: The bottom measure in the y-direction
         :type A: float
         :param B: The bottom measure in the x-direction
