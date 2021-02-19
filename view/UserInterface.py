@@ -5,7 +5,7 @@ from DirectGuiExtension.DirectMenuItem import DirectMenuItem, DirectMenuItemEntr
 from DirectFolderBrowser.DirectFolderBrowser import DirectFolderBrowser
 from panda3d.core import TextNode
 
-from dxf.dxf import DXF
+from dxf.DXF import DXF
 from view.AutoSizer import AutoSizer
 
 

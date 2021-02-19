@@ -12,6 +12,8 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
+.. automodule:: dxf.DXF
+   :members:
 .. automodule:: view.App
    :members:
 .. automodule:: view.AutoSizer
