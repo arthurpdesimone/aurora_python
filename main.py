@@ -6,6 +6,7 @@
    Author: Arthur Pendragon De Simone
 """
 from view.App import *
+from view.UCS import UCS
 from view.UserInterface import *
 from view.Grid import *
 from view.Tooltip import *

@@ -12,13 +12,15 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
-.. automodule:: model.footing.Footing
+.. automodule:: model.Footing
+   :members:
+.. automodule:: model.Column
+   :members:
+.. automodule:: model.StructuralElement
    :members:
 .. automodule:: dxf.DXF
    :members:
 .. automodule:: view.App
-   :members:
-.. automodule:: view.AutoSizer
    :members:
 .. automodule:: view.Camera
    :members:

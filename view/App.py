@@ -1,7 +1,7 @@
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import WindowProperties
 import sys
-#import win32gui, win32con
+
 
 class App(ShowBase):
     """Class to encapsulate the app and maximize window on Windows environment"""

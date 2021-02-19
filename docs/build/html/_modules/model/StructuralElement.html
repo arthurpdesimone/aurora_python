@@ -7,12 +7,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Overview: module code &mdash; Aurora 2021 documentation</title>
+  <title>model.StructuralElement &mdash; Aurora 2021 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
 
   
   
@@ -24,20 +24,20 @@
 
   
   <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
+    <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Aurora
+            <a href="../../index.html" class="icon icon-home"> Aurora
           
 
           
@@ -64,7 +64,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -97,7 +97,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Aurora</a>
+          <a href="../../index.html">Aurora</a>
         
       </nav>
 
@@ -128,9 +128,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Overview: module code</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>model.StructuralElement</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -145,19 +147,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="dxf/DXF.html">dxf.DXF</a></li>
-<li><a href="model/Column.html">model.Column</a></li>
-<li><a href="model/Footing.html">model.Footing</a></li>
-<li><a href="model/StructuralElement.html">model.StructuralElement</a></li>
-<li><a href="model/footing/Footing.html">model.footing.Footing</a></li>
-<li><a href="view/App.html">view.App</a></li>
-<li><a href="view/AutoSizer.html">view.AutoSizer</a></li>
-<li><a href="view/Distance.html">view.Distance</a></li>
-<li><a href="view/Grid.html">view.Grid</a></li>
-<li><a href="view/UCS.html">view.UCS</a></li>
-<li><a href="view/UserInterface.html">view.UserInterface</a></li>
-</ul>
+  <h1>Source code for model.StructuralElement</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="StructuralElement"><a class="viewcode-back" href="../../index.html#model.StructuralElement.StructuralElement">[docs]</a><span></span><span class="k">class</span> <span class="nc">StructuralElement</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Super class to all structural elements&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span> <span class="o">=</span> <span class="n">showbase</span><span class="o">.</span><span class="n">render</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+</pre></div>
 
            </div>
            

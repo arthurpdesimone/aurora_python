@@ -160,9 +160,9 @@
 <span class="target" id="module-main"></span><p>Aurora python</p>
 <p>Aiding brazilian civil engineers to build reinforced concrete buildings</p>
 <p>Author: Arthur Pendragon De Simone</p>
-<span class="target" id="module-model.footing.Footing"></span><dl class="py class">
-<dt id="model.footing.Footing.Footing">
-<em class="property">class </em><code class="sig-prename descclassname">model.footing.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/footing/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.footing.Footing.Footing" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-model.Footing"></span><dl class="py class">
+<dt id="model.Footing.Footing">
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a footing</p>
 <p>Initializer</p>
 <dl class="field-list simple">
@@ -176,18 +176,32 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="model.footing.Footing.ShallowFooting">
-<em class="property">class </em><code class="sig-prename descclassname">model.footing.Footing.</code><code class="sig-name descname">ShallowFooting</code><a class="reference internal" href="_modules/model/footing/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.footing.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
+<dt id="model.Footing.ShallowFooting">
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">ShallowFooting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a shallow footing</p>
-<p>Initializer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
-<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
-</ul>
-</dd>
-</dl>
+<p>Initializer
+:param A: The bottom measure in the y-direction
+:type A: float
+:param B: The bottom measure in the x-direction
+:type B: float
+:param a: The top measure in the y-direction
+:type a: float
+:param b: The top measure in the x-direction
+:type b: float
+:param z: The bottom of the shallow foundation
+:type z: float</p>
+</dd></dl>
+
+<span class="target" id="module-model.Column"></span><dl class="py class">
+<dt id="model.Column.Column">
+<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a column</p>
+</dd></dl>
+
+<span class="target" id="module-model.StructuralElement"></span><dl class="py class">
+<dt id="model.StructuralElement.StructuralElement">
+<em class="property">class </em><code class="sig-prename descclassname">model.StructuralElement.</code><code class="sig-name descname">StructuralElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/StructuralElement.html#StructuralElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.StructuralElement.StructuralElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Super class to all structural elements</p>
 </dd></dl>
 
 <span class="target" id="module-dxf.DXF"></span><dl class="py class">
@@ -231,14 +245,6 @@ including this instance itself (under the name <code class="docutils literal not
 <dt id="view.Distance.Distance">
 <em class="property">class </em><code class="sig-prename descclassname">view.Distance.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em>, <em class="sig-param"><span class="n">UCS</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)</p>
-<p>Opens a window, sets up a 3-D and several 2-D scene graphs, and
-everything else needed to render the scene graph to the window.</p>
-<p>To prevent a window from being opened, set windowType to the string
-‘none’ (or ‘offscreen’ to create an offscreen buffer).  If this is not
-specified, the default value is taken from the ‘window-type’
-configuration variable.</p>
-<p>This constructor will add various things to the Python builtins scope,
-including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
 <dl class="py method">
 <dt id="view.Distance.Distance.get_mouse_pos">
 <code class="sig-name descname">get_mouse_pos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance.get_mouse_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance.get_mouse_pos" title="Permalink to this definition">¶</a></dt>

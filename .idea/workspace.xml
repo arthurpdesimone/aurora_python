@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class">
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Column.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Footing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/StructuralElement.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shallow_footing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Column.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/StructuralElement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/App.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/App.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/footing/Footing.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Footing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Distance.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,13 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Drawing UCS">
-      <created>1612094863117</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1612094863117</updated>
     </task>
     <task id="LOCAL-00003" summary="Drawing UCS">
       <created>1612098703759</created>
@@ -541,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613761086553</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Creating Footing class">
+      <created>1613761465199</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1613761465201</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
