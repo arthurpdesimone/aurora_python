@@ -12,6 +12,8 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
+.. automodule:: model.footing.Footing
+   :members:
 .. automodule:: dxf.DXF
    :members:
 .. automodule:: view.App

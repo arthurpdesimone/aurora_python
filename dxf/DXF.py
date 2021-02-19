@@ -15,7 +15,7 @@ class DXF:
         :param path: File path
         :type path: str
         :param digits: The number of digits to round DXF coordinates
-        :param digits: int
+        :type digits: int
         :return:
         """
         try:
