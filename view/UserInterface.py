@@ -1,3 +1,4 @@
+from DirectGuiExtension.DirectAutoSizer import DirectAutoSizer
 from direct.gui.DirectGui import *
 from direct.gui import DirectGuiGlobals as DGG
 from DirectGuiExtension.DirectBoxSizer import DirectBoxSizer
@@ -6,7 +7,6 @@ from DirectFolderBrowser.DirectFolderBrowser import DirectFolderBrowser
 from panda3d.core import TextNode
 
 from dxf.DXF import DXF
-from view.AutoSizer import AutoSizer
 
 
 class UserInterface:
@@ -14,8 +14,8 @@ class UserInterface:
 
     def __init__(self, showbase):
         self.showbase = showbase
-        self.mainBox = DirectBoxSizer(orientation=DGG.VERTICAL, autoUpdateFrameSize=False)
-        AutoSizer(child=self.mainBox,childUpdateSizeFunc=self.mainBox.refresh)
+        self.mainBox = DirectBoxSizer(relief=None,orientation=DGG.VERTICAL,state=DGG.DISABLED,autoUpdateFrameSize=False)
+        DirectAutoSizer(relief=None,child=self.mainBox,childUpdateSizeFunc=self.mainBox.refresh)
         self.menu()
         """Let the GUI system create the layout"""
         self.file = ''

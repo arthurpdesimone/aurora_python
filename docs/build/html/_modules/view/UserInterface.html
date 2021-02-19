@@ -148,7 +148,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for view.UserInterface</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span></span><span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectAutoSizer</span> <span class="kn">import</span> <span class="n">DirectAutoSizer</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">direct.gui</span> <span class="kn">import</span> <span class="n">DirectGuiGlobals</span> <span class="k">as</span> <span class="n">DGG</span>
 <span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectBoxSizer</span> <span class="kn">import</span> <span class="n">DirectBoxSizer</span>
 <span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectMenuItem</span> <span class="kn">import</span> <span class="n">DirectMenuItem</span><span class="p">,</span> <span class="n">DirectMenuItemEntry</span><span class="p">,</span> <span class="n">DirectMenuItemSubMenu</span>
@@ -156,7 +157,6 @@
 <span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">TextNode</span>
 
 <span class="kn">from</span> <span class="nn">dxf.DXF</span> <span class="kn">import</span> <span class="n">DXF</span>
-<span class="kn">from</span> <span class="nn">view.AutoSizer</span> <span class="kn">import</span> <span class="n">AutoSizer</span>
 
 
 <div class="viewcode-block" id="UserInterface"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface">[docs]</a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">:</span>
@@ -164,8 +164,8 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span> <span class="o">=</span> <span class="n">showbase</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span> <span class="o">=</span> <span class="n">DirectBoxSizer</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">DGG</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">autoUpdateFrameSize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">AutoSizer</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="p">,</span><span class="n">childUpdateSizeFunc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span> <span class="o">=</span> <span class="n">DirectBoxSizer</span><span class="p">(</span><span class="n">relief</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">orientation</span><span class="o">=</span><span class="n">DGG</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="n">DGG</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">,</span><span class="n">autoUpdateFrameSize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">DirectAutoSizer</span><span class="p">(</span><span class="n">relief</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">child</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="p">,</span><span class="n">childUpdateSizeFunc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="p">()</span>
         <span class="sd">&quot;&quot;&quot;Let the GUI system create the layout&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>

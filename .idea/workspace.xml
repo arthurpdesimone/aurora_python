@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Docs changed place">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Updating ReadTheDocs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/AutoSizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/footing/Footing.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/footing/Footing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +52,13 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/readthedocs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/source" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\docs\source" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view\directgui" />
@@ -176,10 +179,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.DirectGuiDesigner" />
-      <item itemvalue="Python.Menu" />
-      <item itemvalue="Python.demo" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.Menu" />
+      <item itemvalue="Python.DirectGuiDesigner" />
+      <item itemvalue="Python.demo" />
       <item itemvalue="Python.submenu" />
     </list>
     <recent_temporary>
@@ -495,7 +498,35 @@
       <option name="project" value="LOCAL" />
       <updated>1613648704112</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Docs changed place">
+      <created>1613752261721</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1613752261721</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Docs changed place">
+      <created>1613752328485</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1613752328485</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Updating ReadTheDocs">
+      <created>1613754941048</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1613754941048</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Updating ReadTheDocs">
+      <created>1613754967949</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1613754967949</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +561,8 @@
     <MESSAGE value="Reverted last commit" />
     <MESSAGE value="Direct entry try" />
     <MESSAGE value="Docs changed place" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docs changed place" />
+    <MESSAGE value="Updating ReadTheDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating ReadTheDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

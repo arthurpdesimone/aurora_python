@@ -25,6 +25,13 @@ class App(ShowBase):
         #self.hwnd = win32gui.GetForegroundWindow()
         #win32gui.PostMessage(self.hwnd, win32con.WM_SYSCOMMAND, win32con.SC_MAXIMIZE, 0)
 
+        xSize = base.pipe.getDisplayWidth()
+        ySize = base.pipe.getDisplayHeight()
+        props = WindowProperties()
+        props.setSize(xSize, ySize)
+        props.setFixedSize(1)
+        base.win.requestProperties(props)
+
         self.accept('escape', lambda: sys.exit())
 
 
