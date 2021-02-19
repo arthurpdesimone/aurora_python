@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Creating Footing class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -199,13 +197,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit using Panda3D library">
-      <created>1612063293278</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1612063293278</updated>
     </task>
     <task id="LOCAL-00002" summary="Drawing UCS">
       <created>1612094863117</created>
@@ -543,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613759799901</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Creating Footing class">
+      <created>1613761086553</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1613761086553</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
