@@ -148,7 +148,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for view.Geometry</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span> <span class="n">LVector3</span><span class="p">,</span> <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span> <span class="n">LVecBase4f</span>
+<span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span> <span class="n">LVector3</span><span class="p">,</span> <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span> <span class="n">LVecBase4f</span><span class="p">,</span> \
+    <span class="n">GeomNode</span><span class="p">,</span> <span class="n">LineSegs</span>
 
 
 <span class="k">def</span> <span class="nf">normalized</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -157,24 +158,53 @@
     <span class="k">return</span> <span class="n">myVec</span>
 
 
-<div class="viewcode-block" id="makeSquare"><a class="viewcode-back" href="../../index.html#view.Geometry.makeSquare">[docs]</a><span class="k">def</span> <span class="nf">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">color_square</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<div class="viewcode-block" id="makeLine"><a class="viewcode-back" href="../../index.html#view.Geometry.makeLine">[docs]</a><span class="k">def</span> <span class="nf">makeLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">z1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">z2</span><span class="p">,</span> <span class="n">lineSegs</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color_line</span> <span class="o">=</span> <span class="n">LVecBase4f</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to draw a line betweeen two points</span>
+
+<span class="sd">        :param x1: the first x coordinate</span>
+<span class="sd">        :type x1: float</span>
+<span class="sd">        :param y1: the first y coordinate</span>
+<span class="sd">        :type y1: float</span>
+<span class="sd">        :param z1: the first z coordinate</span>
+<span class="sd">        :type z1: float</span>
+<span class="sd">        :param x2: the second x coordinate</span>
+<span class="sd">        :type x2: float</span>
+<span class="sd">        :param y2: the second y coordinate</span>
+<span class="sd">        :type y2: float</span>
+<span class="sd">        :param z2: the second z coordinate</span>
+<span class="sd">        :type z2: float</span>
+<span class="sd">        :param color_line: the line&#39;s color in RGBA vector form</span>
+<span class="sd">        :type color_line: :class:&#39;panda.core.LVecBase4f&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ls</span> <span class="o">=</span> <span class="n">lineSegs</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">color_line</span><span class="p">)</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">)</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ls</span></div>
+
+
+<div class="viewcode-block" id="makeSquare"><a class="viewcode-back" href="../../index.html#view.Geometry.makeSquare">[docs]</a><span class="k">def</span> <span class="nf">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">color_square</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Method to draw a square using two triangles</span>
 
 <span class="sd">    :param x1: the first lower left x coordinate</span>
 <span class="sd">    :type x1: float</span>
-<span class="sd">    :param y1: the first lower left x coordinate</span>
+<span class="sd">    :param y1: the first lower left y coordinate</span>
 <span class="sd">    :type y1: float</span>
-<span class="sd">    :param z1: the first lower left x coordinate</span>
+<span class="sd">    :param z1: the first lower left z coordinate</span>
 <span class="sd">    :type z1: float</span>
-<span class="sd">    :param x2: the first lower left x coordinate</span>
+<span class="sd">    :param x2: the first upper left x coordinate</span>
 <span class="sd">    :type x2: float</span>
-<span class="sd">    :param y2: the first lower left x coordinate</span>
+<span class="sd">    :param y2: the first upper left y coordinate</span>
 <span class="sd">    :type y2: float</span>
-<span class="sd">    :param z2: the first lower left x coordinate</span>
+<span class="sd">    :param z2: the first upper left z coordinate</span>
 <span class="sd">    :type z2: float</span>
 <span class="sd">    :param color_square: the square&#39;s color in RGBA vector form</span>
-<span class="sd">    :type color_square: panda.core.LVecBase4f</span>
+<span class="sd">    :type color_square: :class:&#39;panda.core.LVecBase4f&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nb">format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">.</span><span class="n">getV3n3cpt2</span><span class="p">()</span>
@@ -230,6 +260,46 @@
     <span class="n">square</span><span class="o">.</span><span class="n">addPrimitive</span><span class="p">(</span><span class="n">tris</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">square</span></div>
+
+
+<div class="viewcode-block" id="makeCube"><a class="viewcode-back" href="../../index.html#view.Geometry.makeCube">[docs]</a><span class="k">def</span> <span class="nf">makeCube</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">color_square</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       Method to draw a hollow cube</span>
+
+<span class="sd">       :param x1: the first lower left x coordinate</span>
+<span class="sd">       :type x1: float</span>
+<span class="sd">       :param y1: the first lower left y coordinate</span>
+<span class="sd">       :type y1: float</span>
+<span class="sd">       :param z1: the first lower left z coordinate</span>
+<span class="sd">       :type z1: float</span>
+<span class="sd">       :param x2: the first upper left x coordinate</span>
+<span class="sd">       :type x2: float</span>
+<span class="sd">       :param y2: the first upper left y coordinate</span>
+<span class="sd">       :type y2: float</span>
+<span class="sd">       :param z2: the first upper left z coordinate</span>
+<span class="sd">       :type z2: float</span>
+<span class="sd">       :param color_square: the cube&#39;s color in RGBA vector form</span>
+<span class="sd">       :type color_square: :class:&#39;panda.core.LVecBase4f&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">square0</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+    <span class="n">square1</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+    <span class="n">square2</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+    <span class="n">square3</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">)</span>
+    <span class="n">square4</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+    <span class="n">square5</span> <span class="o">=</span> <span class="n">makeSquare</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span>
+    <span class="n">snode</span> <span class="o">=</span> <span class="n">GeomNode</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square0</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square1</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square2</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square3</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square4</span><span class="p">)</span>
+    <span class="n">snode</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">square5</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">snode</span></div>
+
+
+<span class="k">def</span> <span class="nf">logRender</span><span class="p">(</span><span class="n">render</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">render</span><span class="o">.</span><span class="n">getChildren</span><span class="p">())</span>
 </pre></div>
 
            </div>

@@ -12,7 +12,7 @@ class CameraController:
         self.world = showbase.render
         self.cam = showbase.camera
         self.cam_lens = showbase.camLens
-        self.cam_target = showbase.render.attach_new_node("camera_target")
+        self.cam_target = showbase.render.attach_new_node("Target")
         self.cam.reparent_to(self.cam_target)
         self.cam.set_y(-10.)
         self.mouse_prev = Point2()

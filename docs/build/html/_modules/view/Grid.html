@@ -150,6 +150,8 @@
   <h1>Source code for view.Grid</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">LineSegs</span><span class="p">,</span> <span class="n">NodePath</span><span class="p">,</span><span class="n">CardMaker</span><span class="p">,</span> <span class="n">GeomNode</span>
 
+<span class="kn">from</span> <span class="nn">view.Geometry</span> <span class="kn">import</span> <span class="n">makeLine</span>
+
 
 <div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../index.html#view.Grid.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -183,11 +185,10 @@
         <span class="n">ls</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">lines</span><span class="p">):</span>
-
-            <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">)</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">)</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">)</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">)</span>
+            <span class="sd">&quot;&quot;&quot; X line drawing &quot;&quot;&quot;</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">makeLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">spacing</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">spacing</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span>
+            <span class="sd">&quot;&quot;&quot; Y line drawing &quot;&quot;&quot;</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">makeLine</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">z_shift</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span>
 
         <span class="n">node</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
         <span class="n">NodePath</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span></div>

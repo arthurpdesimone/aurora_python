@@ -1,5 +1,7 @@
 from panda3d.core import LineSegs, NodePath,CardMaker, GeomNode
 
+from view.Geometry import makeLine
+
 
 class Grid:
     """
@@ -33,11 +35,10 @@ class Grid:
         ls.setColor(color)
 
         for i in range(0,lines):
-
-            ls.moveTo(0, i * spacing, z_shift)
-            ls.drawTo(lines, i * spacing, z_shift)
-            ls.moveTo(i * spacing, 0, z_shift)
-            ls.drawTo(i * spacing, lines, z_shift)
+            """ X line drawing """
+            ls = makeLine(0, i*spacing, z_shift, lines, i*spacing, z_shift, ls)
+            """ Y line drawing """
+            ls = makeLine(i * spacing, 0, z_shift, i * spacing, lines, z_shift, ls)
 
         node = ls.create()
         NodePath(node).reparentTo(self.render)

@@ -319,19 +319,57 @@ a plane specified. Also responsible for placing the UCS cursor following the mou
 </dd></dl>
 
 <span class="target" id="module-view.Geometry"></span><dl class="py function">
+<dt id="view.Geometry.makeCube">
+<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makeCube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">z1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">z2</span></em>, <em class="sig-param"><span class="n">color_square</span><span class="o">=</span><span class="default_value">LVecBase4f(1, 1, 1, 1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makeCube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makeCube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw a hollow cube</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – the first lower left y coordinate</p></li>
+<li><p><strong>z1</strong> (<em>float</em>) – the first lower left z coordinate</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – the first upper left x coordinate</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – the first upper left y coordinate</p></li>
+<li><p><strong>z2</strong> (<em>float</em>) – the first upper left z coordinate</p></li>
+<li><p><strong>color_square</strong> (<em>:class:'panda.core.LVecBase4f'</em>) – the cube’s color in RGBA vector form</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="view.Geometry.makeLine">
+<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makeLine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">z1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">z2</span></em>, <em class="sig-param"><span class="n">lineSegs</span></em>, <em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">color_line</span><span class="o">=</span><span class="default_value">LVecBase4f(0.1, 0.1, 0.1, 0.1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makeLine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makeLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw a line betweeen two points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – the first x coordinate</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – the first y coordinate</p></li>
+<li><p><strong>z1</strong> (<em>float</em>) – the first z coordinate</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – the second x coordinate</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – the second y coordinate</p></li>
+<li><p><strong>z2</strong> (<em>float</em>) – the second z coordinate</p></li>
+<li><p><strong>color_line</strong> (<em>:class:'panda.core.LVecBase4f'</em>) – the line’s color in RGBA vector form</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="view.Geometry.makeSquare">
-<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makeSquare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">z1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">z2</span></em>, <em class="sig-param"><span class="n">color_square</span><span class="o">=</span><span class="default_value">LVecBase4f(1, 0, 0, 1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makeSquare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makeSquare" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makeSquare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">z1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">z2</span></em>, <em class="sig-param"><span class="n">color_square</span><span class="o">=</span><span class="default_value">LVecBase4f(1, 1, 1, 1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makeSquare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makeSquare" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to draw a square using two triangles</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>y1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>z1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>x2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>y2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>z2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
-<li><p><strong>color_square</strong> (<em>panda.core.LVecBase4f</em>) – the square’s color in RGBA vector form</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – the first lower left y coordinate</p></li>
+<li><p><strong>z1</strong> (<em>float</em>) – the first lower left z coordinate</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – the first upper left x coordinate</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – the first upper left y coordinate</p></li>
+<li><p><strong>z2</strong> (<em>float</em>) – the first upper left z coordinate</p></li>
+<li><p><strong>color_square</strong> (<em>:class:'panda.core.LVecBase4f'</em>) – the square’s color in RGBA vector form</p></li>
 </ul>
 </dd>
 </dl>

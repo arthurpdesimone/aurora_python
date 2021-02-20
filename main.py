@@ -8,7 +8,7 @@
 from panda3d.core import LVecBase3f
 
 from view.App import *
-from view.Geometry import makeSquare
+from view.Geometry import makeSquare, makeCube, logRender
 from view.UCS import UCS
 from view.UserInterface import *
 from view.Grid import *
@@ -26,21 +26,22 @@ if __name__ == "__main__":
     Tooltip(distance).show()
     CameraController(app)
 
-    square0 = makeSquare(-1, -1, -1, 1, -1, 1)
-    square1 = makeSquare(-1, 1, -1, 1, 1, 1)
-    square2 = makeSquare(-1, 1, 1, 1, -1, 1)
-    square3 = makeSquare(-1, 1, -1, 1, -1, -1)
-    square4 = makeSquare(-1, -1, -1, -1, 1, 1)
-    square5 = makeSquare(1, -1, -1, 1, 1, 1)
-    snode = GeomNode('square')
-    snode.addGeom(square0)
-    snode.addGeom(square1)
-    snode.addGeom(square2)
-    snode.addGeom(square3)
-    snode.addGeom(square4)
-    snode.addGeom(square5)
-
+    # square0 = makeSquare(-1, -1, -1, 1, -1, 1)
+    # square1 = makeSquare(-1, 1, -1, 1, 1, 1)
+    # square2 = makeSquare(-1, 1, 1, 1, -1, 1)
+    # square3 = makeSquare(-1, 1, -1, 1, -1, -1)
+    # square4 = makeSquare(-1, -1, -1, -1, 1, 1)
+    # square5 = makeSquare(1, -1, -1, 1, 1, 1)
+    # snode = GeomNode('square')
+    # snode.addGeom(square0)
+    # snode.addGeom(square1)
+    # snode.addGeom(square2)
+    # snode.addGeom(square3)
+    # snode.addGeom(square4)
+    # snode.addGeom(square5)
+    snode = makeCube(0,0,0,0.5,1,0.5)
     cube = render.attachNewNode(snode)
     cube.setTwoSided(True)
 
+    logRender(app.render)
     app.run()

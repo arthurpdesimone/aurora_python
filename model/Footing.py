@@ -79,7 +79,7 @@ class ShallowFooting(Footing):
     def draw(self):
         render = self.render
         ls = LineSegs('Footing')
-        ls.setThickness(0.1)
+        ls.setThickness(0.5)
         ls.setColor((1, 1, 1, 1))
 
 

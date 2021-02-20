@@ -1,4 +1,5 @@
-from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter, LVector3, Geom, GeomTriangles, LVecBase4f
+from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter, LVector3, Geom, GeomTriangles, LVecBase4f, \
+    GeomNode, LineSegs
 
 
 def normalized(*args):
@@ -7,24 +8,53 @@ def normalized(*args):
     return myVec
 
 
-def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 0, 0, 1)):
+def makeLine(x1,y1,z1,x2,y2,z2, lineSegs, thickness=1, color_line = LVecBase4f(0.1, 0.1, 0.1, 0.1)):
+    """
+        Method to draw a line betweeen two points
+
+        :param x1: the first x coordinate
+        :type x1: float
+        :param y1: the first y coordinate
+        :type y1: float
+        :param z1: the first z coordinate
+        :type z1: float
+        :param x2: the second x coordinate
+        :type x2: float
+        :param y2: the second y coordinate
+        :type y2: float
+        :param z2: the second z coordinate
+        :type z2: float
+        :param color_line: the line's color in RGBA vector form
+        :type color_line: :class:'panda.core.LVecBase4f'
+    """
+
+    ls = lineSegs
+    ls.setThickness(thickness)
+    ls.setColor(color_line)
+    ls.moveTo(x1, y1, z1)
+    ls.drawTo(x2, y2, z2)
+
+    return ls
+
+
+def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
     """
     Method to draw a square using two triangles
 
     :param x1: the first lower left x coordinate
     :type x1: float
-    :param y1: the first lower left x coordinate
+    :param y1: the first lower left y coordinate
     :type y1: float
-    :param z1: the first lower left x coordinate
+    :param z1: the first lower left z coordinate
     :type z1: float
-    :param x2: the first lower left x coordinate
+    :param x2: the first upper left x coordinate
     :type x2: float
-    :param y2: the first lower left x coordinate
+    :param y2: the first upper left y coordinate
     :type y2: float
-    :param z2: the first lower left x coordinate
+    :param z2: the first upper left z coordinate
     :type z2: float
     :param color_square: the square's color in RGBA vector form
-    :type color_square: panda.core.LVecBase4f
+    :type color_square: :class:'panda.core.LVecBase4f'
     """
 
     format = GeomVertexFormat.getV3n3cpt2()
@@ -80,3 +110,43 @@ def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 0, 0, 1)):
     square.addPrimitive(tris)
 
     return square
+
+
+def makeCube(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
+    """
+       Method to draw a hollow cube
+
+       :param x1: the first lower left x coordinate
+       :type x1: float
+       :param y1: the first lower left y coordinate
+       :type y1: float
+       :param z1: the first lower left z coordinate
+       :type z1: float
+       :param x2: the first upper left x coordinate
+       :type x2: float
+       :param y2: the first upper left y coordinate
+       :type y2: float
+       :param z2: the first upper left z coordinate
+       :type z2: float
+       :param color_square: the cube's color in RGBA vector form
+       :type color_square: :class:'panda.core.LVecBase4f'
+    """
+    square0 = makeSquare(x1, y1, z1, x2, y1, z2)
+    square1 = makeSquare(x1, y2, z1, x2, y2, z2)
+    square2 = makeSquare(x1, y2, z2, x2, y1, z2)
+    square3 = makeSquare(x1, y2, z1, x2, y1, z1)
+    square4 = makeSquare(x1, y1, z1, x1, y2, z2)
+    square5 = makeSquare(x2, y1, z1, x2, y2, z2)
+    snode = GeomNode('Face')
+    snode.addGeom(square0)
+    snode.addGeom(square1)
+    snode.addGeom(square2)
+    snode.addGeom(square3)
+    snode.addGeom(square4)
+    snode.addGeom(square5)
+
+    return snode
+
+
+def logRender(render):
+    print(render.getChildren())
