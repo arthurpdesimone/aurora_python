@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Created StructuralElement class">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Working around elements and draw method">
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Geometry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/Geometry.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Column.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Column.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Column.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Column.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Footing.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Footing.py" afterDir="false" />
     </list>
@@ -92,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="cube" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,11 +114,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/Menu.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/cube.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,18 +192,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.Menu" />
       <item itemvalue="Python.DirectGuiDesigner" />
       <item itemvalue="Python.demo" />
       <item itemvalue="Python.submenu" />
+      <item itemvalue="Python.cube" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.cube" />
         <item itemvalue="Python.submenu" />
         <item itemvalue="Python.demo" />
         <item itemvalue="Python.DirectGuiDesigner" />
-        <item itemvalue="Python.Menu" />
       </list>
     </recent_temporary>
   </component>
@@ -201,13 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Drawing UCS, camera controlling">
-      <created>1612111732010</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1612111732010</updated>
     </task>
     <task id="LOCAL-00007" summary="Documentation draft">
       <created>1612304468576</created>
@@ -545,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613774485939</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Working around elements and draw method">
+      <created>1613775609765</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1613775609766</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +598,8 @@
     <MESSAGE value="Enabling cross-platform fullscreen and removing custom AutoSizer" />
     <MESSAGE value="Creating Footing class" />
     <MESSAGE value="Created StructuralElement class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created StructuralElement class" />
+    <MESSAGE value="Working around elements and draw method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working around elements and draw method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -160,6 +160,12 @@
 <span class="target" id="module-main"></span><p>Aurora python</p>
 <p>Aiding brazilian civil engineers to build reinforced concrete buildings</p>
 <p>Author: Arthur Pendragon De Simone</p>
+<span class="target" id="module-model.StructuralElement"></span><dl class="py class">
+<dt id="model.StructuralElement.StructuralElement">
+<em class="property">class </em><code class="sig-prename descclassname">model.StructuralElement.</code><code class="sig-name descname">StructuralElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/StructuralElement.html#StructuralElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.StructuralElement.StructuralElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Super class to all structural elements</p>
+</dd></dl>
+
 <span class="target" id="module-model.Footing"></span><dl class="py class">
 <dt id="model.Footing.Footing">
 <em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">column</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
@@ -170,7 +176,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
 <li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
-<li><p><strong>column</strong> (<em>model.Column</em>) – The column that unloads at the footing</p></li>
+<li><p><strong>column</strong> (<a class="reference internal" href="#model.Column.Column" title="model.Column.Column"><em>model.Column.Column</em></a>) – The column that unloads at the footing</p></li>
 </ul>
 </dd>
 </dl>
@@ -178,7 +184,7 @@
 
 <dl class="py class">
 <dt id="model.Footing.ShallowFooting">
-<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">ShallowFooting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">ShallowFooting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">h0</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a shallow footing</p>
 <p>Initializer</p>
 <dl class="field-list simple">
@@ -189,21 +195,77 @@
 <li><p><strong>a</strong> (<em>float</em>) – The top measure in the y-direction</p></li>
 <li><p><strong>b</strong> (<em>float</em>) – The top measure in the x-direction</p></li>
 <li><p><strong>z</strong> (<em>float</em>) – The bottom of the shallow foundation</p></li>
+<li><p><strong>h0</strong> (<em>float</em>) – The height of the flat part</p></li>
+<li><p><strong>h</strong> (<em>float</em>) – The total height</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.h">
+<code class="sig-name descname">h</code><a class="headerlink" href="#model.Footing.ShallowFooting.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower left corner bottom inferior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_left_bottom_inf">
+<code class="sig-name descname">low_left_bottom_inf</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_left_bottom_inf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower Right corner bottom inferior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_left_bottom_sup">
+<code class="sig-name descname">low_left_bottom_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_left_bottom_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower Right corner bottom superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_left_sup">
+<code class="sig-name descname">low_left_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_left_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower Right corner superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_right_bottom_inf">
+<code class="sig-name descname">low_right_bottom_inf</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_right_bottom_inf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper Left corner bottom inferior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_right_bottom_sup">
+<code class="sig-name descname">low_right_bottom_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_right_bottom_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper Left corner bottom superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.low_right_sup">
+<code class="sig-name descname">low_right_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.low_right_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper Left corner superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.up_left_bottom_inf">
+<code class="sig-name descname">up_left_bottom_inf</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_left_bottom_inf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower left corner bottom superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.up_left_bottom_sup">
+<code class="sig-name descname">up_left_bottom_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_left_bottom_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower left corner superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.up_left_sup">
+<code class="sig-name descname">up_left_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_left_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper Right corner superior</p>
+</dd></dl>
+
 </dd></dl>
 
 <span class="target" id="module-model.Column"></span><dl class="py class">
 <dt id="model.Column.Column">
 <em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">beams</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a column</p>
-</dd></dl>
-
-<span class="target" id="module-model.StructuralElement"></span><dl class="py class">
-<dt id="model.StructuralElement.StructuralElement">
-<em class="property">class </em><code class="sig-prename descclassname">model.StructuralElement.</code><code class="sig-name descname">StructuralElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/StructuralElement.html#StructuralElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.StructuralElement.StructuralElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Super class to all structural elements</p>
 </dd></dl>
 
 <span class="target" id="module-dxf.DXF"></span><dl class="py class">
@@ -254,6 +316,25 @@ including this instance itself (under the name <code class="docutils literal not
 a plane specified. Also responsible for placing the UCS cursor following the mouse</p>
 </dd></dl>
 
+</dd></dl>
+
+<span class="target" id="module-view.Geometry"></span><dl class="py function">
+<dt id="view.Geometry.makeSquare">
+<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makeSquare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">z1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">z2</span></em>, <em class="sig-param"><span class="n">color_square</span><span class="o">=</span><span class="default_value">LVecBase4f(1, 0, 0, 1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makeSquare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makeSquare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw a square using two triangles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>z1</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>z2</strong> (<em>float</em>) – the first lower left x coordinate</p></li>
+<li><p><strong>color_square</strong> (<em>panda.core.LVecBase4f</em>) – the square’s color in RGBA vector form</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <span class="target" id="module-view.Grid"></span><dl class="py class">

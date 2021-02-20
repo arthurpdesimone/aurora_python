@@ -12,11 +12,11 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
+.. automodule:: model.StructuralElement
+   :members:
 .. automodule:: model.Footing
    :members:
 .. automodule:: model.Column
-   :members:
-.. automodule:: model.StructuralElement
    :members:
 .. automodule:: dxf.DXF
    :members:
@@ -25,6 +25,8 @@ Welcome to Aurora's documentation!
 .. automodule:: view.Camera
    :members:
 .. automodule:: view.Distance
+   :members:
+.. automodule:: view.Geometry
    :members:
 .. automodule:: view.Grid
    :members:
