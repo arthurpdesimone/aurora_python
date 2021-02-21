@@ -1,5 +1,5 @@
 from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter, LVector3, Geom, GeomTriangles, LVecBase4f, \
-    GeomNode, LineSegs, NodePath
+    GeomNode, LineSegs, NodePath, Triangulator3, Triangulator
 
 
 def normalized(*args):
@@ -37,8 +37,46 @@ def makeLine(x1,y1,z1,x2,y2,z2, lineSegs, thickness=1, color_line = LVecBase4f(0
     return ls
 
 
-def makeTrapezium(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
-    pass
+def drawPolygon(points, color_face=LVecBase4f(1, 1, 1, 1)):
+    """ Method to draw a polygon based on a set of points CCW oriented
+
+    :param points: A list of points
+    :type points: list
+    """
+
+    """ Setting parameters to draw a convex polygon"""
+    format = GeomVertexFormat.getV3n3cpt2()
+    vdata = GeomVertexData('polygon', format, Geom.UHStatic)
+    vdata.setNumRows(len(points))
+
+    vertex = GeomVertexWriter(vdata, 'vertex')
+    normal = GeomVertexWriter(vdata, 'normal')
+    color = GeomVertexWriter(vdata, 'color')
+    texcoord = GeomVertexWriter(vdata, 'texcoord')
+
+    """ Loop through the points adding them to the GeomVertexWriter object
+    and adding to the triangulator 
+    """
+    triangulator = Triangulator3()
+    for point in points:
+        print(point)
+        x = point[0]
+        y = point[1]
+        z = point[2]
+        vertex.addData3(x, y, z)
+        normal.addData3(normalized(2*x-1, 2*y-1, 2*z-1))
+        color.addData4(color_face[0], color_face[1], color_face[2], color_face[3])
+        triangulator.addVertex(x, y, z)
+
+    triangulator.triangulate()
+    print(triangulator.getNumTriangles())
+
+    prim = GeomTriangles(Geom.UHStatic)
+    for i in range(triangulator.getNumTriangles()):
+        prim.addVertices(triangulator.getTriangleV0(i),
+                         triangulator.getTriangleV1(i),
+                         triangulator.getTriangleV2(i))
+        prim.closePrimitive()
 
 
 def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):

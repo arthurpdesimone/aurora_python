@@ -8,7 +8,7 @@
 from panda3d.core import LVecBase3f
 
 from view.App import *
-from view.Geometry import makeSquare, makeCube, logRender
+from view.Geometry import makeSquare, makeCube, logRender, drawPolygon
 from view.UCS import UCS
 from view.UserInterface import *
 from view.Grid import *
@@ -27,6 +27,8 @@ if __name__ == "__main__":
     CameraController(app)
     faces = makeCube(0.5,0.5,0.5,2,2,2,app.render)
 
+    points = [(0,0,0), (1,0,0), (1,1,0), (0,1,0)]
+    drawPolygon(points)
 
     logRender(app.render)
     app.run()

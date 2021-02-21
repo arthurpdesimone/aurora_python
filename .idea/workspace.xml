@@ -202,20 +202,6 @@
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
     </task>
-    <task id="LOCAL-00009" summary="Distance in plane XY">
-      <created>1612309172064</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1612309172064</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Distance in plane XY, UCS belonging to mouse, grid slider">
-      <created>1612325781516</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1612325781516</updated>
-    </task>
     <task id="LOCAL-00011" summary="Distance in plane XY, UCS belonging to mouse, grid slider">
       <created>1612328702067</created>
       <option name="number" value="00011" />
@@ -545,7 +531,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613857176734</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Making geometries drawable">
+      <created>1613868868511</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1613868868515</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Making geometries drawable">
+      <created>1613868907744</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1613868907744</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
