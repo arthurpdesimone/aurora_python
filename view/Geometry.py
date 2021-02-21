@@ -58,7 +58,7 @@ def drawPolygon(points, color_face=LVecBase4f(1, 1, 1, 1)):
     and adding to the triangulator 
     """
     triangulator = Triangulator3()
-    for point in points:
+    for i, point in enumerate(points):
         print(point)
         x = point[0]
         y = point[1]
@@ -67,6 +67,8 @@ def drawPolygon(points, color_face=LVecBase4f(1, 1, 1, 1)):
         normal.addData3(normalized(2*x-1, 2*y-1, 2*z-1))
         color.addData4(color_face[0], color_face[1], color_face[2], color_face[3])
         triangulator.addVertex(x, y, z)
+        # add the vertex index to the polygon
+        triangulator.add_polygon_vertex(i)
 
     triangulator.triangulate()
     print(triangulator.getNumTriangles())

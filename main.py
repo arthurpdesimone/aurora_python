@@ -25,7 +25,7 @@ if __name__ == "__main__":
     distance = Distance(app, ucs)
     Tooltip(distance).show()
     CameraController(app)
-    faces = makeCube(0.5,0.5,0.5,2,2,2,app.render)
+    #faces = makeCube(0.5,0.5,0.5,2,2,2,app.render)
 
     points = [(0,0,0), (1,0,0), (1,1,0), (0,1,0)]
     drawPolygon(points)
