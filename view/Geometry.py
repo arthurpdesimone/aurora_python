@@ -1,5 +1,5 @@
 from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter, LVector3, Geom, GeomTriangles, LVecBase4f, \
-    GeomNode, LineSegs
+    GeomNode, LineSegs, NodePath
 
 
 def normalized(*args):
@@ -35,6 +35,10 @@ def makeLine(x1,y1,z1,x2,y2,z2, lineSegs, thickness=1, color_line = LVecBase4f(0
     ls.drawTo(x2, y2, z2)
 
     return ls
+
+
+def makeTrapezium(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
+    pass
 
 
 def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
@@ -112,7 +116,7 @@ def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
     return square
 
 
-def makeCube(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
+def makeCube(x1, y1, z1, x2, y2, z2, render, color_face=LVecBase4f(1, 1, 1, 1), edge_thickness = 3):
     """
        Method to draw a hollow cube
 
@@ -131,21 +135,50 @@ def makeCube(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
        :param color_square: the cube's color in RGBA vector form
        :type color_square: :class:'panda.core.LVecBase4f'
     """
-    square0 = makeSquare(x1, y1, z1, x2, y1, z2)
-    square1 = makeSquare(x1, y2, z1, x2, y2, z2)
-    square2 = makeSquare(x1, y2, z2, x2, y1, z2)
-    square3 = makeSquare(x1, y2, z1, x2, y1, z1)
-    square4 = makeSquare(x1, y1, z1, x1, y2, z2)
-    square5 = makeSquare(x2, y1, z1, x2, y2, z2)
-    snode = GeomNode('Face')
-    snode.addGeom(square0)
-    snode.addGeom(square1)
-    snode.addGeom(square2)
-    snode.addGeom(square3)
-    snode.addGeom(square4)
-    snode.addGeom(square5)
+    square0 = makeSquare(x1, y1, z1, x2, y1, z2, color_face)
+    square1 = makeSquare(x1, y2, z1, x2, y2, z2, color_face)
+    square2 = makeSquare(x1, y2, z2, x2, y1, z2, color_face)
+    square3 = makeSquare(x1, y2, z1, x2, y1, z1, color_face)
+    square4 = makeSquare(x1, y1, z1, x1, y2, z2, color_face)
+    square5 = makeSquare(x2, y1, z1, x2, y2, z2, color_face)
+    faces = GeomNode('Face')
 
-    return snode
+    edges = LineSegs('Edges')
+    """ 1st face """
+    edges = makeLine(x1, y1, z1, x1, y1, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y1, z2, x2, y1, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y1, z1, x2, y1, z1, edges, thickness=edge_thickness)
+    edges = makeLine(x2, y1, z1, x2, y1, z2, edges, thickness=edge_thickness)
+    """ 2nd face """
+    edges = makeLine(x1, y1, z1, x1, y2, z1, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y2, z1, x1, y2, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y1, z2, x1, y2, z2, edges, thickness=edge_thickness)
+    """ 3rd face """
+    edges = makeLine(x2, y1, z1, x2, y2, z1, edges, thickness=edge_thickness)
+    edges = makeLine(x2, y2, z1, x2, y2, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x2, y1, z2, x2, y2, z2, edges, thickness=edge_thickness)
+    """ 4th face """
+    edges = makeLine(x1, y2, z1, x1, y2, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y2, z2, x2, y2, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x2, y2, z1, x2, y2, z2, edges, thickness=edge_thickness)
+    edges = makeLine(x1, y2, z1, x2, y2, z1, edges, thickness=edge_thickness)
+
+
+    nodes = edges.create()
+
+
+    NodePath(nodes).reparentTo(render)
+
+    faces.addGeom(square0)
+    faces.addGeom(square1)
+    faces.addGeom(square2)
+    faces.addGeom(square3)
+    faces.addGeom(square4)
+    faces.addGeom(square5)
+
+    cube = render.attachNewNode(faces)
+    cube.setTwoSided(True)
+
 
 
 def logRender(render):
