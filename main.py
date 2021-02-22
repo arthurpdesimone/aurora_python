@@ -31,7 +31,7 @@ if __name__ == "__main__":
     #points = [(0,1,0), (1,1,0), (1,1,1), (0,1,1)]
     #drawPolygon(points, app.render)
 
-    footing = ShallowFooting(0.5,1,0.25,0.25,0,0.1,0.5,0,0)
+    footing = ShallowFooting(0.5,1,0.25,0.25,0,0.1,0.5,2,2)
     footing.draw(app.render)
 
     logRender(app.render)

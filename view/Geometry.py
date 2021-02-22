@@ -104,7 +104,8 @@ def makePolygon(points, render, color_face=LVecBase4f(1, 1, 1, 1)):
 
     node = GeomNode("Faces")
     node.addGeom(geom)
-    render.attachNewNode(node)
+    final_geom = render.attachNewNode(node)
+    final_geom.setTwoSided(True)
 
 
 def makeSquare(x1, y1, z1, x2, y2, z2, color_square=LVecBase4f(1, 1, 1, 1)):
