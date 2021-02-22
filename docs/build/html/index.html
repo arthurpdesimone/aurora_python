@@ -168,7 +168,7 @@
 
 <span class="target" id="module-model.Footing"></span><dl class="py class">
 <dt id="model.Footing.Footing">
-<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">column</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">Footing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#Footing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.Footing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a footing</p>
 <p>Initializer</p>
 <dl class="field-list simple">
@@ -184,7 +184,7 @@
 
 <dl class="py class">
 <dt id="model.Footing.ShallowFooting">
-<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">ShallowFooting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">h0</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Footing.</code><code class="sig-name descname">ShallowFooting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">h0</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a shallow footing</p>
 <p>Initializer</p>
 <dl class="field-list simple">
@@ -200,6 +200,17 @@
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt id="model.Footing.ShallowFooting.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Footing.html#ShallowFooting.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Footing.ShallowFooting.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>render</strong> – render object</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt id="model.Footing.ShallowFooting.h">
 <code class="sig-name descname">h</code><a class="headerlink" href="#model.Footing.ShallowFooting.h" title="Permalink to this definition">¶</a></dt>
@@ -251,13 +262,19 @@
 <dl class="py attribute">
 <dt id="model.Footing.ShallowFooting.up_left_bottom_sup">
 <code class="sig-name descname">up_left_bottom_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_left_bottom_sup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lower left corner superior</p>
+<dd><p>Upper Right corner bottom superior</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="model.Footing.ShallowFooting.up_left_sup">
 <code class="sig-name descname">up_left_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_left_sup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper Right corner superior</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Footing.ShallowFooting.up_right_bottom_sup">
+<code class="sig-name descname">up_right_bottom_sup</code><a class="headerlink" href="#model.Footing.ShallowFooting.up_right_bottom_sup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower left corner superior</p>
 </dd></dl>
 
 </dd></dl>
@@ -352,6 +369,17 @@ a plane specified. Also responsible for placing the UCS cursor following the mou
 <li><p><strong>z2</strong> (<em>float</em>) – the second z coordinate</p></li>
 <li><p><strong>color_line</strong> (<em>:class:'panda.core.LVecBase4f'</em>) – the line’s color in RGBA vector form</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="view.Geometry.makePolygon">
+<code class="sig-prename descclassname">view.Geometry.</code><code class="sig-name descname">makePolygon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">render</span></em>, <em class="sig-param"><span class="n">color_face</span><span class="o">=</span><span class="default_value">LVecBase4f(1, 1, 1, 1)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Geometry.html#makePolygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Geometry.makePolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw a polygon based on a set of points CCW oriented</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>list</em>) – A list of points</p>
 </dd>
 </dl>
 </dd></dl>

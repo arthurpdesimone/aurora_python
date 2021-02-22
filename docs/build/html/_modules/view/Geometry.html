@@ -148,8 +148,10 @@
            <div itemprop="articleBody">
             
   <h1>Source code for view.Geometry</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span> <span class="n">LVector3</span><span class="p">,</span> <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span> <span class="n">LVecBase4f</span><span class="p">,</span> \
-    <span class="n">GeomNode</span><span class="p">,</span> <span class="n">LineSegs</span><span class="p">,</span> <span class="n">NodePath</span>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span> <span class="n">LVector3</span><span class="p">,</span> <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span> <span class="n">LVecBase4f</span><span class="p">,</span> \
+    <span class="n">GeomNode</span><span class="p">,</span> <span class="n">LineSegs</span><span class="p">,</span> <span class="n">NodePath</span><span class="p">,</span> <span class="n">Triangulator3</span><span class="p">,</span> <span class="n">Triangulator</span>
 
 
 <span class="k">def</span> <span class="nf">normalized</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -158,7 +160,7 @@
     <span class="k">return</span> <span class="n">myVec</span>
 
 
-<div class="viewcode-block" id="makeLine"><a class="viewcode-back" href="../../index.html#view.Geometry.makeLine">[docs]</a><span class="k">def</span> <span class="nf">makeLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">z1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">z2</span><span class="p">,</span> <span class="n">lineSegs</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color_line</span> <span class="o">=</span> <span class="n">LVecBase4f</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
+<div class="viewcode-block" id="makeLine"><a class="viewcode-back" href="../../index.html#view.Geometry.makeLine">[docs]</a><span class="k">def</span> <span class="nf">makeLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">lineSegs</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color_line</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Method to draw a line betweeen two points</span>
 
@@ -187,8 +189,72 @@
     <span class="k">return</span> <span class="n">ls</span></div>
 
 
-<span class="k">def</span> <span class="nf">makeTrapezium</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">color_square</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
-    <span class="k">pass</span>
+<div class="viewcode-block" id="makePolygon"><a class="viewcode-back" href="../../index.html#view.Geometry.makePolygon">[docs]</a><span class="k">def</span> <span class="nf">makePolygon</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">color_face</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot; Method to draw a polygon based on a set of points CCW oriented</span>
+
+<span class="sd">    :param points: A list of points</span>
+<span class="sd">    :type points: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="sd">&quot;&quot;&quot; Setting parameters to draw a convex polygon&quot;&quot;&quot;</span>
+    <span class="nb">format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">.</span><span class="n">getV3n3cpt2</span><span class="p">()</span>
+    <span class="n">vdata</span> <span class="o">=</span> <span class="n">GeomVertexData</span><span class="p">(</span><span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">UHStatic</span><span class="p">)</span>
+    <span class="n">vdata</span><span class="o">.</span><span class="n">setNumRows</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+
+    <span class="n">vertex</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;vertex&#39;</span><span class="p">)</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span>
+    <span class="n">texcoord</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;texcoord&#39;</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot; Loop through the points adding them to the GeomVertexWriter object</span>
+<span class="sd">    and adding to the triangulator </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">triangulator</span> <span class="o">=</span> <span class="n">Triangulator3</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">(</span><span class="s1">&#39;Edges&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Getting next point </span>
+<span class="sd">        https://stackoverflow.com/questions/2167868/getting-next-element-while-cycling-through-a-list </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">next_point</span> <span class="o">=</span> <span class="n">points</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)]</span>
+        <span class="sd">&quot;&quot;&quot; Getting coordinates &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">x_next</span> <span class="o">=</span> <span class="n">next_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y_next</span> <span class="o">=</span> <span class="n">next_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">z_next</span> <span class="o">=</span> <span class="n">next_point</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">makeLine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x_next</span><span class="p">,</span> <span class="n">y_next</span><span class="p">,</span> <span class="n">z_next</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Filling GeomVertexWriter&quot;&quot;&quot;</span>
+        <span class="n">vertex</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">normal</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="n">normalized</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">color</span><span class="o">.</span><span class="n">addData4</span><span class="p">(</span><span class="n">color_face</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color_face</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color_face</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color_face</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">triangulator</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Add the vertex index to the polygon &quot;&quot;&quot;</span>
+        <span class="n">triangulator</span><span class="o">.</span><span class="n">add_polygon_vertex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+    <span class="n">NodePath</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+    <span class="n">triangulator</span><span class="o">.</span><span class="n">triangulate</span><span class="p">()</span>
+    <span class="sd">&quot;&quot;&quot; Check if polygon is CCW &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">triangulator</span><span class="o">.</span><span class="n">isLeftWinding</span><span class="p">():</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Polygon is not counterclockwise&#39;</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot; Loop through the triangles generated by Triangulator3&quot;&quot;&quot;</span>
+    <span class="n">prim</span> <span class="o">=</span> <span class="n">GeomTriangles</span><span class="p">(</span><span class="n">Geom</span><span class="o">.</span><span class="n">UHStatic</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">triangulator</span><span class="o">.</span><span class="n">getNumTriangles</span><span class="p">()):</span>
+        <span class="n">prim</span><span class="o">.</span><span class="n">addVertices</span><span class="p">(</span><span class="n">triangulator</span><span class="o">.</span><span class="n">getTriangleV0</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                         <span class="n">triangulator</span><span class="o">.</span><span class="n">getTriangleV1</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                         <span class="n">triangulator</span><span class="o">.</span><span class="n">getTriangleV2</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">prim</span><span class="o">.</span><span class="n">closePrimitive</span><span class="p">()</span>
+
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geom</span><span class="p">(</span><span class="n">vdata</span><span class="p">)</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">addPrimitive</span><span class="p">(</span><span class="n">prim</span><span class="p">)</span>
+
+    <span class="n">node</span> <span class="o">=</span> <span class="n">GeomNode</span><span class="p">(</span><span class="s2">&quot;Faces&quot;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+    <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="makeSquare"><a class="viewcode-back" href="../../index.html#view.Geometry.makeSquare">[docs]</a><span class="k">def</span> <span class="nf">makeSquare</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">color_square</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
@@ -266,7 +332,7 @@
     <span class="k">return</span> <span class="n">square</span></div>
 
 
-<div class="viewcode-block" id="makeCube"><a class="viewcode-back" href="../../index.html#view.Geometry.makeCube">[docs]</a><span class="k">def</span> <span class="nf">makeCube</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">color_face</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">edge_thickness</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<div class="viewcode-block" id="makeCube"><a class="viewcode-back" href="../../index.html#view.Geometry.makeCube">[docs]</a><span class="k">def</span> <span class="nf">makeCube</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">color_face</span><span class="o">=</span><span class="n">LVecBase4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">edge_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       Method to draw a hollow cube</span>
 
@@ -313,9 +379,7 @@
     <span class="n">edges</span> <span class="o">=</span> <span class="n">makeLine</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">edge_thickness</span><span class="p">)</span>
     <span class="n">edges</span> <span class="o">=</span> <span class="n">makeLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">edge_thickness</span><span class="p">)</span>
 
-
     <span class="n">nodes</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
-
 
     <span class="n">NodePath</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
 
@@ -328,7 +392,6 @@
 
     <span class="n">cube</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">setTwoSided</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
-
 
 
 <span class="k">def</span> <span class="nf">logRender</span><span class="p">(</span><span class="n">render</span><span class="p">):</span>

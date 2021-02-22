@@ -2,11 +2,12 @@ from panda3d.core import LineSegs, NodePath
 
 from model.Column import Column
 from model.StructuralElement import StructuralElement
+from view.Geometry import *
 
 
 class Footing(StructuralElement):
     """Class to define a footing"""
-    def __init__(self,x,y,column):
+    def __init__(self,x,y):
         """Initializer
 
         :param x: The center X position
@@ -18,12 +19,11 @@ class Footing(StructuralElement):
         """
         self.x = x
         self.y = y
-        self.column = column
 
 
 class ShallowFooting(Footing):
     """Class to define a shallow footing"""
-    def __init__(self,A,B,a,b,z,h0,h):
+    def __init__(self, A, B, a, b, z, h0, h, x, y):
         """Initializer
 
         :param A: The bottom measure in the y-direction
@@ -41,6 +41,7 @@ class ShallowFooting(Footing):
         :param h: The total height
         :type h: float
         """
+        super().__init__(x, y)
         self.A = A
         self.B = B
         self.a = a
@@ -65,7 +66,7 @@ class ShallowFooting(Footing):
         """ Upper Left corner bottom superior"""
         self.up_left_bottom_sup = [self.x - self.B / 2, self.y + self.A / 2, self.z+self.h0]
         """ Upper Right corner bottom superior"""
-        self.up_left_bottom_sup = [self.x + self.B / 2, self.y + self.A / 2, self.z+self.h0]
+        self.up_right_bottom_sup = [self.x + self.B / 2, self.y + self.A / 2, self.z+self.h0]
 
         """ Lower left corner superior"""
         self.low_left_sup = [self.x - self.b / 2, self.y - self.a / 2, self.z + self.h]
@@ -74,15 +75,31 @@ class ShallowFooting(Footing):
         """ Upper Left corner superior"""
         self.up_left_sup = [self.x - self.b / 2, self.y + self.a / 2, self.z + self.h]
         """ Upper Right corner superior"""
-        self.up_left_sup = [self.x + self.b / 2, self.y + self.a / 2, self.z + self.h]
+        self.up_right_sup = [self.x + self.b / 2, self.y + self.a / 2, self.z + self.h]
 
-    def draw(self):
-        render = self.render
-        ls = LineSegs('Footing')
-        ls.setThickness(0.5)
-        ls.setColor((1, 1, 1, 1))
+    def draw(self, render):
+        """ Method to draw itself
+
+        :param render: render object
+        """
+
+        """ Draw base """
+        makeCube(self.low_left_bottom_inf[0], self.low_left_bottom_inf[1], self.low_left_bottom_inf[2],
+                 self.up_right_bottom_sup[0], self.up_right_bottom_sup[1],self.up_right_bottom_sup[2],
+                 render)
+        """ Front slope """
+        front_slope = [(self.low_left_bottom_sup[0],self.low_left_bottom_sup[1],self.low_left_bottom_sup[2]),
+                       (self.low_right_bottom_sup[0],self.low_right_bottom_sup[1],self.low_right_bottom_sup[2]),
+                       (self.low_right_sup[0],self.low_right_sup[1],self.low_right_sup[2]),
+                       (self.low_left_sup[0],self.low_left_sup[1],self.low_left_sup[2])]
+        makePolygon(front_slope,render)
+        """ Back slope """
+        back_slope = [(self.up_left_bottom_sup[0], self.up_left_bottom_sup[1], self.up_left_bottom_sup[2]),
+                       (self.up_right_bottom_sup[0], self.up_right_bottom_sup[1], self.up_right_bottom_sup[2]),
+                       (self.up_right_sup[0], self.up_right_sup[1], self.up_right_sup[2]),
+                       (self.up_left_sup[0], self.up_left_sup[1], self.up_left_sup[2])]
+        makePolygon(back_slope, render)
 
 
-        node = ls.create()
-        NodePath(node).reparentTo(self.render)
+
         pass

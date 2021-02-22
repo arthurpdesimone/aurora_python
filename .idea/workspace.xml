@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Making geometries drawable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Footing.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Footing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Geometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Geometry.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,13 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Documenting the project made so far">
-      <created>1612378335822</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1612378335822</updated>
     </task>
     <task id="LOCAL-00013" summary="Documenting the project made so far">
       <created>1612423162410</created>
@@ -544,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613931855884</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4">
+      <created>1613935750359</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1613935750359</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -585,7 +587,8 @@
     <MESSAGE value="Created StructuralElement class" />
     <MESSAGE value="Working around elements and draw method" />
     <MESSAGE value="Making geometries drawable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making geometries drawable" />
+    <MESSAGE value="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4" />
+    <option name="LAST_COMMIT_MESSAGE" value="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
