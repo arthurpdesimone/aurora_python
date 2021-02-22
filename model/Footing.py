@@ -80,7 +80,7 @@ class ShallowFooting(Footing):
     def draw(self, render):
         """ Method to draw itself
 
-        :param render: render object
+        :param render: render
         """
 
         """ Draw base """
@@ -99,7 +99,26 @@ class ShallowFooting(Footing):
                        (self.up_right_sup[0], self.up_right_sup[1], self.up_right_sup[2]),
                        (self.up_left_sup[0], self.up_left_sup[1], self.up_left_sup[2])]
         makePolygon(back_slope, render)
+        """ Left slope """
+        left_slope = [(self.low_left_bottom_sup[0], self.low_left_bottom_sup[1], self.low_left_bottom_sup[2]),
+                      (self.low_left_sup[0], self.low_left_sup[1], self.low_left_sup[2]),
+                      (self.up_left_sup[0], self.up_left_sup[1], self.up_left_sup[2]),
+                      (self.up_left_bottom_sup[0], self.up_left_bottom_sup[1], self.up_left_bottom_sup[2])]
+        makePolygon(left_slope, render)
+        """ Right slope """
+        right_slope = [(self.low_right_bottom_sup[0], self.low_right_bottom_sup[1], self.low_right_bottom_sup[2]),
+                      (self.low_right_sup[0], self.low_right_sup[1], self.low_right_sup[2]),
+                      (self.up_right_sup[0], self.up_right_sup[1], self.up_right_sup[2]),
+                      (self.up_right_bottom_sup[0], self.up_right_bottom_sup[1], self.up_right_bottom_sup[2])]
+        makePolygon(right_slope, render)
 
+        """ Draw top"""
+        square = makeSquare(self.low_left_sup[0],self.low_left_sup[1],self.low_left_sup[2],
+                   self.up_right_sup[0],self.up_right_sup[1],self.up_right_sup[2])
 
+        top_face = GeomNode('Face')
+        top_face.addGeom(square)
+        top = render.attachNewNode(top_face)
+        top.setTwoSided(True)
 
         pass
