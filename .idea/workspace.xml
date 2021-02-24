@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Making columns's draw possible">
-      <change afterPath="$PROJECT_DIR$/model/Slab.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Making slab's draw possible">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Slab.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Slab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,20 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added DXF support">
-      <created>1612485902584</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1612485902586</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Added DXF support">
-      <created>1612486186574</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1612486186574</updated>
     </task>
     <task id="LOCAL-00020" summary="Added DXF support">
       <created>1612486373842</created>
@@ -545,7 +530,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614184563179</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Making slab's draw possible">
+      <created>1614188114376</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1614188114377</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Making slab's draw possible">
+      <created>1614188674465</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1614188674465</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Drawing UCS, camera controlling" />
     <MESSAGE value="Documentation draft" />
     <MESSAGE value="Distance in plane XY" />
     <MESSAGE value="Distance in plane XY, UCS belonging to mouse, grid slider" />
@@ -587,7 +585,8 @@
     <MESSAGE value="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4" />
     <MESSAGE value="Making footing's draw possible" />
     <MESSAGE value="Making columns's draw possible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making columns's draw possible" />
+    <MESSAGE value="Making slab's draw possible" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making slab's draw possible" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

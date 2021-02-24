@@ -24,6 +24,7 @@ class RectangularSlab(Slab):
     """ Class to define a rectangular slab """
     def __init__(self, x, y, z, t):
         """Initializer
+
         :param t: The slab thickness
         :type t: float
         """
