@@ -12,11 +12,13 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
-.. automodule:: model.StructuralElement
+.. automodule:: model.Beam
    :members:
 .. automodule:: model.Footing
    :members:
 .. automodule:: model.Column
+   :members:
+.. automodule:: model.Slab
    :members:
 .. automodule:: dxf.DXF
    :members:
