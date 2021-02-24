@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Making footing's draw possible">
+      <change afterPath="$PROJECT_DIR$/model/Beam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Column.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Column.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Footing.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Footing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/StructuralElement.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Geometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Geometry.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,11 +182,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.DirectGuiDesigner" />
-      <item itemvalue="Python.demo" />
-      <item itemvalue="Python.submenu" />
       <item itemvalue="Python.cube" />
+      <item itemvalue="Python.demo" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.submenu" />
     </list>
     <recent_temporary>
       <list>
@@ -200,13 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Documenting the project made so far">
-      <created>1612475896166</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1612475896166</updated>
     </task>
     <task id="LOCAL-00017" summary="Added DXF support">
       <created>1612482457217</created>
@@ -544,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613960748975</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Making footing's draw possible">
+      <created>1613961247913</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1613961247913</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

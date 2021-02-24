@@ -1,21 +1,17 @@
 from panda3d.core import LineSegs, NodePath
 
-from model.Column import Column
-from model.StructuralElement import StructuralElement
 from view.Geometry import *
 
 
-class Footing(StructuralElement):
+class Footing:
     """Class to define a footing"""
-    def __init__(self,x,y):
+    def __init__(self, x, y):
         """Initializer
 
         :param x: The center X position
         :type x: float
         :param y: The center Y position
         :type y: float
-        :param column: The column that unloads at the footing
-        :type column: model.Column.Column
         """
         self.x = x
         self.y = y
@@ -123,4 +119,3 @@ class ShallowFooting(Footing):
         top = render.attachNewNode(top_face)
         top.setTwoSided(True)
 
-        pass

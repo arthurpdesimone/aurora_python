@@ -8,29 +8,24 @@ class App(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
+        self.base = base
         """To enable the camera"""
         self.disable_mouse()
         """Maximizing windows"""
         props = WindowProperties()
         props.setTitle('Aurora Python')
-
-
-
-        self.win.requestProperties(props)
         self.setBackgroundColor(0, 0, 0)
+
         """ Configuration of camera and running """
         self.camera.setPos(2, -20, 2)
 
         """ To maximize window under windows"""
-        #self.hwnd = win32gui.GetForegroundWindow()
-        #win32gui.PostMessage(self.hwnd, win32con.WM_SYSCOMMAND, win32con.SC_MAXIMIZE, 0)
-
         xSize = base.pipe.getDisplayWidth()
         ySize = base.pipe.getDisplayHeight()
         props = WindowProperties()
         props.setSize(xSize, ySize)
         props.setFixedSize(1)
-        base.win.requestProperties(props)
+        self.win.requestProperties(props)
 
         self.accept('escape', lambda: sys.exit())
 

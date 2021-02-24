@@ -1,7 +1,7 @@
 import sys
 
 from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter, LVector3, Geom, GeomTriangles, LVecBase4f, \
-    GeomNode, LineSegs, NodePath, Triangulator3, Triangulator
+    GeomNode, LineSegs, NodePath, Triangulator3
 
 
 def normalized(*args):
