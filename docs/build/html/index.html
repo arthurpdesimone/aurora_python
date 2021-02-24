@@ -160,10 +160,47 @@
 <span class="target" id="module-main"></span><p>Aurora python</p>
 <p>Aiding brazilian civil engineers to build reinforced concrete buildings</p>
 <p>Author: Arthur Pendragon De Simone</p>
-<span class="target" id="module-model.StructuralElement"></span><dl class="py class">
-<dt id="model.StructuralElement.StructuralElement">
-<em class="property">class </em><code class="sig-prename descclassname">model.StructuralElement.</code><code class="sig-name descname">StructuralElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/StructuralElement.html#StructuralElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.StructuralElement.StructuralElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Super class to all structural elements</p>
+<span class="target" id="module-model.Beam"></span><dl class="py class">
+<dt id="model.Beam.Beam">
+<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">Beam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#Beam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.Beam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a beam</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – The center Z position</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – The length of the beam</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="model.Beam.RectangularBeam">
+<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">RectangularBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">bw</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a beam</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>float</em>) – The beam height</p></li>
+<li><p><strong>bw</strong> (<em>float</em>) – The beam width</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="model.Beam.RectangularBeam.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>render</strong> – render</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <span class="target" id="module-model.Footing"></span><dl class="py class">
@@ -176,7 +213,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
 <li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
-<li><p><strong>column</strong> (<a class="reference internal" href="#model.Column.Column" title="model.Column.Column"><em>model.Column.Column</em></a>) – The column that unloads at the footing</p></li>
 </ul>
 </dd>
 </dl>
@@ -281,8 +317,81 @@
 
 <span class="target" id="module-model.Column"></span><dl class="py class">
 <dt id="model.Column.Column">
-<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">beams</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">Column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#Column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.Column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a column</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – The center Z position</p></li>
+<li><p><strong>h</strong> (<em>float</em>) – The column’s height</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="model.Column.RectangularColumn">
+<em class="property">class </em><code class="sig-prename descclassname">model.Column.</code><code class="sig-name descname">RectangularColumn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">d</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#RectangularColumn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.RectangularColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a rectangular column</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> (<em>float</em>) – The column dimension in X-direction</p></li>
+<li><p><strong>d</strong> (<em>float</em>) – The column dimension in Y-direction</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="model.Column.RectangularColumn.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Column.html#RectangularColumn.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Column.RectangularColumn.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>render</strong> – render</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-model.Slab"></span><dl class="py class">
+<dt id="model.Slab.RectangularSlab">
+<em class="property">class </em><code class="sig-prename descclassname">model.Slab.</code><code class="sig-name descname">RectangularSlab</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">t</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Slab.html#RectangularSlab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Slab.RectangularSlab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a rectangular slab</p>
+<p>Initializer
+:param t: The slab thickness
+:type t: float</p>
+<dl class="py method">
+<dt id="model.Slab.RectangularSlab.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Slab.html#RectangularSlab.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Slab.RectangularSlab.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>render</strong> – render</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="model.Slab.Slab">
+<em class="property">class </em><code class="sig-prename descclassname">model.Slab.</code><code class="sig-name descname">Slab</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Slab.html#Slab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Slab.Slab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a column</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – The center Z position</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <span class="target" id="module-dxf.DXF"></span><dl class="py class">
@@ -320,6 +429,12 @@ specified, the default value is taken from the ‘window-type’
 configuration variable.</p>
 <p>This constructor will add various things to the Python builtins scope,
 including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
+<dl class="py attribute">
+<dt id="view.App.App.base">
+<code class="sig-name descname">base</code><a class="headerlink" href="#view.App.App.base" title="Permalink to this definition">¶</a></dt>
+<dd><p>To enable the camera</p>
+</dd></dl>
+
 </dd></dl>
 
 <span class="target" id="module-view.Camera"></span><span class="target" id="module-view.Distance"></span><dl class="py class">

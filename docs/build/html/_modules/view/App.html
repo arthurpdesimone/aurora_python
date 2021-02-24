@@ -158,29 +158,24 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">ShowBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
         <span class="sd">&quot;&quot;&quot;To enable the camera&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disable_mouse</span><span class="p">()</span>
         <span class="sd">&quot;&quot;&quot;Maximizing windows&quot;&quot;&quot;</span>
         <span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
         <span class="n">props</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Aurora Python&#39;</span><span class="p">)</span>
-
-
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
         <span class="sd">&quot;&quot;&quot; Configuration of camera and running &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="sd">&quot;&quot;&quot; To maximize window under windows&quot;&quot;&quot;</span>
-        <span class="c1">#self.hwnd = win32gui.GetForegroundWindow()</span>
-        <span class="c1">#win32gui.PostMessage(self.hwnd, win32con.WM_SYSCOMMAND, win32con.SC_MAXIMIZE, 0)</span>
-
         <span class="n">xSize</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">pipe</span><span class="o">.</span><span class="n">getDisplayWidth</span><span class="p">()</span>
         <span class="n">ySize</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">pipe</span><span class="o">.</span><span class="n">getDisplayHeight</span><span class="p">()</span>
         <span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
         <span class="n">props</span><span class="o">.</span><span class="n">setSize</span><span class="p">(</span><span class="n">xSize</span><span class="p">,</span> <span class="n">ySize</span><span class="p">)</span>
         <span class="n">props</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;escape&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">())</span></div>
 

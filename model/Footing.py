@@ -1,4 +1,4 @@
-from panda3d.core import LineSegs, NodePath
+
 
 from view.Geometry import *
 
