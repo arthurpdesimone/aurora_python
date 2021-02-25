@@ -12,7 +12,7 @@ Welcome to Aurora's documentation!
 
 .. automodule:: main
    :members:
-.. autoclass:: model.Beam
+.. automodule:: model.Beam
    :members:
 .. automodule:: model.Footing
    :members:

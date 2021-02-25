@@ -160,10 +160,48 @@
 <span class="target" id="module-main"></span><p>Aurora python</p>
 <p>Aiding brazilian civil engineers to build reinforced concrete buildings</p>
 <p>Author: Arthur Pendragon De Simone</p>
-<dl class="py attribute">
-<dt id="model.Beam">
-<code class="sig-prename descclassname">model.</code><code class="sig-name descname">Beam</code><a class="headerlink" href="#model.Beam" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="target" id="module-model.Beam"></span><dl class="py class">
+<dt id="model.Beam.Beam">
+<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">Beam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#Beam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.Beam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a beam</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – The center Z position</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – The length of the beam</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="model.Beam.RectangularBeam">
+<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">RectangularBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">bw</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to define a beam</p>
+<p>Initializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>float</em>) – The beam height</p></li>
+<li><p><strong>bw</strong> (<em>float</em>) – The beam width</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="model.Beam.RectangularBeam.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to draw itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>render</strong> – render</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <span class="target" id="module-model.Footing"></span><dl class="py class">
 <dt id="model.Footing.Footing">
