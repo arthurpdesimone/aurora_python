@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Making slab's draw possible">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Minor changes on documentation">
+      <change afterPath="$PROJECT_DIR$/tests/examples/bare_minimum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/main_window.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/my_theme.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_amber.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_cyan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_lightgreen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_teal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_amber.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_cyan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_cyan_500.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_lightgreen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_teal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/full_features/screenshots/theme.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/Raleway-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/custom_css.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/extra.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/main_window.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/main_window_extra.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/my_theme.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/runtime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/runtime_dock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/pyqt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/pyqtmaterial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,70 +107,7 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="DirectGuiDesigner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/DirectGuiDesigner-master" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/DirectGuiDesigner-master/DirectGuiDesigner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cube" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/cube.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view/menu" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/menu/demo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.runtime_dock">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -153,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="submenu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="pyqt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -165,7 +141,70 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/submenu.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/pyqt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pyqtmaterial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/pyqtmaterial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="runtime_dock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_dock.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="runtime_menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,19 +214,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.DirectGuiDesigner" />
-      <item itemvalue="Python.cube" />
-      <item itemvalue="Python.demo" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.submenu" />
+      <item itemvalue="Python.pyqt" />
+      <item itemvalue="Python.pyqtmaterial" />
+      <item itemvalue="Python.runtime_menu" />
+      <item itemvalue="Python.runtime_dock" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.runtime_dock" />
+        <item itemvalue="Python.runtime_menu" />
+        <item itemvalue="Python.pyqtmaterial" />
+        <item itemvalue="Python.pyqt" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.cube" />
-        <item itemvalue="Python.submenu" />
-        <item itemvalue="Python.demo" />
-        <item itemvalue="Python.DirectGuiDesigner" />
       </list>
     </recent_temporary>
   </component>
@@ -199,20 +238,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Added DXF support">
-      <created>1612486983608</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1612486983608</updated>
-    </task>
-    <task id="LOCAL-00023" summary="DXF import type 'LINE'">
-      <created>1612494490878</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1612494490878</updated>
     </task>
     <task id="LOCAL-00024" summary="DXF import type 'LINE'">
       <created>1612495192123</created>
@@ -543,7 +568,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614189264164</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Minor changes on documentation">
+      <created>1614279929177</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1614279929178</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Minor changes on documentation">
+      <created>1614280082271</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1614280082271</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -560,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Documentation draft" />
     <MESSAGE value="Distance in plane XY" />
     <MESSAGE value="Distance in plane XY, UCS belonging to mouse, grid slider" />
     <MESSAGE value="Documenting the project made so far" />
@@ -585,7 +623,8 @@
     <MESSAGE value="Making footing's draw possible" />
     <MESSAGE value="Making columns's draw possible" />
     <MESSAGE value="Making slab's draw possible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making slab's draw possible" />
+    <MESSAGE value="Minor changes on documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes on documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
