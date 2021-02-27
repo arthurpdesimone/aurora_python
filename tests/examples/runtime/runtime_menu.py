@@ -10,7 +10,6 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         """"""
         super().__init__()
         self.main = QUiLoader().load('main_window.ui', self)
-
         self.add_menu_theme(self.main, self.main.menuStyles)
 
 

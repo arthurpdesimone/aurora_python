@@ -1,24 +1,19 @@
 # -*- coding: utf-8-*-
 """
-Module : simple_QPanda3D_example
-Author : Saifeddine ALOUI
-Description :
-    This is an example of how we can put togather a simple Panda3D Word
-    wrapped inside a QMainWindow.
+   Aurora python
+
+   Aiding brazilian civil engineers to build reinforced concrete buildings
+
+   Author: Arthur Pendragon De Simone
 """
 from PyQt5 import QtWidgets, uic
 from QPanda3D.Panda3DWorld import Panda3DWorld
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
 # import PyQt5 stuff
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 
 from pandac.PandaModules import Point3, Vec3, Vec4, VBase4
-from direct.interval.LerpInterval import LerpHprInterval
-from direct.interval.IntervalGlobal import *
-from direct.gui.OnscreenImage import OnscreenImage
 from qt_material import apply_stylesheet
 
 

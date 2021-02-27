@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>762</width>
+    <height>543</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Aurora</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/square logo.png</normaloff>icons/square logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="2" column="0">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QTreeView" name="treeView">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <layout class="QVBoxLayout" name="visualization_layout"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>762</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <widget class="QMenu" name="menuImportar">
+     <property name="title">
+      <string>Importar</string>
+     </property>
+     <addaction name="actionCarregar_DXF"/>
+    </widget>
+    <addaction name="actionNovo"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="menuImportar"/>
+    <addaction name="actionFechar"/>
+   </widget>
+   <widget class="QMenu" name="menuArquitetura">
+    <property name="title">
+     <string>Arquitetura</string>
+    </property>
+    <widget class="QMenu" name="menuFunda_o">
+     <property name="title">
+      <string>Fundação</string>
+     </property>
+     <addaction name="actionFunda_o_rasa"/>
+     <addaction name="actionFunda_o_cont_nua"/>
+     <addaction name="actionFunda_o_profunda"/>
+    </widget>
+    <addaction name="actionLaje"/>
+    <addaction name="actionViga"/>
+    <addaction name="actionPilar"/>
+    <addaction name="menuFunda_o"/>
+   </widget>
+   <widget class="QMenu" name="menuCargas">
+    <property name="title">
+     <string>Cargas</string>
+    </property>
+    <addaction name="actionLinha"/>
+    <addaction name="actionSuperf_cie"/>
+    <addaction name="actionTermal"/>
+   </widget>
+   <addaction name="menuArquivo"/>
+   <addaction name="menuArquitetura"/>
+   <addaction name="menuCargas"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbrir">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionNovo">
+   <property name="text">
+    <string>Novo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionFechar">
+   <property name="text">
+    <string>Fechar</string>
+   </property>
+  </action>
+  <action name="actionCarregar_DXF">
+   <property name="text">
+    <string>Carregar DXF</string>
+   </property>
+  </action>
+  <action name="actionLaje">
+   <property name="text">
+    <string>Laje</string>
+   </property>
+  </action>
+  <action name="actionViga">
+   <property name="text">
+    <string>Viga</string>
+   </property>
+  </action>
+  <action name="actionPilar">
+   <property name="text">
+    <string>Pilar</string>
+   </property>
+  </action>
+  <action name="actionFunda_o_rasa">
+   <property name="text">
+    <string>Fundação rasa</string>
+   </property>
+  </action>
+  <action name="actionFunda_o_cont_nua">
+   <property name="text">
+    <string>Fundação contínua</string>
+   </property>
+  </action>
+  <action name="actionFunda_o_profunda">
+   <property name="text">
+    <string>Fundação profunda</string>
+   </property>
+  </action>
+  <action name="actionLinha">
+   <property name="text">
+    <string>Linha</string>
+   </property>
+  </action>
+  <action name="actionSuperf_cie">
+   <property name="text">
+    <string>Superfície</string>
+   </property>
+  </action>
+  <action name="actionTermal">
+   <property name="text">
+    <string>Termal</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
