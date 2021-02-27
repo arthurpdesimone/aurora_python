@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples">
-      <change afterPath="$PROJECT_DIR$/main_qt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/main_window.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Integrating Panda3D to PythonQt and material design">
+      <change afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/my_theme.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/examples/runtime/my_theme.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/pyqt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyqt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_qt.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_qt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/App.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +59,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests\examples\runtime" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\docs\source" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\model" />
@@ -74,7 +73,7 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.pyqt">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,6 +116,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_qt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_qt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="pyqt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,27 +150,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/pyqt.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="runtime" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,17 +182,17 @@
     <list>
       <item itemvalue="Python.runtime_menu" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.runtime" />
       <item itemvalue="Python.pyqt" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.main_qt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pyqt" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.main_qt" />
+        <item itemvalue="Python.pyqt" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.runtime_menu" />
-        <item itemvalue="Python.runtime" />
       </list>
     </recent_temporary>
   </component>
@@ -205,13 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00025" summary="DXF now import lines and clear when requested">
-      <created>1612499652689</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1612499652689</updated>
     </task>
     <task id="LOCAL-00026" summary="Icon adjustment">
       <created>1612501202687</created>
@@ -549,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614365856590</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Integrating Panda3D to PythonQt and material design">
+      <created>1614395649814</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1614395649816</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Distance in plane XY, UCS belonging to mouse, grid slider" />
     <MESSAGE value="Documenting the project made so far" />
     <MESSAGE value="Added DXF support" />
     <MESSAGE value="DXF import type 'LINE'" />
@@ -591,7 +589,8 @@
     <MESSAGE value="Making slab's draw possible" />
     <MESSAGE value="Minor changes on documentation" />
     <MESSAGE value="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples" />
+    <MESSAGE value="Integrating Panda3D to PythonQt and material design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrating Panda3D to PythonQt and material design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

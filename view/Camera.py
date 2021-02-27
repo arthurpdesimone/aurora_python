@@ -16,8 +16,7 @@ class CameraController:
         self.cam.reparent_to(self.cam_target)
         self.cam.set_y(-10.)
         self.mouse_prev = Point2()
-        win_props = showbase.win.get_properties()
-        w, h = win_props.get_x_size(), win_props.get_y_size()
+        w, h = showbase.win.get_x_size(), showbase.win.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
