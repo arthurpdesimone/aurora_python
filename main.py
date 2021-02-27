@@ -33,8 +33,8 @@ if __name__ == "__main__":
     #footing.draw(app.render)
     #beam = RectangularBeam(0.4, 0.19, 1, 1 , 0, 3)
     #beam.draw(app.render)
-    column = RectangularColumn(1,1,1.5,3,0.2,0.2)
-    column.draw(app.render)
+    #column = RectangularColumn(1,1,1.5,3,0.2,0.2)
+    #column.draw(app.render)
 
     logRender(app.render)
     app.run()
