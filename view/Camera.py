@@ -20,6 +20,8 @@ class CameraController:
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
+        #self.showbase.accept('mouse2',self.zoomout)
+        #self.showbase.accept_once('mouse2-up', self.zoomin)
         self.listener = listener = DirectObject()
         listener.accept_once("mouse1", self.start_orbiting)
         listener.accept_once("mouse3", self.start_panning)
@@ -31,6 +33,12 @@ class CameraController:
         listener.accept("--repeat", self.decr_zoom_step_factor)
         listener.accept("+", self.incr_zoom_step_factor)
         listener.accept("+-repeat", self.incr_zoom_step_factor)
+
+    def zoomout(self):
+        self.cam.set_y(-20)
+
+    def zoomin(self):
+        self.cam.set_y(-10)
 
     def stop_navigating(self):
 
