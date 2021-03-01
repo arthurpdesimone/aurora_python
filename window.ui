@@ -84,16 +84,16 @@
     <property name="title">
      <string>Arquivo</string>
     </property>
-    <widget class="QMenu" name="menuImportar">
+    <widget class="QMenu" name="menu_import">
      <property name="title">
       <string>Importar</string>
      </property>
-     <addaction name="actionCarregar_DXF"/>
+     <addaction name="menu_load_dxf"/>
     </widget>
-    <addaction name="actionNovo"/>
-    <addaction name="actionAbrir"/>
-    <addaction name="menuImportar"/>
-    <addaction name="actionFechar"/>
+    <addaction name="menu_new"/>
+    <addaction name="menu_open"/>
+    <addaction name="menu_import"/>
+    <addaction name="menu_close"/>
    </widget>
    <widget class="QMenu" name="menuArquitetura">
     <property name="title">
@@ -125,12 +125,12 @@
    <addaction name="menuCargas"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionAbrir">
+  <action name="menu_open">
    <property name="text">
     <string>Abrir</string>
    </property>
   </action>
-  <action name="actionNovo">
+  <action name="menu_new">
    <property name="text">
     <string>Novo</string>
    </property>
@@ -138,12 +138,12 @@
     <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="actionFechar">
+  <action name="menu_close">
    <property name="text">
     <string>Fechar</string>
    </property>
   </action>
-  <action name="actionCarregar_DXF">
+  <action name="menu_load_dxf">
    <property name="text">
     <string>Carregar DXF</string>
    </property>

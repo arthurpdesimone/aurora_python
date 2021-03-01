@@ -6,12 +6,10 @@
 
    Author: Arthur Pendragon De Simone
 """
-from PyQt5 import QtWidgets, uic
-from QPanda3D.QPanda3DWidget import QPanda3DWidget
-# import PyQt5 stuff
-from PyQt5.QtWidgets import *
+
 import sys
 
+from PyQt5.QtWidgets import QApplication
 from qt_material import apply_stylesheet
 
 from view.Camera import Camera
@@ -19,22 +17,8 @@ from view.Distance import Distance
 from view.Grid import Grid
 from view.Tooltip import Tooltip
 from view.UCS import UCS
+from view.Ui import Ui
 from view.World import World
-
-
-class Ui(QtWidgets.QMainWindow):
-    def __init__(self):
-        super(Ui, self).__init__() # Call the inherited classes __init__ method
-
-    def initialize(self,world):
-        uic.loadUi('window.ui', self)  # Load the .ui file
-        layouts = self.findChildren(QWidget, 'visualization')
-        layout = layouts[0]
-        widget = QPanda3DWidget(world)
-        layout.layout().addWidget(widget)
-        world.set_parent(layout)
-
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
