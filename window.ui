@@ -19,9 +19,54 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="0">
+    <item row="0" column="1">
      <widget class="QWidget" name="visualization" native="true">
       <layout class="QGridLayout" name="gridLayout"/>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QTreeWidget" name="navigator">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <column>
+       <property name="text">
+        <string>Projeto</string>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>Elementos Estruturais</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Fundações</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Pilares</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Vigas</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Lajes</string>
+        </property>
+       </item>
+      </item>
+      <item>
+       <property name="text">
+        <string>Plantas</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>

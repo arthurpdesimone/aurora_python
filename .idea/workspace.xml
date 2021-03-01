@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Integrating Panda3D to PythonQt and material design">
-      <change afterPath="$PROJECT_DIR$/view/CameraController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_qt.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_qt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -205,13 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Layout improvements">
-      <created>1613119645436</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1613119645436</updated>
     </task>
     <task id="LOCAL-00031" summary="Layout improvements">
       <created>1613228323369</created>
@@ -549,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614540942317</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Integrating Panda3D to PythonQt and material design">
+      <created>1614604981022</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1614604981022</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -595,18 +591,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/Camera.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/Camera.py</url>
-          <line>121</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

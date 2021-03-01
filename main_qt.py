@@ -17,6 +17,7 @@ from qt_material import apply_stylesheet
 from view.Camera import Camera
 from view.Distance import Distance
 from view.Grid import Grid
+from view.Tooltip import Tooltip
 from view.UCS import UCS
 from view.World import World
 
@@ -27,14 +28,11 @@ class Ui(QtWidgets.QMainWindow):
 
     def initialize(self,world):
         uic.loadUi('window.ui', self)  # Load the .ui file
+        layouts = self.findChildren(QWidget, 'visualization')
+        layout = layouts[0]
         widget = QPanda3DWidget(world)
-        self.setCentralWidget(widget)
-        world.set_parent(self.centralWidget())
-        # layouts = self.findChildren(QWidget, 'centralwidget')
-        # vlayout = layouts[0]
-        # widget = QPanda3DWidget(world)
-        # vlayout.set(widget)
-        # world.set_parent(vlayout)
+        layout.layout().addWidget(widget)
+        world.set_parent(layout)
 
 
 
@@ -54,5 +52,5 @@ if __name__ == "__main__":
     apply_stylesheet(window, theme='dark_teal.xml')
     window.showMaximized()
     window.show()
-    app.exec_()
+
     sys.exit(app.exec_())
