@@ -1,9 +1,11 @@
-from direct.showbase.ShowBase import ShowBase
-from panda3d.core import WindowProperties, Point2, Point3, Plane, Vec3
+from direct.showbase.DirectObject import DirectObject
+from panda3d.core import Point3, Point2, Vec3, Plane
 
 
-class Camera:
+class CameraController:
+
     def __init__(self, showbase):
+
         self.showbase = showbase
         self.task_mgr = showbase.task_mgr
         self.mouse_watcher = showbase.mouseWatcherNode
@@ -18,30 +20,49 @@ class Camera:
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
-        self.showbase.accept_once("mouse1", self.start_orbiting)
-        self.showbase.accept_once("mouse3", self.start_panning)
-        self.showbase.accept("wheel_up", self.zoom_step_in)
-        self.showbase.accept("wheel_down", self.zoom_step_out)
-        self.showbase.accept("control-wheel_up", self.zoom_step_in_const)
-        self.showbase.accept("control-wheel_down", self.zoom_step_out_const)
-        self.showbase.accept("-", self.decr_zoom_step_factor)
-        self.showbase.accept("--repeat", self.decr_zoom_step_factor)
-        self.showbase.accept("+", self.incr_zoom_step_factor)
-        self.showbase.accept("+-repeat", self.incr_zoom_step_factor)
+        # self.showbase.accept('mouse2',self.start_orbiting)
+        # self.showbase.accept('mouse2-up', self.zoomin)
+        # self.showbase.accept("wheel_up", self.zoom_step_in)
+        # self.showbase.accept("wheel_down", self.zoom_step_out)
+
+        self.listener = listener = DirectObject()
+        listener.accept_once("mouse1", self.start_orbiting)
+        listener.accept_once("mouse3", self.start_panning)
+        listener.accept("wheel_up", self.zoom_step_in)
+        listener.accept("wheel_down", self.zoom_step_out)
+        listener.accept("control-wheel_up", self.zoom_step_in_const)
+        listener.accept("control-wheel_down", self.zoom_step_out_const)
+        listener.accept("-", self.decr_zoom_step_factor)
+        listener.accept("--repeat", self.decr_zoom_step_factor)
+        listener.accept("+", self.incr_zoom_step_factor)
+        listener.accept("+-repeat", self.incr_zoom_step_factor)
+
+    def zoomout(self):
+        self.cam.set_y(-20)
+
+    def zoomin(self):
+        self.cam.set_y(-20)
+        self.mouse_watcher = self.showbase.mouseWatcherNode
+        print(self.mouse_watcher.getMouse())
 
     def stop_navigating(self):
 
         self.task_mgr.remove("transform_cam")
-        self.showbase.accept_once("mouse1", self.start_orbiting)
-        self.showbase.accept_once("mouse3", self.start_panning)
+        self.listener.accept_once("mouse1", self.start_orbiting)
+        self.listener.accept_once("mouse3", self.start_panning)
 
     def start_orbiting(self):
-        w, h = self.showbase.screenTexture.x_size, self.showbase.screenTexture.y_size
-        self.orbit_speed = (w * .15, h * .15)
-        self.mouse_prev = Point2(self.mouse_watcher.getMouse())
+
+        if self.showbase.win is not None:
+            win_props = self.showbase.win.get_properties()
+            w, h = win_props.get_x_size(), win_props.get_y_size()
+        else:
+            w, h = self.showbase.screenTexture.x_size, self.showbase.screenTexture.y_size
+        self.orbit_speed = (w*.15, h*.15)
+        self.mouse_prev = Point2(self.mouse_watcher.get_mouse())
         self.task_mgr.add(self.orbit, "transform_cam")
-        self.showbase.ignore("mouse3")
-        self.showbase.accept_once("mouse1-up", self.stop_navigating)
+        self.listener.ignore("mouse3")
+        self.listener.accept_once("mouse1-up", self.stop_navigating)
 
     def orbit(self, task):
         """
@@ -50,8 +71,8 @@ class Camera:
 
         """
 
-        if self.mouse_watcher.hasMouse():
-            mouse_pos = self.mouse_watcher.getMouse()
+        if self.mouse_watcher.has_mouse():
+            mouse_pos = self.mouse_watcher.get_mouse()
             speed_x, speed_y = self.orbit_speed
             d_h, d_p = (mouse_pos - self.mouse_prev)
             d_h *= speed_x
@@ -81,12 +102,13 @@ class Camera:
         new_dist = current_dist + .1 * self.zoom_step_factor
 
         # Prevent the camera to move past its target node
-        # if new_dist > -.01:
+        #if new_dist > -.01:
         #    new_dist = -.01
 
         self.print_status('zoom step in')
 
         self.cam.set_y(new_dist)
+
 
     def zoom_step_out_const(self):
         """Zoom out using a constant step value"""
@@ -100,7 +122,7 @@ class Camera:
     def decr_zoom_step_factor(self):
         """Decrease the value with which to multiply the zoom steps"""
 
-        self.zoom_step_factor -= 1  # Or some value that you prefer
+        self.zoom_step_factor -= 1 # Or some value that you prefer
 
         # Prevent the multiplier from becoming too small
         if self.zoom_step_factor < .1:
@@ -111,19 +133,19 @@ class Camera:
     def incr_zoom_step_factor(self):
         """Increase the value with which to multiply the zoom steps"""
 
-        self.zoom_step_factor += .1  # Or some value that you prefer
+        self.zoom_step_factor += .1 # Or some value that you prefer
         print("self.zoom_step_factor:", self.zoom_step_factor)
 
     def __get_pan_pos(self, pos):
 
-        if not self.mouse_watcher.hasMouse():
+        if not self.mouse_watcher.has_mouse():
             return False
 
         target = self.cam_target
         target_pos = target.get_pos()
         normal = self.world.get_relative_vector(target, Vec3(0., 1., 0.))
         plane = Plane(normal, target_pos)
-        m_pos = self.mouse_watcher.getMouse()
+        m_pos = self.mouse_watcher.get_mouse()
         near_point = Point3()
         far_point = Point3()
         self.cam_lens.extrude(m_pos, near_point, far_point)
@@ -135,11 +157,11 @@ class Camera:
 
     def start_panning(self):
 
-        if not self.mouse_watcher.hasMouse():
+        if not self.mouse_watcher.has_mouse():
             return
 
-        self.showbase.ignore("mouse1")
-        self.showbase.accept_once("mouse3-up", self.stop_navigating)
+        self.listener.ignore("mouse1")
+        self.listener.accept_once("mouse3-up", self.stop_navigating)
         self.__get_pan_pos(self.pan_start_pos)
         self.task_mgr.add(self.pan, "transform_cam")
 
@@ -155,5 +177,5 @@ class Camera:
 
         return task.cont
 
-    def print_status(self, action=''):
-        print(action, ' - Camera :', self.cam.get_pos(), " Target :", self.cam_target.getPos())
+    def print_status(self,action=''):
+        print(action,' - Camera :',self.cam.get_pos()," Target :",self.cam_target.getPos())

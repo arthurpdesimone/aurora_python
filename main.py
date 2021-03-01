@@ -17,7 +17,7 @@ from view.UserInterface import *
 from view.Grid import *
 from view.Tooltip import *
 from view.Distance import *
-from view.Camera import *
+from view.CameraController import *
 
 
 if __name__ == "__main__":
