@@ -18,7 +18,6 @@ from model.Footing import ShallowFooting
 from view.Camera import Camera
 from view.Distance import Distance
 from view.Grid import Grid
-from view.Tooltip import Tooltip
 from view.UCS import UCS
 from view.Ui import Ui
 from view.World import World
@@ -33,7 +32,6 @@ if __name__ == "__main__":
     ucs = UCS(world)
     Grid(world)
     distance = Distance(world, ucs)
-    #Tooltip(distance).show()
     Camera(world)
 
 

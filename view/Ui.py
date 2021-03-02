@@ -31,4 +31,3 @@ class Ui(QtWidgets.QMainWindow,QtStyleTools):
         fileName, _ = QFileDialog.getOpenFileName(self, "Importar DXF", "", "DXF Files (*.dxf)", options=options)
         if fileName:
             DXF(self.showbase).read_dxf(fileName)
-            print(fileName)
