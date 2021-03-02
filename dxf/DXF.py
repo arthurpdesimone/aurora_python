@@ -25,7 +25,7 @@ class DXF:
                 """ If a line is found"""
                 if e.dxftype() == 'LINE':
                     thickness = 3
-                    color = (1, 1, 1, 0.1)
+                    color = (1, 1, 1, 1)
                     start_point = e.dxf.start
                     end_point = e.dxf.end
                     ls = LineSegs('DXF')

@@ -14,5 +14,4 @@ class World(Panda3DWorld):
         self.win.setClearColorActive(True)
         """ Configuration of camera and running """
         self.camera.setPos(2, -20, 2)
-        self.accept('escape', lambda: sys.exit())
 

@@ -2,10 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Integrating Panda3D to PythonQt and material design">
-      <change afterPath="$PROJECT_DIR$/view/Ui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_qt.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_qt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dxf/DXF.py" beforeDir="false" afterPath="$PROJECT_DIR$/dxf/DXF.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/File.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/Folder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/FolderNew.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/FolderShowHidden.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/FolderUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/Reload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/ViewTypeDetail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/ViewTypeSymbol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/square logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_qt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/building.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/building.dwl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/building.dwl2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/click.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cube.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/direct_gui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/dropdown menu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/email_ssl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/bare_minimum.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/main_window.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/my_theme.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_amber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_cyan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_lightgreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_pink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_teal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/dark_yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_amber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_cyan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_cyan_500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_lightgreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_pink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_teal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/light_yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/full_features/screenshots/theme.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/Raleway-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/custom_css.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/extra.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/main_window_extra.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/examples/runtime/runtime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/main_window.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pyqt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pyqtmaterial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/rectangle.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/rotating cube.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/submenu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/App.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,17 +110,17 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fonts" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\fonts" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests\examples\runtime" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\docs\source" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\model" />
@@ -72,7 +131,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main_qt">
-    <configuration name="cinema4d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="custom_css" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,11 +139,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/cinema4d.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/custom_css.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +152,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cinema4d_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="extra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,11 +160,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/cinema4d_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/extra.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,7 +173,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,7 +185,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="D:\pendragon\education\research\Aurora\aurora_python\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,7 +194,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main_qt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="runtime_dock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,11 +202,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_qt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_dock.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +215,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pyqt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="runtime_menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,11 +223,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/pyqt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,19 +237,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.cinema4d" />
-      <item itemvalue="Python.cinema4d_test" />
-      <item itemvalue="Python.main (1)" />
       <item itemvalue="Python.main_qt" />
-      <item itemvalue="Python.pyqt" />
+      <item itemvalue="Python.custom_css" />
+      <item itemvalue="Python.extra" />
+      <item itemvalue="Python.runtime_dock" />
+      <item itemvalue="Python.runtime_menu" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_qt" />
-        <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.cinema4d_test" />
-        <item itemvalue="Python.cinema4d" />
-        <item itemvalue="Python.pyqt" />
+        <item itemvalue="Python.runtime_menu" />
+        <item itemvalue="Python.runtime_dock" />
+        <item itemvalue="Python.extra" />
+        <item itemvalue="Python.custom_css" />
       </list>
     </recent_temporary>
   </component>
@@ -202,13 +261,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Added loads menu">
-      <created>1613233852077</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1613233852078</updated>
     </task>
     <task id="LOCAL-00033" summary="Fixed layout issues&#10;https://discourse.panda3d.org/t/submenu-creation/27218/8">
       <created>1613577153848</created>
@@ -546,7 +598,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614631468454</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Integrating Panda3D to PythonQt and material design">
+      <created>1614643079043</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1614643079044</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
