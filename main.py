@@ -19,7 +19,7 @@ from view.Camera import Camera
 from view.Distance import Distance
 from view.Grid import Grid
 from view.UCS import UCS
-from view.Ui import Ui
+from view.UserInterface import UserInterface
 from view.World import World
 
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     world = World()
-    window = Ui()
+    window = UserInterface()
     window.initialize(world)
     ucs = UCS(world)
     Grid(world)

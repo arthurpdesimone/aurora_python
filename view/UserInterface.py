@@ -6,9 +6,9 @@ from qt_material import QtStyleTools
 from dxf.DXF import DXF
 
 
-class Ui(QtWidgets.QMainWindow,QtStyleTools):
+class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
     def __init__(self):
-        super(Ui, self).__init__()  # Call the inherited classes __init__ method
+        super(UserInterface, self).__init__()  # Call the inherited classes __init__ method
 
     def initialize(self, world):
         self.main = uic.loadUi('window.ui', self)  # Load the .ui file
