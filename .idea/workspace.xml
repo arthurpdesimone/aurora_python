@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1: Cleaning up old test stuff and Panda3D from early versions.">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions.">
+      <change afterPath="$PROJECT_DIR$/images/square logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cinema4d_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/click_plane.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/dxf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/read_dxf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/CameraController.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Tooltip.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Distance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,20 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Reverted last commit">
-      <created>1613579320643</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1613579320644</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Reverted last commit">
-      <created>1613579386374</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1613579386374</updated>
     </task>
     <task id="LOCAL-00036" summary="Reverted last commit">
       <created>1613579662858</created>
@@ -552,7 +534,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614653252642</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Version 0.1.1: Cleaning up old test stuff and Panda3D from early versions.">
+      <created>1614713103050</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1614713103052</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions.">
+      <created>1614713191747</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1614713191747</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -569,8 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added DXF support" />
-    <MESSAGE value="DXF import type 'LINE'" />
     <MESSAGE value="DXF now import lines and clear when requested" />
     <MESSAGE value="Icon adjustment" />
     <MESSAGE value="Camera fix" />
@@ -594,7 +588,9 @@
     <MESSAGE value="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples" />
     <MESSAGE value="Integrating Panda3D to PythonQt and material design" />
     <MESSAGE value="Version 0.1: Cleaning up old test stuff and Panda3D from early versions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1: Cleaning up old test stuff and Panda3D from early versions." />
+    <MESSAGE value="Version 0.1.1: Cleaning up old test stuff and Panda3D from early versions." />
+    <MESSAGE value="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

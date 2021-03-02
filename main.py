@@ -31,7 +31,7 @@ if __name__ == "__main__":
     window.initialize(world)
     ucs = UCS(world)
     Grid(world)
-    distance = Distance(world, ucs)
+    distance = Distance(world, ucs, window)
     Camera(world)
 
 

@@ -5,7 +5,8 @@ class Distance:
     """
     Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)
     """
-    def __init__(self, showbase, UCS):
+    def __init__(self, showbase, UCS, window):
+        self.window = window
         self.app = showbase
         z = 0
         self.plane = Plane(Vec3(0, 0, 1), Point3(0, 0, z))
@@ -35,6 +36,8 @@ class Distance:
             if self.plane.intersectsLine(pos3d,relativeNearPoint,relativeFarPoint):
                 # Round the point
                 pos3d = Point3(round(pos3d.x,0),round(pos3d.y,0),round(pos3d.z,0))
+                text_tooltip = '[' + str(pos3d.x) + ',' + str(pos3d.y) + ',' + str(pos3d.z)+ ']'
+                self.window.update_tooltip(text_tooltip)
                 self.model.setPos(render, pos3d)
                 self.position = pos3d
         return task.again
