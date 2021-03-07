@@ -36,12 +36,12 @@ if __name__ == "__main__":
 
 
 
-    footing = ShallowFooting(0.5,2,0.25,0.25,0,0.1,0.5,2,2)
-    footing.draw(world.render)
-    beam = RectangularBeam(0.4, 0.19, 1, 1 , 0, 3)
-    beam.draw(world.render)
-    column = RectangularColumn(1,1,1.5,3,0.2,0.2)
-    column.draw(world.render)
+    # footing = ShallowFooting(0.5,2,0.25,0.25,0,0.1,0.5,2,2)
+    # footing.draw(world.render)
+    # beam = RectangularBeam(0.4, 0.19, 1, 1 , 0, 3)
+    # beam.draw(world.render)
+    # column = RectangularColumn(1,1,1.5,3,0.2,0.2)
+    # column.draw(world.render)
 
     apply_stylesheet(window, theme='dark_teal.xml')
     window.showMaximized()

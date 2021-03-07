@@ -21,8 +21,6 @@ class Distance:
         Method to calculate the intersection between the camera point and
         a plane specified. Also responsible for placing the UCS cursor following the mouse
         """
-        #.. math::
-        #    (a + b)^2 = a^2 + 2ab + b^2
 
         if base.mouseWatcherNode.hasMouse():
             mpos = base.mouseWatcherNode.getMouse()

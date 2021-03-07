@@ -22,12 +22,12 @@ class Camera:
         self.showbase.accept_once("mouse3", self.start_panning)
         self.showbase.accept("wheel_up", self.zoom_step_in)
         self.showbase.accept("wheel_down", self.zoom_step_out)
-        self.showbase.accept("control-wheel_up", self.zoom_step_in_const)
-        self.showbase.accept("control-wheel_down", self.zoom_step_out_const)
+        self.showbase.accept("arrow_up", self.zoom_step_in_const)
+        self.showbase.accept("arrow_down", self.zoom_step_out_const)
+        self.showbase.accept("arrow_left", self.left_step_in_const)
+        self.showbase.accept("arrow_right", self.right_step_in_const)
         self.showbase.accept("-", self.decr_zoom_step_factor)
-        self.showbase.accept("--repeat", self.decr_zoom_step_factor)
         self.showbase.accept("+", self.incr_zoom_step_factor)
-        self.showbase.accept("+-repeat", self.incr_zoom_step_factor)
 
     def stop_navigating(self):
 
@@ -92,10 +92,31 @@ class Camera:
         """Zoom out using a constant step value"""
 
         current_dist = self.cam.get_y()
-        new_dist = current_dist - .5 * self.zoom_step_factor
+        new_dist = current_dist - .1 * self.zoom_step_factor
 
         self.print_status('zoom step out')
         self.cam.set_y(new_dist)
+
+    def left_step_in_const(self):
+        """Zoom in using a constant step value"""
+
+        current_dist = self.cam.get_x()
+        new_dist = current_dist - .1 * self.zoom_step_factor
+
+        # Prevent the camera to move past its target node
+        # if new_dist > -.01:
+        #    new_dist = -.01
+
+
+        self.cam.set_x(new_dist)
+
+    def right_step_in_const(self):
+        """Zoom out using a constant step value"""
+
+        current_dist = self.cam.get_x()
+        new_dist = current_dist + .1 * self.zoom_step_factor
+
+        self.cam.set_x(new_dist)
 
     def decr_zoom_step_factor(self):
         """Decrease the value with which to multiply the zoom steps"""

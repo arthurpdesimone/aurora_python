@@ -1,8 +1,5 @@
 from QPanda3D.Panda3DWorld import Panda3DWorld
 
-import sys
-
-
 class World(Panda3DWorld):
     """Class to encapsulate the app and maximize window on Windows environment"""
 
