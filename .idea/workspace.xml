@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.3: Creating a tooltip that follows the mouse">
-      <change afterPath="$PROJECT_DIR$/tests/dialog custom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/gui/ImportDialogDXF.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.4: Minor changes in camera control">
+      <change afterPath="$PROJECT_DIR$/view/tools/Log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Distance.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +67,35 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests\examples\runtime" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\view\tools" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\model" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\source" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\src" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="cinema4d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/cinema4d.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="cinema4d_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,27 +159,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="runtime_dock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_dock.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="runtime_menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,19 +181,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.runtime_dock" />
-      <item itemvalue="Python.runtime_menu" />
+      <item itemvalue="Python.cinema4d" />
       <item itemvalue="Python.cinema4d_test" />
       <item itemvalue="Python.dialog custom" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.runtime_menu" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.cinema4d" />
         <item itemvalue="Python.dialog custom" />
         <item itemvalue="Python.cinema4d_test" />
         <item itemvalue="Python.runtime_menu" />
-        <item itemvalue="Python.runtime_dock" />
       </list>
     </recent_temporary>
   </component>
@@ -206,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Reverted last commit">
-      <created>1613581501998</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1613581501998</updated>
     </task>
     <task id="LOCAL-00038" summary="Reverted last commit">
       <created>1613585048277</created>
@@ -550,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614714994146</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Version 0.1.4: Minor changes in camera control">
+      <created>1615086468688</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1615086468690</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Icon adjustment" />
     <MESSAGE value="Camera fix" />
     <MESSAGE value="Layout improvements" />
     <MESSAGE value="Added loads menu" />
@@ -592,7 +590,8 @@
     <MESSAGE value="Version 0.1.1: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.3: Creating a tooltip that follows the mouse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.3: Creating a tooltip that follows the mouse" />
+    <MESSAGE value="Version 0.1.4: Minor changes in camera control" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.4: Minor changes in camera control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

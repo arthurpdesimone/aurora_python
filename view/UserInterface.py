@@ -29,8 +29,8 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         menu = self.menu_load_dxf
         menu.triggered.connect(self.show_import_dialog_dxf)
 
-    def update_tooltip(self,point):
-        self.setToolTip(point)
+    def update_statusbar(self, point):
+        self.statusBar().showMessage("Mouse position : "+point)
 
     def show_import_dialog_dxf(self):
         """ Method to show dialog to open a dialog to import DXF files"""

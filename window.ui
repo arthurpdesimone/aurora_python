@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>762</width>
-    <height>543</height>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,54 +19,145 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="1">
-     <widget class="QWidget" name="visualization" native="true">
-      <layout class="QGridLayout" name="gridLayout"/>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QTreeWidget" name="navigator">
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>5</number>
       </property>
-      <column>
-       <property name="text">
-        <string>Projeto</string>
-       </property>
-      </column>
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
       <item>
-       <property name="text">
-        <string>Elementos Estruturais</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Fundações</string>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Pilares</string>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>75</height>
+         </size>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Vigas</string>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Lajes</string>
-        </property>
-       </item>
+       </widget>
       </item>
-      <item>
-       <property name="text">
-        <string>Plantas</string>
-       </property>
-      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTabWidget" name="tabs">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="visualization_tab">
+       <attribute name="title">
+        <string>Visualizador de Projeto</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QTreeWidget" name="navigator">
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Navegador de projeto</string>
+          </property>
+          <column>
+           <property name="text">
+            <string>Projeto</string>
+           </property>
+          </column>
+          <item>
+           <property name="text">
+            <string>Elementos Estruturais</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Fundações</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pilares</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vigas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Lajes</string>
+            </property>
+           </item>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plantas</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="visualization" native="true">
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="options_tab">
+       <attribute name="title">
+        <string>Opções</string>
+       </attribute>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -120,7 +211,15 @@
     <addaction name="actionSuperf_cie"/>
     <addaction name="actionTermal"/>
    </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <addaction name="actionDesfazer"/>
+    <addaction name="actionRefazer"/>
+   </widget>
    <addaction name="menuArquivo"/>
+   <addaction name="menuEditar"/>
    <addaction name="menuArquitetura"/>
    <addaction name="menuCargas"/>
   </widget>
@@ -191,6 +290,16 @@
   <action name="actionTermal">
    <property name="text">
     <string>Termal</string>
+   </property>
+  </action>
+  <action name="actionDesfazer">
+   <property name="text">
+    <string>Desfazer</string>
+   </property>
+  </action>
+  <action name="actionRefazer">
+   <property name="text">
+    <string>Refazer</string>
    </property>
   </action>
  </widget>

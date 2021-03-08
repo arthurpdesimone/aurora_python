@@ -1,5 +1,6 @@
-from direct.showbase.ShowBase import ShowBase
 from panda3d.core import WindowProperties, Point2, Point3, Plane, Vec3
+
+from view.tools.Log import Log
 
 
 class Camera:

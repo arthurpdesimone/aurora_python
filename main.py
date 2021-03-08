@@ -21,9 +21,11 @@ from view.Grid import Grid
 from view.UCS import UCS
 from view.UserInterface import UserInterface
 from view.World import World
-
+from view.tools.Log import Log
 
 if __name__ == "__main__":
+    log = Log.instance()
+    log.appendLog('Program started')
     app = QApplication(sys.argv)
 
     world = World()
@@ -47,4 +49,10 @@ if __name__ == "__main__":
     window.showMaximized()
     window.show()
 
+    aspectRatio = world.showbase.getAspectRatio()
+    ySize = 1
+    xSize = ySize * aspectRatio
+    log.appendLog("[" + str(xSize) + "," + str(ySize) + "]")
+
+    log.appendLog('Program finished')
     sys.exit(app.exec_())
