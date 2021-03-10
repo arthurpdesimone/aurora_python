@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.5: Log creation, fixed UCS on screen on early development">
-      <change afterPath="$PROJECT_DIR$/tests/App.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Camera.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/main_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/App.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Camera.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/main_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/rotating.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/AxisTripod.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/AxisTripod.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Direct entry try">
-      <created>1613590430322</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1613590430322</updated>
     </task>
     <task id="LOCAL-00041" summary="Direct entry try">
       <created>1613590919126</created>
@@ -546,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615381351509</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Version 0.1.5: Log creation, fixed UCS on screen on early development">
+      <created>1615382015127</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1615382015127</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,4 +1,3 @@
-from direct.showbase.ShowBase import ShowBase, DirectObject
 from panda3d.core import *
 
 
@@ -6,9 +5,9 @@ class AxisTripod:
 
     def __init__(self, showbase):
 
-        self._win = showbase.win
-        self._dr_pixel_size = 68  # size of display region in pixels
-        dr = showbase.win.make_display_region(0., 1., 0., 1.)
+        self._buffer = showbase.buff
+        self._dr_pixel_size = 100  # size of display region in pixels
+        dr = self._buffer.make_display_region(0, 1., 0., 1.)
         dr.sort = 2
         lens = OrthographicLens()
         lens.film_size = .235
@@ -32,8 +31,8 @@ class AxisTripod:
         node.set_bounds(OmniBoundingVolume())
         node.final = True
 
-        self._listener = DirectObject.DirectObject()
-        self._listener.accept("aspectRatioChanged", self.__update_region_size)
+        self._buffer_size = (0, 0)
+        showbase.task_mgr.do_method_later(.2, self.__update_region_size, "update_region_size")
 
     def __create_model(self):
 
@@ -64,10 +63,17 @@ class AxisTripod:
 
         return model
 
-    def __update_region_size(self):
+    def __update_region_size(self, task):
 
-        win_w, win_h = self._win.properties.size
+        win_w, win_h = self._buffer.size
+
+        if self._buffer_size == (win_w, win_h):
+            return task.again
+
         aspect_ratio = win_w / win_h
         size_h = self._dr_pixel_size / win_w
         size_v = size_h * aspect_ratio
+        self._buffer_size = (win_w, win_h)
         self._display_region.dimensions = (0., size_h, 0., size_v)
+
+        return task.again
