@@ -1,5 +1,6 @@
 from panda3d.core import LineSegs, NodePath,CardMaker, GeomNode
 
+from view.AxisTripod import AxisTripod
 from view.Geometry import makeLine
 
 
@@ -12,6 +13,7 @@ class Grid:
         """
         Constructor method
         """
+        self.showbase = showbase
         self.render = showbase.render
         self.draw_grid()
         self.draw_plane()
@@ -41,7 +43,11 @@ class Grid:
             ls = makeLine(i * spacing, 0, z_shift, i * spacing, lines, z_shift, ls)
 
         node = ls.create()
-        NodePath(node).reparentTo(self.render)
+        nodepath = NodePath(node)
+        nodepath.reparentTo(self.render)
+
+
+
 
     def draw_plane(self,a=(0,0),b=(100,100),color=(0.15,0.15,0.15,1)):
         """ Method to draw a plane using :class:`panda3d.core.CardMaker`
@@ -58,4 +64,5 @@ class Grid:
         c.setFrame(a[0],b[0],a[1],b[1])
         c.setColor(color)
         """ Attach to render and rotate the card """
-        self.render.attachNewNode(c.generate()).lookAt(0, 0, -1)
+        card = c.generate()
+        self.render.attachNewNode(card).lookAt(0, 0, -1)

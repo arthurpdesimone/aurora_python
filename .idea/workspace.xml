@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.4: Minor changes in camera control">
-      <change afterPath="$PROJECT_DIR$/view/tools/Log.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.5: Log creation, fixed UCS on screen on early development">
+      <change afterPath="$PROJECT_DIR$/tests/rotating.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/AxisTripod.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Distance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Grid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/tools/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/tools/Log.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="runtime_menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="rotating" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -167,11 +168,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/examples/runtime" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/examples/runtime/runtime_menu.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/rotating.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,15 +186,15 @@
       <item itemvalue="Python.cinema4d_test" />
       <item itemvalue="Python.dialog custom" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.runtime_menu" />
+      <item itemvalue="Python.rotating" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.rotating" />
         <item itemvalue="Python.cinema4d" />
         <item itemvalue="Python.dialog custom" />
         <item itemvalue="Python.cinema4d_test" />
-        <item itemvalue="Python.runtime_menu" />
       </list>
     </recent_temporary>
   </component>
@@ -205,13 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Reverted last commit">
-      <created>1613585048277</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1613585048277</updated>
     </task>
     <task id="LOCAL-00039" summary="Direct entry try">
       <created>1613589291321</created>
@@ -549,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615086468690</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Version 0.1.5: Log creation, fixed UCS on screen on early development">
+      <created>1615176162378</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1615176162378</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Camera fix" />
     <MESSAGE value="Layout improvements" />
     <MESSAGE value="Added loads menu" />
     <MESSAGE value="Fixed layout issues&#10;https://discourse.panda3d.org/t/submenu-creation/27218/8" />
@@ -591,7 +591,8 @@
     <MESSAGE value="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.3: Creating a tooltip that follows the mouse" />
     <MESSAGE value="Version 0.1.4: Minor changes in camera control" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.4: Minor changes in camera control" />
+    <MESSAGE value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

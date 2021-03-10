@@ -55,11 +55,11 @@ class Distance:
         self.position = Point3()
         taskMgr.add(self.get_mouse_pos, "_Distance__get_mouse_pos")
 
-        origin = [-1, 5, -1.0]
-        coords_np, axis_x_np, axis_y_np, axis_z_np = create_axes_cross("coords", 3, True)
-        coords_np.reparentTo(self.showbase.cam)
-        coords_np.setPos(self.showbase.cam, tuple(origin))
-        coords_np.setScale(0.1)
+        # origin = [-2, 5, -1.0]
+        # coords_np, axis_x_np, axis_y_np, axis_z_np = create_axes_cross("coords", 3, True)
+        # coords_np.reparentTo(self.showbase.cam)
+        # coords_np.setPos(self.showbase.cam, tuple(origin))
+        # coords_np.setScale(0.1)
 
 
     def get_mouse_pos(self, task):
@@ -82,8 +82,6 @@ class Distance:
                 pos3d = Point3(round(pos3d.x,0),round(pos3d.y,0),round(pos3d.z,0))
                 status3d = '[' + str(pos3d.x) + ',' + str(pos3d.y) + ',' + str(pos3d.z)+ ']'
                 self.window.update_statusbar(status3d)
-                aspectratio = self.showbase.getAspectRatio()
-                print(aspectratio)
                 self.model.setPos(render, pos3d)
                 self.position = pos3d
         return task.again

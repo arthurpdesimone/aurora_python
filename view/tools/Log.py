@@ -14,6 +14,10 @@ class Log:
         self.log[timestamp] = message
         print(self.log)
 
+    def printRenderChild(self,render):
+        for children in render.getChildren():
+            print(children)
+
     @classmethod
     def instance(cls):
         if cls._instance is None:

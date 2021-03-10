@@ -30,6 +30,8 @@ class Camera:
         self.showbase.accept("-", self.decr_zoom_step_factor)
         self.showbase.accept("+", self.incr_zoom_step_factor)
 
+
+
     def stop_navigating(self):
 
         self.task_mgr.remove("transform_cam")
