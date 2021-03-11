@@ -18,7 +18,6 @@ Mako==1.1.4
 Markdown==3.3.3
 markdown2==2.4.0
 MarkupSafe==1.1.1
-numpy==1.20.1
 packaging==20.9
 panda3d==1.10.8
 pefile==2019.4.18
@@ -35,7 +34,7 @@ PyQt5==5.15.3
 PyQt5-Qt==5.15.2
 PyQt5-sip==12.8.1
 PyQt5-stubs==5.15.2.0
-PyQt5Designer==5.14.1
+#PyQt5Designer==5.14.1
 pytz==2021.1
 QPanda3D==0.2.7
 qt-material==2.8.3
@@ -53,5 +52,4 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-napoleon==0.7
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
-sqlparse==0.4.1
 urllib3==1.26.3

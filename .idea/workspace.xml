@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.7: UCS minor fixes, code improvement">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.7: Removing unused imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/dialog custom.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,13 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Docs changed place">
-      <created>1613752261721</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1613752261721</updated>
     </task>
     <task id="LOCAL-00044" summary="Docs changed place">
       <created>1613752328485</created>
@@ -545,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615435343056</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Version 0.1.7: Removing unused imports">
+      <created>1615487940981</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1615487940983</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed layout issues&#10;https://discourse.panda3d.org/t/submenu-creation/27218/8" />
     <MESSAGE value="Reverted last commit" />
     <MESSAGE value="Direct entry try" />
     <MESSAGE value="Docs changed place" />
@@ -587,7 +585,8 @@
     <MESSAGE value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
     <MESSAGE value="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3" />
     <MESSAGE value="Version 0.1.7: UCS minor fixes, code improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.7: UCS minor fixes, code improvement" />
+    <MESSAGE value="Version 0.1.7: Removing unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.7: Removing unused imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
