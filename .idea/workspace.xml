@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3">
-      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/AxisTripod.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/World.html" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.7: UCS minor fixes, code improvement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/dxf/DXF.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/dxf/DXF.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UCS.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/UCS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/AxisTripod.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/AxisTripod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UCS.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UCS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/dialog custom.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,13 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Docs changed place">
-      <created>1613648704112</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1613648704112</updated>
     </task>
     <task id="LOCAL-00043" summary="Docs changed place">
       <created>1613752261721</created>
@@ -566,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615400584804</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Version 0.1.7: UCS minor fixes, code improvement">
+      <created>1615435343053</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1615435343056</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -583,7 +562,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added loads menu" />
     <MESSAGE value="Fixed layout issues&#10;https://discourse.panda3d.org/t/submenu-creation/27218/8" />
     <MESSAGE value="Reverted last commit" />
     <MESSAGE value="Direct entry try" />
@@ -608,7 +586,8 @@
     <MESSAGE value="Version 0.1.4: Minor changes in camera control" />
     <MESSAGE value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
     <MESSAGE value="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3" />
+    <MESSAGE value="Version 0.1.7: UCS minor fixes, code improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.7: UCS minor fixes, code improvement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

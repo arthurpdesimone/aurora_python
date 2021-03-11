@@ -7,9 +7,6 @@ Babel==2.9.0
 certifi==2020.12.5
 chardet==4.0.0
 colorama==0.4.4
-DirectFolderBrowser==20.11
-DirectGuiExtension==20.12
-Django==3.1.7
 docutils==0.16
 ezdxf==0.15.1
 future==0.18.2
@@ -24,8 +21,6 @@ MarkupSafe==1.1.1
 numpy==1.20.1
 packaging==20.9
 panda3d==1.10.8
-pdoc==4.0.0
-pdoc3==0.9.2
 pefile==2019.4.18
 Pillow==8.1.0
 Pmw==2.0.1
@@ -41,10 +36,7 @@ PyQt5-Qt==5.15.2
 PyQt5-sip==12.8.1
 PyQt5-stubs==5.15.2.0
 PyQt5Designer==5.14.1
-PySide6==6.0.1
 pytz==2021.1
-pywin32==300
-pywin32-ctypes==0.2.0
 QPanda3D==0.2.7
 qt-material==2.8.3
 requests==2.25.1
