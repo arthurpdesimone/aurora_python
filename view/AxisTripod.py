@@ -2,9 +2,8 @@ from panda3d.core import *
 
 
 class AxisTripod:
-
+    """ Class to draw an interactive camera UCS tripod"""
     def __init__(self, showbase):
-
         self._buffer = showbase.buff
         self._dr_pixel_size = 100  # size of display region in pixels
         dr = self._buffer.make_display_region(0, 1., 0., 1.)

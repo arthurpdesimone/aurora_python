@@ -420,29 +420,15 @@
 
 </dd></dl>
 
-<span class="target" id="module-view.App"></span><dl class="py class">
-<dt id="view.App.App">
-<em class="property">class </em><code class="sig-prename descclassname">view.App.</code><code class="sig-name descname">App</code><a class="reference internal" href="_modules/view/App.html#App"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.App.App" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to encapsulate the app and maximize window on Windows environment</p>
-<p>Opens a window, sets up a 3-D and several 2-D scene graphs, and
-everything else needed to render the scene graph to the window.</p>
-<p>To prevent a window from being opened, set windowType to the string
-‘none’ (or ‘offscreen’ to create an offscreen buffer).  If this is not
-specified, the default value is taken from the ‘window-type’
-configuration variable.</p>
-<p>This constructor will add various things to the Python builtins scope,
-including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
-<dl class="py attribute">
-<dt id="view.App.App.base">
-<code class="sig-name descname">base</code><a class="headerlink" href="#view.App.App.base" title="Permalink to this definition">¶</a></dt>
-<dd><p>To enable the camera</p>
-</dd></dl>
-
+<span class="target" id="module-view.AxisTripod"></span><dl class="py class">
+<dt id="view.AxisTripod.AxisTripod">
+<em class="property">class </em><code class="sig-prename descclassname">view.AxisTripod.</code><code class="sig-name descname">AxisTripod</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/AxisTripod.html#AxisTripod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.AxisTripod.AxisTripod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to draw an interactive camera UCS tripod</p>
 </dd></dl>
 
 <span class="target" id="module-view.Camera"></span><span class="target" id="module-view.Distance"></span><dl class="py class">
 <dt id="view.Distance.Distance">
-<em class="property">class </em><code class="sig-prename descclassname">view.Distance.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em>, <em class="sig-param"><span class="n">UCS</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">view.Distance.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em>, <em class="sig-param"><span class="n">UCS</span></em>, <em class="sig-param"><span class="n">window</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)</p>
 <dl class="py method">
 <dt id="view.Distance.Distance.get_mouse_pos">
@@ -561,15 +547,13 @@ this class also has a method to draw a plane to serve as reference to drawing</p
 
 </dd></dl>
 
-<span class="target" id="module-view.Tooltip"></span><p>This snippet shows how to create a tooltip text that will be attached
-to the cursor and check it’s position to not move out of the screen.</p>
 <span class="target" id="module-view.UCS"></span><dl class="py class">
 <dt id="view.UCS.UCS">
 <em class="property">class </em><code class="sig-prename descclassname">view.UCS.</code><code class="sig-name descname">UCS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an UCS symbol on point (0,0,0) and draw a mini-UCS at the mouse position</p>
 <dl class="py method">
-<dt id="view.UCS.UCS.P3DCreateAxes">
-<code class="sig-name descname">P3DCreateAxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS.P3DCreateAxes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS.P3DCreateAxes" title="Permalink to this definition">¶</a></dt>
+<dt id="view.UCS.UCS.create_ucs">
+<code class="sig-name descname">create_ucs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS.create_ucs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS.create_ucs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the UCS using the class <code class="xref py py-class docutils literal notranslate"><span class="pre">panda3d.core.LineSegs</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -579,72 +563,53 @@ to the cursor and check it’s position to not move out of the screen.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="view.UCS.UCS.UCS_text">
-<code class="sig-name descname">UCS_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS.UCS_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS.UCS_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw X, Y, Z at the tip of each of the UCS axis</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="view.UCS.UCS.text_customize">
-<code class="sig-name descname">text_customize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_node</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS.text_customize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS.text_customize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Customize the axis label to fit into a black background</p>
+<dt id="view.UCS.UCS.draw_cross">
+<code class="sig-name descname">draw_cross</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">thickness</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UCS.html#UCS.draw_cross"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UCS.UCS.draw_cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to create a tripod following the mouse cursor</p>
 </dd></dl>
 
 </dd></dl>
 
 <span class="target" id="module-view.UserInterface"></span><dl class="py class">
 <dt id="view.UserInterface.UserInterface">
-<em class="property">class </em><code class="sig-prename descclassname">view.UserInterface.</code><code class="sig-name descname">UserInterface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class holding all elements at the Graphical User Interface</p>
+<em class="property">class </em><code class="sig-prename descclassname">view.UserInterface.</code><code class="sig-name descname">UserInterface</code><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manage the user interface</p>
 <dl class="py method">
-<dt id="view.UserInterface.UserInterface.menu">
-<code class="sig-name descname">menu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.menu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configuring the menu file</p>
+<dt id="view.UserInterface.UserInterface.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">world</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to open and attach panda3d widget to UI</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="view.UserInterface.UserInterface.menu_close_file">
-<code class="sig-name descname">menu_close_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.menu_close_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.menu_close_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to handle confirmation dialog to close application</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
-</dd>
-</dl>
+<dt id="view.UserInterface.UserInterface.setup_menu">
+<code class="sig-name descname">setup_menu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.setup_menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.setup_menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close menu</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="view.UserInterface.UserInterface.menu_open">
-<code class="sig-name descname">menu_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.menu_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.menu_open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to handle DirectFolderBrowser and open a file to the model
-<a class="reference external" href="https://github.com/fireclawthefox/DirectFolderBrowser">https://github.com/fireclawthefox/DirectFolderBrowser</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
-</dd>
-</dl>
+<dt id="view.UserInterface.UserInterface.show_import_dialog_dxf">
+<code class="sig-name descname">show_import_dialog_dxf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.show_import_dialog_dxf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.show_import_dialog_dxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to show dialog to open a dialog to import DXF files</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="view.UserInterface.UserInterface.menu_open_file">
-<code class="sig-name descname">menu_open_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.menu_open_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.menu_open_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to handle confirmation dialog to open file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arg</strong> (<em>int</em>) – The value ok = True, cancel = False</p>
-</dd>
-</dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="view.UserInterface.UserInterface.menu_option">
-<code class="sig-name descname">menu_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.menu_option"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.menu_option" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to handle all the options of the menu</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arg</strong> (<em>str</em>) – The caption of the menu selected</p>
-</dd>
-</dl>
+<span class="target" id="module-view.World"></span><dl class="py class">
+<dt id="view.World.World">
+<em class="property">class </em><code class="sig-prename descclassname">view.World.</code><code class="sig-name descname">World</code><a class="reference internal" href="_modules/view/World.html#World"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.World.World" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to encapsulate the app and maximize window on Windows environment</p>
+<p>Opens a window, sets up a 3-D and several 2-D scene graphs, and
+everything else needed to render the scene graph to the window.</p>
+<p>To prevent a window from being opened, set windowType to the string
+‘none’ (or ‘offscreen’ to create an offscreen buffer).  If this is not
+specified, the default value is taken from the ‘window-type’
+configuration variable.</p>
+<p>This constructor will add various things to the Python builtins scope,
+including this instance itself (under the name <code class="docutils literal notranslate"><span class="pre">base</span></code>).</p>
+<dl class="py attribute">
+<dt id="view.World.World.showbase">
+<code class="sig-name descname">showbase</code><a class="headerlink" href="#view.World.World.showbase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximizing windows</p>
 </dd></dl>
 
 </dd></dl>

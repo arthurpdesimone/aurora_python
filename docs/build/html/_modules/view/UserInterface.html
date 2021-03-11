@@ -148,141 +148,43 @@
            <div itemprop="articleBody">
             
   <h1>Source code for view.UserInterface</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectAutoSizer</span> <span class="kn">import</span> <span class="n">DirectAutoSizer</span>
-<span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">direct.gui</span> <span class="kn">import</span> <span class="n">DirectGuiGlobals</span> <span class="k">as</span> <span class="n">DGG</span>
-<span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectBoxSizer</span> <span class="kn">import</span> <span class="n">DirectBoxSizer</span>
-<span class="kn">from</span> <span class="nn">DirectGuiExtension.DirectMenuItem</span> <span class="kn">import</span> <span class="n">DirectMenuItem</span><span class="p">,</span> <span class="n">DirectMenuItemEntry</span><span class="p">,</span> <span class="n">DirectMenuItemSubMenu</span>
-<span class="kn">from</span> <span class="nn">DirectFolderBrowser.DirectFolderBrowser</span> <span class="kn">import</span> <span class="n">DirectFolderBrowser</span>
-<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">TextNode</span>
+<span></span><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QFileDialog</span>
+<span class="kn">from</span> <span class="nn">QPanda3D.QPanda3DWidget</span> <span class="kn">import</span> <span class="n">QPanda3DWidget</span>
+<span class="kn">from</span> <span class="nn">qt_material</span> <span class="kn">import</span> <span class="n">QtStyleTools</span>
 
-<span class="kn">from</span> <span class="nn">dxf.DXF</span> <span class="kn">import</span> <span class="n">DXF</span>
+<span class="kn">from</span> <span class="nn">view.gui.ImportDialogDXF</span> <span class="kn">import</span> <span class="n">ImportDialogDXF</span>
 
 
-<div class="viewcode-block" id="UserInterface"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface">[docs]</a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Class holding all elements at the Graphical User Interface &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="UserInterface"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface">[docs]</a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QtStyleTools</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Class to manage the user interface&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">UserInterface</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># Call the inherited classes __init__ method</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showbase</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span> <span class="o">=</span> <span class="n">showbase</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span> <span class="o">=</span> <span class="n">DirectBoxSizer</span><span class="p">(</span><span class="n">relief</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">orientation</span><span class="o">=</span><span class="n">DGG</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="n">DGG</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">,</span><span class="n">autoUpdateFrameSize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">DirectAutoSizer</span><span class="p">(</span><span class="n">relief</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">child</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="p">,</span><span class="n">childUpdateSizeFunc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="p">()</span>
-        <span class="sd">&quot;&quot;&quot;Let the GUI system create the layout&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<div class="viewcode-block" id="UserInterface.initialize"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to open and attach panda3d widget to UI&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main</span> <span class="o">=</span> <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="s1">&#39;window.ui&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>  <span class="c1"># Load the .ui file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showbase</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">showbase</span>
+        <span class="sd">&quot;&quot;&quot; Place Panda Qt Widget&quot;&quot;&quot;</span>
+        <span class="n">layouts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="s1">&#39;visualization&#39;</span><span class="p">)</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">layouts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QPanda3DWidget</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+        <span class="n">world</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot; Setup menus &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_menu</span><span class="p">()</span></div>
 
+<div class="viewcode-block" id="UserInterface.setup_menu"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.setup_menu">[docs]</a>    <span class="k">def</span> <span class="nf">setup_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Close menu &quot;&quot;&quot;</span>
+        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_load_dxf</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_import_dialog_dxf</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UserInterface.menu"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.menu">[docs]</a>    <span class="k">def</span> <span class="nf">menu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update_statusbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s2">&quot;Mouse position : &quot;</span><span class="o">+</span><span class="n">point</span><span class="p">)</span>
 
-        <span class="sd">&quot;&quot;&quot;Configuring the menu file&quot;&quot;&quot;</span>
-        <span class="n">fileList</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Novo&quot;</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="p">[</span><span class="kc">False</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Abrir&quot;</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemSubMenu</span><span class="p">(</span><span class="s2">&quot;Importar &gt;&quot;</span><span class="p">,</span> <span class="p">[</span>
-                <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Abrir DXF&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Abrir DXF&quot;</span><span class="p">]),</span>
-                <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Limpar DXF&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Limpar DXF&quot;</span><span class="p">]),</span>
-            <span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Fechar&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Fechar&quot;</span><span class="p">])]</span>
-        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">DirectMenuItem</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Arquivo&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">item_relief</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">fileList</span><span class="p">)</span>
-
-        <span class="sd">&quot;&quot;&quot;Configuring the menu architecture&quot;&quot;&quot;</span>
-        <span class="n">archList</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Laje&quot;</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="p">[</span><span class="kc">False</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Viga&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Pilar&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Fechar&quot;</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemSubMenu</span><span class="p">(</span><span class="s2">&quot;Fundação &gt;&quot;</span><span class="p">,</span> <span class="p">[</span>
-                <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Fundação rasa&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_arch_footing</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;shallow&quot;</span><span class="p">]),</span>
-                <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Fundação contínua&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_arch_footing</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;continuous&quot;</span><span class="p">]),</span>
-                <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Fundação profunda&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pile&quot;</span><span class="p">]),</span>
-            <span class="p">])</span>
-        <span class="p">]</span>
-        <span class="n">archMenu</span> <span class="o">=</span> <span class="n">DirectMenuItem</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Arquitetura&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">item_relief</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">archList</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot;Configuring the menu loads&quot;&quot;&quot;</span>
-        <span class="n">loadList</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Carga em área&quot;</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="p">[</span><span class="kc">False</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Carga em linha&quot;</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Carga em ponto&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Fechar&quot;</span><span class="p">]),</span>
-            <span class="n">DirectMenuItemEntry</span><span class="p">(</span><span class="s2">&quot;Carga térmica&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_option</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Fechar&quot;</span><span class="p">])</span>
-        <span class="p">]</span>
-        <span class="n">loadMenu</span> <span class="o">=</span> <span class="n">DirectMenuItem</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Cargas&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">item_relief</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">loadList</span><span class="p">)</span>
-        <span class="n">boxSizer</span> <span class="o">=</span> <span class="n">DirectBoxSizer</span><span class="p">(</span><span class="n">itemAlign</span><span class="o">=</span><span class="n">DirectBoxSizer</span><span class="o">.</span><span class="n">A_Left</span><span class="p">)</span>
-        <span class="n">boxSizer</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">fileMenu</span><span class="p">)</span>
-        <span class="n">boxSizer</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">archMenu</span><span class="p">)</span>
-        <span class="n">boxSizer</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">loadMenu</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">mainBox</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">boxSizer</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="UserInterface.menu_option"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.menu_option">[docs]</a>    <span class="k">def</span> <span class="nf">menu_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Method to handle all the options of the menu</span>
-
-<span class="sd">        :param arg: The caption of the menu selected</span>
-<span class="sd">        :type arg: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Novo&#39;</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Abrir DXF&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span> <span class="o">=</span> <span class="n">DirectFolderBrowser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_open</span><span class="p">,</span> <span class="n">fileBrowser</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">defaultPath</span><span class="o">=</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Limpar DXF&#39;</span><span class="p">:</span>
-            <span class="n">DXF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="p">)</span><span class="o">.</span><span class="n">clear_dxf</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s1">&#39;Fechar&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">close_dialog</span> <span class="o">=</span> <span class="n">YesNoDialog</span><span class="p">(</span><span class="n">dialogName</span><span class="o">=</span><span class="s2">&quot;CloseDialog&quot;</span><span class="p">,</span> <span class="n">buttonTextList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sim&#39;</span><span class="p">,</span> <span class="s1">&#39;Não&#39;</span><span class="p">],</span>
-                                      <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Deseja fechar o programa?&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_close_file</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="UserInterface.menu_open"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.menu_open">[docs]</a>    <span class="k">def</span> <span class="nf">menu_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Method to handle DirectFolderBrowser and open a file to the model</span>
-<span class="sd">        https://github.com/fireclawthefox/DirectFolderBrowser</span>
-
-<span class="sd">        :param arg: The value ok = True, cancel = False</span>
-<span class="sd">        :type arg: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># print the selected file</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">open_dialog</span> <span class="o">=</span> <span class="n">YesNoDialog</span><span class="p">(</span><span class="n">dialogName</span><span class="o">=</span><span class="s2">&quot;OpenDialog&quot;</span><span class="p">,</span> <span class="n">buttonTextList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sim&#39;</span><span class="p">,</span> <span class="s1">&#39;Não&#39;</span><span class="p">],</span>
-                                 <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Deseja abrir &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_open_file</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
-
-<div class="viewcode-block" id="UserInterface.menu_open_file"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.menu_open_file">[docs]</a>    <span class="k">def</span> <span class="nf">menu_open_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Method to handle confirmation dialog to open file</span>
-
-<span class="sd">        :param arg: The value ok = True, cancel = False</span>
-<span class="sd">        :type arg: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">arg</span><span class="p">:</span>
-            <span class="n">DXF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="p">)</span><span class="o">.</span><span class="n">read_dxf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">open_dialog</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
-
-<div class="viewcode-block" id="UserInterface.menu_close_file"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.menu_close_file">[docs]</a>    <span class="k">def</span> <span class="nf">menu_close_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Method to handle confirmation dialog to close application</span>
-
-<span class="sd">        :param arg: The value ok = True, cancel = False</span>
-<span class="sd">        :type arg: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">arg</span><span class="p">:</span>
-            <span class="n">exit</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">close_dialog</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
-
-    <span class="k">def</span> <span class="nf">menu_arch_footing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="s2">&quot;shallow&quot;</span><span class="p">:</span>
-
-            <span class="c1"># clear the text</span>
-            <span class="k">def</span> <span class="nf">clearText</span><span class="p">():</span>
-                <span class="n">entry</span><span class="o">.</span><span class="n">enterText</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-            <span class="c1"># add text entry</span>
-            <span class="n">entry</span> <span class="o">=</span> <span class="n">DirectEntry</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span><span class="n">initialText</span><span class="o">=</span><span class="s2">&quot;Type Something&quot;</span><span class="p">,</span> <span class="n">numLines</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">focus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">focusInCommand</span><span class="o">=</span><span class="n">clearText</span><span class="p">)</span>
-
-        <span class="k">elif</span> <span class="n">arg</span> <span class="o">==</span> <span class="s2">&quot;pile&quot;</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">pass</span></div>
+<div class="viewcode-block" id="UserInterface.show_import_dialog_dxf"><a class="viewcode-back" href="../../index.html#view.UserInterface.UserInterface.show_import_dialog_dxf">[docs]</a>    <span class="k">def</span> <span class="nf">show_import_dialog_dxf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method to show dialog to open a dialog to import DXF files&quot;&quot;&quot;</span>
+        <span class="n">ImportDialogDXF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showbase</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -47,5 +47,7 @@ if __name__ == "__main__":
     window.show()
 
 
+    log.printRenderChild(world.render)
+
     log.appendLog('Program finished')
     sys.exit(app.exec_())

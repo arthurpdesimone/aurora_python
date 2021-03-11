@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.5: Log creation, fixed UCS on screen on early development">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3">
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/AxisTripod.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/World.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/dxf/DXF.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/dxf/DXF.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Grid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UCS.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/UCS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/App.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Camera.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/main_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/rotating.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/AxisTripod.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/AxisTripod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UCS.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UCS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +91,7 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="cinema4d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -189,9 +206,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main_test" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.rotating" />
         <item itemvalue="Python.cinema4d" />
       </list>
@@ -205,13 +222,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Direct entry try">
-      <created>1613590919126</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1613590919126</updated>
     </task>
     <task id="LOCAL-00042" summary="Docs changed place">
       <created>1613648704112</created>
@@ -549,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615382015127</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3">
+      <created>1615400584802</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1615400584804</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +583,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Layout improvements" />
     <MESSAGE value="Added loads menu" />
     <MESSAGE value="Fixed layout issues&#10;https://discourse.panda3d.org/t/submenu-creation/27218/8" />
     <MESSAGE value="Reverted last commit" />
@@ -591,7 +607,8 @@
     <MESSAGE value="Version 0.1.3: Creating a tooltip that follows the mouse" />
     <MESSAGE value="Version 0.1.4: Minor changes in camera control" />
     <MESSAGE value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.5: Log creation, fixed UCS on screen on early development" />
+    <MESSAGE value="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.6: Log creation, fixed UCS on screen&#10;&#10;https://discourse.panda3d.org/t/embedded-qt-panda-get-adimensional-coordinates/27367/3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

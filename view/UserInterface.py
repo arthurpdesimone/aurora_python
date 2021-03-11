@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic, QtCore
+from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtWidgets import QWidget, QFileDialog
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
 from qt_material import QtStyleTools

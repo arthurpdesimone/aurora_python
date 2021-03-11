@@ -1,14 +1,14 @@
-from panda3d.core import NodePath, LineSegs, TextNode
+from panda3d.core import NodePath, LineSegs, TextNode, VBase4, VBase3
+
 
 class UCS:
     """ Create an UCS symbol on point (0,0,0) and draw a mini-UCS at the mouse position """
     def __init__(self, showbase):
         self.size = 1
         self.render = showbase.render
-        self.P3DCreateAxes(5)
-        self.UCS_text()
+        self.create_ucs(5)
 
-    def P3DCreateAxes(self,thickness=1):
+    def create_ucs(self, thickness=1):
         """ Create the UCS using the class :class:`panda3d.core.LineSegs`
 
         :param thickness: The UCS thickness
@@ -17,74 +17,48 @@ class UCS:
         ls = LineSegs('UCS')
         ls.setThickness(thickness)
 
-        """ X axis """
-        ls.setColor(1, 0, 0, 1)
-        ls.moveTo(0, 0, 0)
-        ls.drawTo(self.size, 0, 0)
+        """ Draw three axes at once including the text"""
+        label = ["x","y","z"]
+        for i in range(3):
+            color = VBase4(0,0,0,1)
+            color[i] = 1
+            ls.setColor(color)
+            ls.moveTo(0,0,0)
+            position = VBase3()
+            position[i] = self.size
+            ls.drawTo(position)
+            text_node = TextNode("UCS")
+            text = label[i]
+            text_node.setText(text)
+            text_node.setTextColor(color)
+            text_node.setTextScale(0.25)
 
-        """ Y axis """
-        ls.setColor(0, 1, 0, 1)
-        ls.moveTo(0, 0, 0)
-        ls.drawTo(0, self.size, 0)
-
-        """ Z axis """
-        ls.setColor(0, 0, 1, 1)
-        ls.moveTo(0, 0, 0)
-        ls.drawTo(0, 0, self.size)
+            text_node_path = NodePath(text_node)
+            text_node_path.setPos(position)
+            text_node_path.set_two_sided(True)
+            text_node_path.reparentTo(self.render)
 
         node = ls.create()
         NodePath(node).reparentTo(self.render)
 
-    def UCS_text(self):
-        """ Draw X, Y, Z at the tip of each of the UCS axis"""
-
-        """ X text """
-        txt_x = TextNode('xText')
-        txt_x.setText("x")
-        txt_x_node = self.text_customize(txt_x)
-        txt_x_node.setPos(self.size, 0, 0)
-        """ Y text """
-        txt_y = TextNode('yText')
-        txt_y.setText("y")
-        txt_y_node = self.text_customize(txt_y)
-        txt_y_node.setPos(0, self.size, 0)
-        """ Z text """
-        txt_z = TextNode('zText')
-        txt_z.setText("z")
-        txt_z_node = self.text_customize(txt_z)
-        txt_z_node.setPos(0, 0, self.size)
-
-    def text_customize(self,text_node):
-        """ Customize the axis label to fit into a black background """
-        text_node.setFrameColor(0, 0, 0, 1)
-        text_node.setCardColor(0, 0, 0, 1)
-        text_node.setCardAsMargin(0.4, 0.4, 0.4, 0.4)
-        text_node.setCardDecal(True)
-        """ Creating a NodePath object"""
-        text_node_path = NodePath(text_node)
-        text_node_path.setScale(0.25)
-        text_node_path.reparentTo(self.render)
-        return text_node_path
 
     def draw_cross(self,x,z,thickness=3):
+        """ Method to create a tripod following the mouse cursor """
+
         ls = LineSegs('UCS mouse')
         ls.setThickness(thickness)
         size = 0.25
+        """ Create mouse cursor at once"""
+        for i in range(3):
+            color = VBase4(0, 0, 0, 1)
+            color[i] = 1
+            ls.setColor(color)
+            start = VBase3()
+            start[i] = -size
+            ls.moveTo(start)
+            final = VBase3()
+            final[i] = -start[i]
+            ls.drawTo(final)
 
-        # X axis
-        ls.setColor(1, 0, 0, 1)
-        ls.moveTo(-size, 0, 0)
-        ls.drawTo(size, 0, 0)
-
-        # Y axis
-        ls.setColor(0, 1, 0, 1)
-        ls.moveTo(0.0, -size, 0)
-        ls.drawTo(0.0, size, 0)
-
-        # Z axis
-        ls.setColor(0, 0, 1, 1)
-        ls.moveTo(0,0.0,-size)
-        ls.drawTo(0,0,size)
         node = ls.create()
-
         return NodePath(node)

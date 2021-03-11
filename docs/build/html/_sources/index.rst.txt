@@ -22,7 +22,7 @@ Welcome to Aurora's documentation!
    :members:
 .. automodule:: dxf.DXF
    :members:
-.. automodule:: view.App
+.. automodule:: view.AxisTripod
    :members:
 .. automodule:: view.Camera
    :members:
@@ -32,13 +32,12 @@ Welcome to Aurora's documentation!
    :members:
 .. automodule:: view.Grid
    :members:
-.. automodule:: view.Tooltip
-   :members:
 .. automodule:: view.UCS
    :members:
 .. automodule:: view.UserInterface
    :members:
-
+.. automodule:: view.World
+   :members:
 
 Indices and tables
 ==================
