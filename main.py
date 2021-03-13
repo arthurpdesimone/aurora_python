@@ -13,6 +13,7 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
 from qt_material import apply_stylesheet
 
+from database.DatabaseManager import DatabaseManager
 from model.Beam import RectangularBeam
 from model.Column import RectangularColumn
 from model.Footing import ShallowFooting
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     log = Log.instance()
     log.appendLog('Program started')
     app = QApplication(sys.argv)
-
+    """ Initialize User Interface """
     world = World()
     window = UserInterface()
     window.initialize(world)
@@ -37,6 +38,8 @@ if __name__ == "__main__":
     Grid(world)
     distance = Distance(world, ucs, window)
     Camera(world)
+    """ Database initialization """
+    DatabaseManager('untitled.json')
     """ Add UCS attached to rotation of the model """
     tripod = AxisTripod(world)
     tripod.model.set_compass(world.render)

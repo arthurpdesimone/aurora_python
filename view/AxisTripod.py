@@ -24,16 +24,16 @@ class AxisTripod:
 
         self._root = camera.attach_new_node("world_axes")
         self._root.set_y(10.)
-        self.model = self.__create_model()
+        self.model = self.create_model()
 
         node = self._root.node()
         node.set_bounds(OmniBoundingVolume())
         node.final = True
 
         self._buffer_size = (0, 0)
-        showbase.task_mgr.do_method_later(.2, self.__update_region_size, "update_region_size")
+        showbase.task_mgr.do_method_later(.2, self.update_region_size, "update_region_size")
 
-    def __create_model(self):
+    def create_model(self):
 
         vertex_format = GeomVertexFormat.get_v3c4()
 
@@ -42,7 +42,6 @@ class AxisTripod:
         col_writer = GeomVertexWriter(vertex_data, "color")
 
         lines = GeomLines(Geom.UH_static)
-
         for i in range(3):
             v_pos = VBase3()
             pos_writer.add_data3(v_pos)
@@ -58,11 +57,12 @@ class AxisTripod:
         geom.add_primitive(lines)
         node = GeomNode("axis_tripod")
         node.add_geom(geom)
+
         model = self._root.attach_new_node(node)
 
         return model
 
-    def __update_region_size(self, task):
+    def update_region_size(self, task):
 
         win_w, win_h = self._buffer.size
 
