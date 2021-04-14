@@ -20,7 +20,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="3" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
        <number>5</number>
       </property>
@@ -37,7 +37,10 @@
        <number>5</number>
       </property>
       <item>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QTextEdit" name="log_text_edit">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -52,6 +55,13 @@
         </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="text">
+         <string>Command:</string>
         </property>
        </widget>
       </item>
@@ -120,6 +130,21 @@
            <item>
             <property name="text">
              <string>Lajes</string>
+            </property>
+           </item>
+          </item>
+          <item>
+           <property name="text">
+            <string>Materiais</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Concreto</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Aço</string>
             </property>
            </item>
           </item>

@@ -1,9 +1,13 @@
-from panda3d.core import WindowProperties, Point2, Point3, Plane, Vec3
+from panda3d.core import Point2, Point3, Plane, Vec3
 
+from lang.Language import *
 from view.tools.Log import Log
 
 
 class Camera:
+    """ Class to control the camera of the showbase """
+    log = Log.instance()
+
     def __init__(self, showbase):
         self.showbase = showbase
         self.task_mgr = showbase.task_mgr
@@ -23,10 +27,12 @@ class Camera:
         self.showbase.accept_once("mouse3", self.start_panning)
         self.showbase.accept("wheel_up", self.zoom_step_in)
         self.showbase.accept("wheel_down", self.zoom_step_out)
-        self.showbase.accept("arrow_up", self.zoom_step_in_const)
-        self.showbase.accept("arrow_down", self.zoom_step_out_const)
-        self.showbase.accept("arrow_left", self.left_step_in_const)
-        self.showbase.accept("arrow_right", self.right_step_in_const)
+        self.showbase.accept("w", self.zoom_y_increase_const)
+        self.showbase.accept("s", self.zoom_y_decrease_const)
+        self.showbase.accept("a", self.zoom_x_decrease_const)
+        self.showbase.accept("d", self.zoom_x_increase_const)
+        self.showbase.accept("q", self.zoom_z_decrease_const)
+        self.showbase.accept("e", self.zoom_z_increase_const)
         self.showbase.accept("-", self.decr_zoom_step_factor)
         self.showbase.accept("+", self.incr_zoom_step_factor)
 
@@ -62,6 +68,7 @@ class Camera:
             target = self.cam
             target.set_hpr(target.get_h() - d_h, target.get_p() + d_p, 0.)
             self.mouse_prev = Point2(mouse_pos)
+            self.print_status("Orbit")
 
         return task.cont
 
@@ -70,73 +77,63 @@ class Camera:
 
         target_dist = self.cam.get_y()
         self.cam.set_y(self.cam, -target_dist * .1)
+        self.print_status('Zoom Step In')
 
     def zoom_step_out(self):
         """Translate the camera along its negative local Y-axis to zoom out"""
 
         target_dist = self.cam.get_y()
         self.cam.set_y(self.cam, target_dist * .1)
+        self.print_status('Zoom Step Out')
 
-    def zoom_step_in_const(self):
-        """Zoom in using a constant step value"""
+    def zoom_y_increase_const(self):
+        """Increase y position of camera using a constant step value"""
 
         current_dist = self.cam.get_y()
         new_dist = current_dist + .1 * self.zoom_step_factor
-
-        # Prevent the camera to move past its target node
-        # if new_dist > -.01:
-        #    new_dist = -.01
-
-        self.print_status('zoom step in')
-
         self.cam.set_y(new_dist)
+        self.print_status(Y_INCREASE_CONSTANT)
 
-    def zoom_step_out_const(self):
-        """Zoom out using a constant step value"""
+    def zoom_y_decrease_const(self):
+        """Decrease y position of camera using a constant step value"""
 
         current_dist = self.cam.get_y()
         new_dist = current_dist - .1 * self.zoom_step_factor
-
-        self.print_status('zoom step out')
         self.cam.set_y(new_dist)
+        self.print_status(Y_DECREASE_CONSTANT)
 
-    def left_step_in_const(self):
-        """Zoom in using a constant step value"""
+    def zoom_x_decrease_const(self):
+        """Increase x position of camera using a constant step value"""
 
         current_dist = self.cam.get_x()
         new_dist = current_dist - .1 * self.zoom_step_factor
-
-        # Prevent the camera to move past its target node
-        # if new_dist > -.01:
-        #    new_dist = -.01
-
-
         self.cam.set_x(new_dist)
+        self.print_status(X_DECREASE_CONSTANT)
 
-    def right_step_in_const(self):
-        """Zoom out using a constant step value"""
+    def zoom_x_increase_const(self):
+        """Decrease x position of camera using a constant step value"""
 
         current_dist = self.cam.get_x()
         new_dist = current_dist + .1 * self.zoom_step_factor
-
         self.cam.set_x(new_dist)
+        self.print_status(X_INCREASE_CONSTANT)
 
-    def decr_zoom_step_factor(self):
-        """Decrease the value with which to multiply the zoom steps"""
+    def zoom_z_increase_const(self):
+        """Increase y position of camera using a constant step value"""
 
-        self.zoom_step_factor -= 1  # Or some value that you prefer
+        current_dist = self.cam.get_z()
+        new_dist = current_dist + .1 * self.zoom_step_factor
+        self.cam.set_z(new_dist)
+        self.print_status(Z_INCREASE_CONSTANT)
 
-        # Prevent the multiplier from becoming too small
-        if self.zoom_step_factor < .1:
-            self.zoom_step_factor = .1
+    def zoom_z_decrease_const(self):
+        """Decrease y position of camera using a constant step value"""
 
-        print("self.zoom_step_factor:", self.zoom_step_factor)
+        current_dist = self.cam.get_z()
+        new_dist = current_dist - .1 * self.zoom_step_factor
+        self.cam.set_z(new_dist)
+        self.print_status(Z_DECREASE_CONSTANT)
 
-    def incr_zoom_step_factor(self):
-        """Increase the value with which to multiply the zoom steps"""
-
-        self.zoom_step_factor += .1  # Or some value that you prefer
-        print("self.zoom_step_factor:", self.zoom_step_factor)
 
     def __get_pan_pos(self, pos):
 
@@ -175,9 +172,11 @@ class Camera:
             return task.cont
 
         self.cam.set_pos(self.cam.get_pos() + (self.pan_start_pos - pan_pos))
-        self.print_status('pan')
+        self.print_status(PAN)
 
         return task.cont
 
     def print_status(self, action=''):
-        print(action, ' - Camera :', self.cam.get_pos(), " Target :", self.cam_target.getPos())
+        self.log.appendLog(action+' - Camera : POS '+
+                           str(self.cam.get_pos()).replace('LPoint3f','')+
+                           str(self.cam.get_hpr()).replace('LVecBase3f',' HPR '))

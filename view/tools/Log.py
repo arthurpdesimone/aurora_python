@@ -1,5 +1,8 @@
 from datetime import datetime
 
+from PyQt5 import QtGui
+from PyQt5.QtWidgets import QTextEdit
+
 
 class Log:
     """ Class to manage all events that happens inside the program"""
@@ -7,12 +10,25 @@ class Log:
 
     def __init__(self):
         self.log = {}
+        self.text_area = None
 
     def appendLog(self,message):
+        """ Method to append a message to the log object"""
         now = datetime.now()
-        timestamp = datetime.timestamp(now)
-        self.log[timestamp] = message
-        print(self.log)
+        now_formatted = now.strftime('%Y-%m-%d %H:%M:%S')
+        self.log[now_formatted] = message
+        self._update_text_area()
+
+    def _update_text_area(self):
+        self.text_area.clear()
+        log = ""
+        for time, message in self.log.items():
+            log += f"{time} : {message}\n"
+        self.text_area.setText(log)
+        self.text_area.moveCursor(QtGui.QTextCursor.End)
+
+    def sync_text_area(self,text_area):
+        self.text_area = text_area
 
     def printRenderChild(self,render):
         for children in render.getChildren():

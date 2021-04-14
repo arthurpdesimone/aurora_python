@@ -4,9 +4,12 @@ from QPanda3D.QPanda3DWidget import QPanda3DWidget
 from qt_material import QtStyleTools
 
 from view.gui.ImportDialogDXF import ImportDialogDXF
+from view.tools.Log import Log
 
 
 class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
+    log = Log.instance()
+
     """ Class to manage the user interface"""
     def __init__(self):
         super(UserInterface, self).__init__()  # Call the inherited classes __init__ method
@@ -23,6 +26,9 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         world.set_parent(layout)
         """ Setup menus """
         self.setup_menu()
+        """ Setup log text """
+        log_text = self.log_text_edit
+        self.log.sync_text_area(log_text)
 
     def setup_menu(self):
         """ Close menu """
