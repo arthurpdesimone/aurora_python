@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>198</width>
-    <height>431</height>
+    <width>200</width>
+    <height>355</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -31,7 +31,7 @@
      <x>20</x>
      <y>170</y>
      <width>161</width>
-     <height>256</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="layout_access">
@@ -49,14 +49,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="t">
+     <widget class="QTextEdit" name="text_email">
       <property name="placeholderText">
        <string>E-mail</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="t_2">
+     <widget class="QTextEdit" name="text_cpf">
       <property name="placeholderText">
        <string>CPF</string>
       </property>

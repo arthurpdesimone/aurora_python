@@ -33,6 +33,7 @@ from view.tools.Log import Log
 
 
 if __name__ == "__main__":
+
     app = QApplication(sys.argv)
     """ Initialize User Interface """
     login = LoginDialog()

@@ -12,12 +12,18 @@ class DatabaseManager:
     log = Log.instance()
     def __init__(self, file):
         if os.path.isfile(file):
-            self.db = TinyDB(file)
+            self.db = TinyDB(file, indent=4, separators=(',', ': '))
         else:
             self.db = TinyDB(file, indent=4, separators=(',', ': '))
             self.db.table('materials')
             self.create_standard_materials()
 
+    def create_user(self, user):
+        """ Method to receive a User and to store it if CPF(unique number) is not present"""
+        user_query = Query()
+        result = self.db.table('user').contains(user_query.cpf == user.cpf)
+        if not result: self.db.table('user').insert(user.to_JSON())
+        return result
 
     def create_standard_materials(self):
         """ Create both steel and concrete materials according to the brazilian standards
@@ -27,7 +33,6 @@ class DatabaseManager:
 
         """
         material_query = Query()
-        #print(self.db.table('materials').search(material_query.type=="Concrete"))
 
         for i in range(1, 6):
             type = "Concrete"
