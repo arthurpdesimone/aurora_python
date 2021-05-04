@@ -27,17 +27,18 @@ class Beam():
 
     @abc.abstractmethod
     def calculate_length(self):
+        """ Calculate the length of a beam"""
         x0 = self.initial_node.X
         y0 = self.initial_node.Y
         z0 = self.initial_node.Z
         x1 = self.end_node.X
         y1 = self.end_node.Y
         z1 = self.end_node.Z
-        Δx = x1 - x0
-        Δy = y1 - y0
-        Δz = z1 - z0
+        delta_x = x1 - x0
+        delta_y = y1 - y0
+        delta_z = z1 - z0
 
-        length = sqrt(pow(Δx,2)+pow(Δy,2)+pow(Δz,2))
+        length = sqrt(pow(delta_x, 2)+pow(delta_y, 2)+pow(delta_z, 2))
         return length
 
     @abc.abstractmethod

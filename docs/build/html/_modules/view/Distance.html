@@ -148,48 +148,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for view.Distance</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">direct.gui.OnscreenText</span> <span class="kn">import</span> <span class="n">OnscreenText</span>
-<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Plane</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">,</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">NodePath</span><span class="p">,</span> <span class="n">TextNode</span><span class="p">,</span> <span class="n">LineSegs</span>
-
-
-<span class="k">class</span> <span class="nc">Color3D</span><span class="p">:</span>
-    <span class="n">Black</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">Gray</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">White</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">Red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">Green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">Blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">Yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">create_axes_cross</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">has_labels</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">create_axis_line</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">draw_to</span><span class="p">):</span>
-        <span class="n">coords</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">coords</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">coords</span><span class="o">.</span><span class="n">drawTo</span><span class="p">(</span><span class="n">draw_to</span><span class="p">)</span>
-
-        <span class="c1"># Put the axis&#39; name in the tip</span>
-        <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-            <span class="n">text</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-            <span class="n">text</span><span class="o">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-            <span class="n">axis_np</span> <span class="o">=</span> <span class="n">coords_np</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">axis_np</span> <span class="o">=</span> <span class="n">coords_np</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="n">axis_np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">draw_to</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">axis_np</span>
-
-    <span class="n">coords_np</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">coords</span> <span class="o">=</span> <span class="n">LineSegs</span><span class="p">()</span>
-    <span class="n">coords</span><span class="o">.</span><span class="n">setThickness</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">axis_x_np</span> <span class="o">=</span> <span class="n">create_axis_line</span><span class="p">(</span><span class="s2">&quot;X&quot;</span> <span class="k">if</span> <span class="n">has_labels</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">Color3D</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">axis_y_np</span> <span class="o">=</span> <span class="n">create_axis_line</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span> <span class="k">if</span> <span class="n">has_labels</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">Color3D</span><span class="o">.</span><span class="n">Green</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">axis_z_np</span> <span class="o">=</span> <span class="n">create_axis_line</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span> <span class="k">if</span> <span class="n">has_labels</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">Color3D</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
-    <span class="n">node</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">coords_np</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">coords_np</span><span class="p">,</span> <span class="n">axis_x_np</span><span class="p">,</span> <span class="n">axis_y_np</span><span class="p">,</span> <span class="n">axis_z_np</span>
-
-
+<span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Plane</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">,</span> <span class="n">Point3</span>
 
 <div class="viewcode-block" id="Distance"><a class="viewcode-back" href="../../index.html#view.Distance.Distance">[docs]</a><span class="k">class</span> <span class="nc">Distance</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -204,12 +163,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">Point3</span><span class="p">()</span>
         <span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mouse_pos</span><span class="p">,</span> <span class="s2">&quot;_Distance__get_mouse_pos&quot;</span><span class="p">)</span>
-
-        <span class="c1"># origin = [-2, 5, -1.0]</span>
-        <span class="c1"># coords_np, axis_x_np, axis_y_np, axis_z_np = create_axes_cross(&quot;coords&quot;, 3, True)</span>
-        <span class="c1"># coords_np.reparentTo(self.showbase.cam)</span>
-        <span class="c1"># coords_np.setPos(self.showbase.cam, tuple(origin))</span>
-        <span class="c1"># coords_np.setScale(0.1)</span>
 
 
 <div class="viewcode-block" id="Distance.get_mouse_pos"><a class="viewcode-back" href="../../index.html#view.Distance.Distance.get_mouse_pos">[docs]</a>    <span class="k">def</span> <span class="nf">get_mouse_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>

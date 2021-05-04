@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -196,7 +196,7 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuArquivo">
+   <widget class="QMenu" name="menu_file">
     <property name="title">
      <string>Arquivo</string>
     </property>
@@ -243,7 +243,7 @@
     <addaction name="actionDesfazer"/>
     <addaction name="actionRefazer"/>
    </widget>
-   <addaction name="menuArquivo"/>
+   <addaction name="menu_file"/>
    <addaction name="menuEditar"/>
    <addaction name="menuArquitetura"/>
    <addaction name="menuCargas"/>

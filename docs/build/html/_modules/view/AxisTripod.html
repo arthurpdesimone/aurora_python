@@ -174,16 +174,16 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">attach_new_node</span><span class="p">(</span><span class="s2">&quot;world_axes&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__create_model</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_model</span><span class="p">()</span>
 
         <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
         <span class="n">node</span><span class="o">.</span><span class="n">set_bounds</span><span class="p">(</span><span class="n">OmniBoundingVolume</span><span class="p">())</span>
         <span class="n">node</span><span class="o">.</span><span class="n">final</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">showbase</span><span class="o">.</span><span class="n">task_mgr</span><span class="o">.</span><span class="n">do_method_later</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_region_size</span><span class="p">,</span> <span class="s2">&quot;update_region_size&quot;</span><span class="p">)</span>
+        <span class="n">showbase</span><span class="o">.</span><span class="n">task_mgr</span><span class="o">.</span><span class="n">do_method_later</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_region_size</span><span class="p">,</span> <span class="s2">&quot;update_region_size&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">vertex_format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">.</span><span class="n">get_v3c4</span><span class="p">()</span>
 
@@ -192,7 +192,6 @@
         <span class="n">col_writer</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vertex_data</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">)</span>
 
         <span class="n">lines</span> <span class="o">=</span> <span class="n">GeomLines</span><span class="p">(</span><span class="n">Geom</span><span class="o">.</span><span class="n">UH_static</span><span class="p">)</span>
-
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="n">v_pos</span> <span class="o">=</span> <span class="n">VBase3</span><span class="p">()</span>
             <span class="n">pos_writer</span><span class="o">.</span><span class="n">add_data3</span><span class="p">(</span><span class="n">v_pos</span><span class="p">)</span>
@@ -208,11 +207,12 @@
         <span class="n">geom</span><span class="o">.</span><span class="n">add_primitive</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">GeomNode</span><span class="p">(</span><span class="s2">&quot;axis_tripod&quot;</span><span class="p">)</span>
         <span class="n">node</span><span class="o">.</span><span class="n">add_geom</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+
         <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">.</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">model</span>
 
-    <span class="k">def</span> <span class="nf">__update_region_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update_region_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
 
         <span class="n">win_w</span><span class="p">,</span> <span class="n">win_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">size</span>
 

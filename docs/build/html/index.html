@@ -162,45 +162,17 @@
 <p>Author: Arthur Pendragon De Simone</p>
 <span class="target" id="module-model.Beam"></span><dl class="py class">
 <dt id="model.Beam.Beam">
-<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">Beam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#Beam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.Beam" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">Beam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">initial_node</span></em>, <em class="sig-param"><span class="n">end_node</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#Beam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.Beam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to define a beam</p>
 <p>Initializer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>float</em>) – The center X position</p></li>
-<li><p><strong>y</strong> (<em>float</em>) – The center Y position</p></li>
-<li><p><strong>z</strong> (<em>float</em>) – The center Z position</p></li>
-<li><p><strong>l</strong> (<em>float</em>) – The length of the beam</p></li>
+<li><p><strong>initial_node</strong> (<em>:class:'PyNite.Node3D'</em>) – The node describing the beginning of the beam</p></li>
+<li><p><strong>end_node</strong> (<em>:class:'PyNite.Node3D'</em>) – The node describing the end of the beam</p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py class">
-<dt id="model.Beam.RectangularBeam">
-<em class="property">class </em><code class="sig-prename descclassname">model.Beam.</code><code class="sig-name descname">RectangularBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">bw</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">l</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to define a beam</p>
-<p>Initializer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>h</strong> (<em>float</em>) – The beam height</p></li>
-<li><p><strong>bw</strong> (<em>float</em>) – The beam width</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="model.Beam.RectangularBeam.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">render</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Beam.html#RectangularBeam.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Beam.RectangularBeam.draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to draw itself</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>render</strong> – render</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <span class="target" id="module-model.Footing"></span><dl class="py class">
@@ -426,7 +398,86 @@
 <dd><p>Class to draw an interactive camera UCS tripod</p>
 </dd></dl>
 
-<span class="target" id="module-view.Camera"></span><span class="target" id="module-view.Distance"></span><dl class="py class">
+<span class="target" id="module-view.Camera"></span><dl class="py class">
+<dt id="view.Camera.Camera">
+<em class="property">class </em><code class="sig-prename descclassname">view.Camera.</code><code class="sig-name descname">Camera</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to control the camera of the showbase</p>
+<dl class="py method">
+<dt id="view.Camera.Camera.orbit">
+<code class="sig-name descname">orbit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.orbit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.orbit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Orbit the camera about its target point by offsetting the orientation
+of the target node with the mouse motion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.pan">
+<code class="sig-name descname">pan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.pan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.pan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to pan</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.start_orbiting">
+<code class="sig-name descname">start_orbiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.start_orbiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.start_orbiting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to start orbit task</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.stop_navigating">
+<code class="sig-name descname">stop_navigating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.stop_navigating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.stop_navigating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to stop orbiting or panning</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_step_in">
+<code class="sig-name descname">zoom_step_in</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_step_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_step_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the camera along its positive local Y-axis to zoom in</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_step_out">
+<code class="sig-name descname">zoom_step_out</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_step_out"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_step_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the camera along its negative local Y-axis to zoom out</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_x_decrease_const">
+<code class="sig-name descname">zoom_x_decrease_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_x_decrease_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_x_decrease_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase x position of camera using a constant step value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_x_increase_const">
+<code class="sig-name descname">zoom_x_increase_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_x_increase_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_x_increase_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease x position of camera using a constant step value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_y_decrease_const">
+<code class="sig-name descname">zoom_y_decrease_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_y_decrease_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_y_decrease_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease y position of camera using a constant step value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_y_increase_const">
+<code class="sig-name descname">zoom_y_increase_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_y_increase_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_y_increase_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase y position of camera using a constant step value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_z_decrease_const">
+<code class="sig-name descname">zoom_z_decrease_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_z_decrease_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_z_decrease_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease y position of camera using a constant step value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="view.Camera.Camera.zoom_z_increase_const">
+<code class="sig-name descname">zoom_z_increase_const</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Camera.html#Camera.zoom_z_increase_const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Camera.Camera.zoom_z_increase_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase y position of camera using a constant step value</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-view.Distance"></span><dl class="py class">
 <dt id="view.Distance.Distance">
 <em class="property">class </em><code class="sig-prename descclassname">view.Distance.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">showbase</span></em>, <em class="sig-param"><span class="n">UCS</span></em>, <em class="sig-param"><span class="n">window</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/Distance.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.Distance.Distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)</p>
@@ -573,11 +624,16 @@ this class also has a method to draw a plane to serve as reference to drawing</p
 <span class="target" id="module-view.UserInterface"></span><dl class="py class">
 <dt id="view.UserInterface.UserInterface">
 <em class="property">class </em><code class="sig-prename descclassname">view.UserInterface.</code><code class="sig-name descname">UserInterface</code><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to manage the user interface</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt id="view.UserInterface.UserInterface.initialize">
 <code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">world</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view/UserInterface.html#UserInterface.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#view.UserInterface.UserInterface.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to open and attach panda3d widget to UI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="view.UserInterface.UserInterface.log">
+<code class="sig-name descname">log</code><em class="property"> = &lt;view.tools.Log.Log object&gt;</em><a class="headerlink" href="#view.UserInterface.UserInterface.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manage the user interface</p>
 </dd></dl>
 
 <dl class="py method">

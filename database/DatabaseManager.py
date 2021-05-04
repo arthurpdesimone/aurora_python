@@ -1,14 +1,15 @@
 import os
 from math import sqrt
-
 from tinydb import TinyDB, Query
 
+from lang.Language import CREATE_MATERIAL
 from model.Material import Material
+from view.tools.Log import Log
 
 
 class DatabaseManager:
     """ Create a database manager """
-
+    log = Log.instance()
     def __init__(self, file):
         if os.path.isfile(file):
             self.db = TinyDB(file)
@@ -32,7 +33,7 @@ class DatabaseManager:
             type = "Concrete"
             name = "C" + str(i * 10)
             fck = i * 10000000.0
-            young_modulus_tangent = 5600 * sqrt(fck) #TODO Correct the formula to GPa
+            young_modulus_tangent = 5600 * sqrt(fck)  #TODO Correct the formula to GPa
             young_modulus_secant = 0.85 * young_modulus_tangent
             dilatation_coefficient = 0.00001
             yield_strain = 0.002
@@ -46,6 +47,6 @@ class DatabaseManager:
                                 dilatation_coefficient=dilatation_coefficient,
                                 yield_strain=yield_strain,
                                 rupture_strain=rupture_strain)
-            print(concrete.to_JSON())
+            self.log.appendLog(CREATE_MATERIAL+name)
             """ Update table materials """
             self.db.table('materials').upsert(concrete.to_JSON(),material_query.name == name)

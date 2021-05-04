@@ -1,9 +1,16 @@
+import sys
+
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
-from PyQt5.QtWidgets import QWidget, QFileDialog
+from PyQt5.QtWidgets import QWidget, QFileDialog, QMessageBox
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
 from qt_material import QtStyleTools
 
+from lang.Language import *
+from model.Model import Model
+from view.gui.CreateFileDialog import CreateFileDialog
 from view.gui.ImportDialogDXF import ImportDialogDXF
+from view.gui.LoginDialog import LoginDialog
+from view.gui.OpenFileDialog import OpenFileDialog
 from view.tools.Log import Log
 
 
@@ -30,10 +37,46 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         log_text = self.log_text_edit
         self.log.sync_text_area(log_text)
 
+    def check_model_existence(self):
+        """ Prompt the user if he wants to create a new file, if so opens a dialog"""
+        reply = QMessageBox.question(self, 'Criar arquivo',
+                                           "Deseja criar um novo arquivo?",
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            """ Database initialization """
+            dialog = CreateFileDialog()
+            file = dialog.file
+            if file == "":
+                sys.exit()
+            else:
+                if ".json" not in file: file = file + ".json"
+                self.create_or_open_file(file)
+
+
+    def open_file(self):
+        dialog = OpenFileDialog()
+        file = dialog.file
+        if file != "":
+            self.create_or_open_file(file)
+
+    def create_or_open_file(self, file):
+        model = Model.instance()
+        model.init_db(file)
+        self.log.appendLog(FILE_OPENED + file)
+        self.main.setWindowTitle("Aurora - " + file)
+
     def setup_menu(self):
-        """ Close menu """
-        menu = self.menu_load_dxf
-        menu.triggered.connect(self.show_import_dialog_dxf)
+        """ Configure menus"""
+        """ New file"""
+        menu_new = self.menu_new
+        menu_new.triggered.connect(self.check_model_existence)
+        """ New file"""
+        menu_open = self.menu_open
+        menu_open.triggered.connect(self.open_file)
+        """ Import DXF file"""
+        menu_load_dxf = self.menu_load_dxf
+        menu_load_dxf.triggered.connect(self.show_import_dialog_dxf)
 
     def update_statusbar(self, point):
         self.statusBar().showMessage("Mouse position : "+point)

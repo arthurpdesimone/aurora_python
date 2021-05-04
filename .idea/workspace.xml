@@ -4,21 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.8: Database JSON installed">
-      <change afterPath="$PROJECT_DIR$/model/Material.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/gui/CreateFileDialog.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.1.9: Language package created, camera keyboard navigation">
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Camera.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/tools/Log.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/square logo.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/design/ReinforcedBeam.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/gui/LoginDialog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/gui/OpenFileDialog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/backend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Beam.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/model/Beam.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/AxisTripod.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/AxisTripod.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/Language.py" beforeDir="false" afterPath="$PROJECT_DIR$/lang/Language.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Beam.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Beam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/lang/Language.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/tools/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/tools/Log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,17 +79,18 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\fonts" />
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\server" />
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\view\gui" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\fonts" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests\examples\runtime" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
@@ -85,7 +100,28 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.backend">
+    <configuration name="backend" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web/backend.py" />
+      <option name="PARAMETERS" value="--host 127.0.0.1 --port 5000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,7 +134,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\pendragon\education\research\Aurora\aurora_python\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,8 +143,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.backend" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.backend" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -121,13 +162,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Updating ReadTheDocs">
-      <created>1613754967949</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1613754967949</updated>
     </task>
     <task id="LOCAL-00047" summary="Enabling cross-platform fullscreen and removing custom AutoSizer">
       <created>1613757051764</created>
@@ -465,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615606020831</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Version 0.1.9: Language package created, camera keyboard navigation">
+      <created>1618364348537</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1618364348538</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,7 +523,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Direct entry try" />
     <MESSAGE value="Docs changed place" />
     <MESSAGE value="Updating ReadTheDocs" />
     <MESSAGE value="Enabling cross-platform fullscreen and removing custom AutoSizer" />
@@ -507,10 +547,28 @@
     <MESSAGE value="Version 0.1.7: UCS minor fixes, code improvement" />
     <MESSAGE value="Version 0.1.7: Removing unused imports" />
     <MESSAGE value="Version 0.1.8: Database JSON installed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.8: Database JSON installed" />
+    <MESSAGE value="Version 0.1.9: Language package created, camera keyboard navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.1.9: Language package created, camera keyboard navigation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web/backend.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web/backend.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web/backend.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

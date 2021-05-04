@@ -28,12 +28,14 @@ from view.UCS import UCS
 from view.UserInterface import UserInterface
 from view.World import World
 from view.gui.CreateFileDialog import CreateFileDialog
+from view.gui.LoginDialog import LoginDialog
 from view.tools.Log import Log
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     """ Initialize User Interface """
+    login = LoginDialog()
     world = World()
     window = UserInterface()
     window.initialize(world)
@@ -44,16 +46,7 @@ if __name__ == "__main__":
     Grid(world)
     distance = Distance(world, ucs, window)
     Camera(world)
-    """ Database initialization """
-    # dialog = CreateFileDialog()
-    # model = None
-    # file = dialog.file
-    # if file == "":
-    #     sys.exit()
-    # else:
-    #     if ".json" not in file: file = file + ".json"
-    #     model = Model.instance()
-    #     model.init_db(file)
+
     """ Add UCS attached to rotation of the model """
     tripod = AxisTripod(world)
     tripod.model.set_compass(world.render)
@@ -66,12 +59,9 @@ if __name__ == "__main__":
     apply_stylesheet(window, theme='dark_teal.xml')
     window.showMaximized()
     window.show()
-
-
-
-
-    log.printRenderChild(world.render)
-
+    #log.printRenderChild(world.render)
     log.appendLog(PROGRAM_LOADED)
+
+    window.check_model_existence()
 
     sys.exit(app.exec_())

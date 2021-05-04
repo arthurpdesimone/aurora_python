@@ -33,18 +33,25 @@ class Camera:
         self.showbase.accept("d", self.zoom_x_increase_const)
         self.showbase.accept("q", self.zoom_z_decrease_const)
         self.showbase.accept("e", self.zoom_z_increase_const)
-        self.showbase.accept("-", self.decr_zoom_step_factor)
-        self.showbase.accept("+", self.incr_zoom_step_factor)
-
-
 
     def stop_navigating(self):
-
+        """ Method to stop orbiting or panning """
         self.task_mgr.remove("transform_cam")
         self.showbase.accept_once("mouse1", self.start_orbiting)
         self.showbase.accept_once("mouse3", self.start_panning)
 
+    def start_panning(self):
+        if not self.mouse_watcher.hasMouse():
+            return
+
+        self.showbase.ignore("mouse1")
+        self.showbase.accept_once("mouse3-up", self.stop_navigating)
+        self.__get_pan_pos(self.pan_start_pos)
+        self.task_mgr.add(self.pan, "transform_cam")
+
+
     def start_orbiting(self):
+        """ Method to start orbit task"""
         w, h = self.showbase.screenTexture.x_size, self.showbase.screenTexture.y_size
         self.orbit_speed = (w * .15, h * .15)
         self.mouse_prev = Point2(self.mouse_watcher.getMouse())
@@ -68,7 +75,7 @@ class Camera:
             target = self.cam
             target.set_hpr(target.get_h() - d_h, target.get_p() + d_p, 0.)
             self.mouse_prev = Point2(mouse_pos)
-            self.print_status("Orbit")
+            self.print_status(ORBIT)
 
         return task.cont
 
@@ -77,14 +84,14 @@ class Camera:
 
         target_dist = self.cam.get_y()
         self.cam.set_y(self.cam, -target_dist * .1)
-        self.print_status('Zoom Step In')
+        self.print_status(Y_DECREASE_EXPONENTIAL)
 
     def zoom_step_out(self):
         """Translate the camera along its negative local Y-axis to zoom out"""
 
         target_dist = self.cam.get_y()
         self.cam.set_y(self.cam, target_dist * .1)
-        self.print_status('Zoom Step Out')
+        self.print_status(Y_INCREASE_EXPONENTIAL)
 
     def zoom_y_increase_const(self):
         """Increase y position of camera using a constant step value"""
@@ -134,8 +141,9 @@ class Camera:
         self.cam.set_z(new_dist)
         self.print_status(Z_DECREASE_CONSTANT)
 
-
     def __get_pan_pos(self, pos):
+        """ Method to get pan position
+        :param pos: :class: panda3d.core.Point3D """
 
         if not self.mouse_watcher.hasMouse():
             return False
@@ -154,18 +162,8 @@ class Camera:
 
         return True
 
-    def start_panning(self):
-
-        if not self.mouse_watcher.hasMouse():
-            return
-
-        self.showbase.ignore("mouse1")
-        self.showbase.accept_once("mouse3-up", self.stop_navigating)
-        self.__get_pan_pos(self.pan_start_pos)
-        self.task_mgr.add(self.pan, "transform_cam")
-
     def pan(self, task):
-
+        """ Method to pan """
         pan_pos = Point3()
 
         if not self.__get_pan_pos(pan_pos):

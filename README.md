@@ -1,5 +1,5 @@
 # **Aurora**
-## An open source software for aiding civil engineers to design reinforced concrete buildings.
+## An software for aiding civil engineers to design reinforced concrete buildings.
 ![version](https://img.shields.io/badge/version-0.1.9-blue.svg)
 
 ### **Discord**
