@@ -1,10 +1,14 @@
 from flask import request, Flask
 
+from database.DatabaseManager import DatabaseManager
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def home():
     return "Aurora backend version 0.1"
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -15,7 +19,9 @@ def login():
 
 
 def do_the_login(serial, mac):
-    return serial + '-' + mac
+    """ Create the individual database """
+    db = DatabaseManager(serial+'-'+mac+'.json')
+    return "Banco de dados criado"
 
 
 if __name__ == '__main__':

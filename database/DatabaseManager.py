@@ -47,6 +47,5 @@ class DatabaseManager:
                                 dilatation_coefficient=dilatation_coefficient,
                                 yield_strain=yield_strain,
                                 rupture_strain=rupture_strain)
-            self.log.appendLog(CREATE_MATERIAL+name)
             """ Update table materials """
             self.db.table('materials').upsert(concrete.to_JSON(),material_query.name == name)

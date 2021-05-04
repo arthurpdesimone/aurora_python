@@ -243,10 +243,19 @@
     <addaction name="actionDesfazer"/>
     <addaction name="actionRefazer"/>
    </widget>
+   <widget class="QMenu" name="menuAjuda">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionAtalhos_do_teclado"/>
+    <addaction name="actionVers_o"/>
+   </widget>
    <addaction name="menu_file"/>
    <addaction name="menuEditar"/>
    <addaction name="menuArquitetura"/>
    <addaction name="menuCargas"/>
+   <addaction name="menuAjuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="menu_open">
@@ -325,6 +334,16 @@
   <action name="actionRefazer">
    <property name="text">
     <string>Refazer</string>
+   </property>
+  </action>
+  <action name="actionAtalhos_do_teclado">
+   <property name="text">
+    <string>Atalhos do teclado</string>
+   </property>
+  </action>
+  <action name="actionVers_o">
+   <property name="text">
+    <string>Versão</string>
    </property>
   </action>
  </widget>

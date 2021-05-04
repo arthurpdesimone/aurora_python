@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>208</width>
-    <height>360</height>
+    <width>198</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -31,12 +31,12 @@
      <x>20</x>
      <y>170</y>
      <width>161</width>
-     <height>161</height>
+     <height>256</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="layout_access">
     <item>
-     <widget class="QTextEdit" name="text_serial_key">
+     <widget class="QTextEdit" name="text_name">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
         <horstretch>0</horstretch>
@@ -44,21 +44,21 @@
        </sizepolicy>
       </property>
       <property name="placeholderText">
-       <string>Chave serial</string>
+       <string>Nome completo</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="check_box_remind_serial">
-      <property name="text">
-       <string>Lembrar serial</string>
+     <widget class="QTextEdit" name="t">
+      <property name="placeholderText">
+       <string>E-mail</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="button_ok">
-      <property name="text">
-       <string>Acessar</string>
+     <widget class="QTextEdit" name="t_2">
+      <property name="placeholderText">
+       <string>CPF</string>
       </property>
      </widget>
     </item>
