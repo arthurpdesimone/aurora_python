@@ -1,3 +1,5 @@
+import json
+
 from database.DatabaseManager import DatabaseManager
 
 
@@ -6,7 +8,6 @@ class Model:
     _instance = None
 
     def __init__(self):
-        self.db = None
         self.beams = {}
         self.columns = {}
         self.footings = {}
@@ -21,3 +22,6 @@ class Model:
 
     def init_db(self,file):
         DatabaseManager(file)
+
+    def to_JSON(self):
+        return json.loads(json.dumps(self,default=lambda o:o.__dict__))

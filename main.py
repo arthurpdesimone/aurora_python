@@ -36,10 +36,10 @@ if __name__ == "__main__":
 
     app = QApplication(sys.argv)
     """ Initialize User Interface """
-    login = LoginDialog()
     world = World()
     window = UserInterface()
     window.initialize(world)
+    login = LoginDialog(window)
     log = Log.instance()
     log.appendLog(PROGRAM_STARTED)
 
@@ -58,11 +58,11 @@ if __name__ == "__main__":
 
     """ Qt initialization """
     apply_stylesheet(window, theme='dark_teal.xml')
-    window.showMaximized()
-    window.show()
+    #window.showMaximized()
+    #window.show()
     #log.printRenderChild(world.render)
     log.appendLog(PROGRAM_LOADED)
 
-    window.check_model_existence()
+    #window.check_model_existence()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

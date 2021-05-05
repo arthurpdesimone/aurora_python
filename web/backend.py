@@ -2,7 +2,7 @@ import random
 import string
 
 
-from flask import request, Flask
+from flask import request, Flask, jsonify
 
 from database.DatabaseManager import DatabaseManager
 from database.User import User
@@ -35,19 +35,26 @@ def register():
 
 def do_login(serial, mac):
     """ Create the individual database """
-    db = DatabaseManager(serial+'.json')
-    return "Banco de dados criado"
+    db = DatabaseManager('database.json')
+    success = db.check_serial_and_mac(serial,mac)
+    if success:
+        return jsonify(message=serial, status=200)
+    else:
+        return jsonify(message="Serial ou mac invalidos", status=403)
 
 
 def register_user(name,email,cpf,mac):
+    """ Method to create a user """
     serial = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(12))
     db = DatabaseManager('database.json')
     user = User(name,email,cpf,serial,mac)
     success = db.create_user(user)
     if success:
-        return "Usuário já existe"
+        return jsonify(message = "Usuário já existe",status=403)
     else:
-        return "Usuário criado"
+        return jsonify(message = serial ,status = 200)
+
+
 
 if __name__ == '__main__':
     app.run()

@@ -1,7 +1,7 @@
 import sys
 
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
-from PyQt5.QtWidgets import QWidget, QFileDialog, QMessageBox
+from PyQt5 import QtWidgets, uic
+from PyQt5.QtWidgets import QWidget,QMessageBox
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
 from qt_material import QtStyleTools
 
@@ -9,7 +9,6 @@ from lang.Language import *
 from model.Model import Model
 from view.gui.CreateFileDialog import CreateFileDialog
 from view.gui.ImportDialogDXF import ImportDialogDXF
-from view.gui.LoginDialog import LoginDialog
 from view.gui.OpenFileDialog import OpenFileDialog
 from view.tools.Log import Log
 

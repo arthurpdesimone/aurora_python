@@ -2,14 +2,11 @@ import os
 from math import sqrt
 from tinydb import TinyDB, Query
 
-from lang.Language import CREATE_MATERIAL
 from model.Material import Material
-from view.tools.Log import Log
 
 
 class DatabaseManager:
     """ Create a database manager """
-    log = Log.instance()
     def __init__(self, file):
         if os.path.isfile(file):
             self.db = TinyDB(file, indent=4, separators=(',', ': '))
@@ -21,9 +18,16 @@ class DatabaseManager:
     def create_user(self, user):
         """ Method to receive a User and to store it if CPF(unique number) is not present"""
         user_query = Query()
-        result = self.db.table('user').contains(user_query.cpf == user.cpf)
+        result = self.db.table('user').contains(user_query.email == user.email)
         if not result: self.db.table('user').insert(user.to_JSON())
         return result
+
+    def check_serial_and_mac(self,serial,mac):
+        serial_query = Query()
+        mac_query = Query()
+        result_serial = self.db.table('user').contains(serial_query.serial == serial)
+        result_mac = self.db.table('user').contains(mac_query.mac == mac)
+        return result_mac and result_serial
 
     def create_standard_materials(self):
         """ Create both steel and concrete materials according to the brazilian standards

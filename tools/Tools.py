@@ -1,4 +1,19 @@
-def validate(cpf):
+import re
+
+from PyQt5.QtWidgets import QMessageBox
+from qt_material import apply_stylesheet
+
+
+def validate_email(email):
+    regex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
+
+    if re.search(regex, email):
+        return True
+    else:
+        return False
+
+
+def validate_cpf(cpf):
     """ Validates the CPF """
 
     # Obtém apenas os números do CPF, ignorando pontuações
@@ -21,3 +36,14 @@ def validate(cpf):
         return False
 
     return True
+
+
+def show_error_dialog(text,info,title):
+    """ Show a dialog informing an error"""
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Critical)
+    msg.setText(text)
+    msg.setInformativeText(info)
+    msg.setWindowTitle(title)
+    apply_stylesheet(msg, theme='dark_teal.xml')
+    msg.exec()

@@ -5,13 +5,16 @@ from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QFileDialog, QDialog
 from qt_material import apply_stylesheet
 
+from tools.Tools import show_error_dialog
 from view.gui.RegisterDialog import RegisterDialog
 
 
 class LoginDialog(QDialog):
     """ Class to define a login dialog to the webserver"""
-    def __init__(self):
+    def __init__(self, main_window):
         super().__init__()
+        """ Store a reference to the main window"""
+        self.main_window = main_window
         apply_stylesheet(self, theme='dark_teal.xml')
         """Define maximum length of the serial key field"""
         self.main = uic.loadUi('login.ui', self)
@@ -40,14 +43,22 @@ class LoginDialog(QDialog):
             mac = hex(uuid.getnode())
             auth = {'serial':serial,'mac':mac}
             data = requests.post("http://127.0.0.1:5000/login",params =auth)
-            print(data.text)
+            data_json = data.json()
+            if data_json['status'] == 200:
+                self.close()
+                self.main_window.showMaximized()
+                self.main_window.show()
+            elif data_json['status'] == 403:
+                show_error_dialog("Serial invalida ou computador não registrado",
+                                  "Erro","Erro")
+
         except Exception as e:
             print(e)
             pass
 
     def register(self):
         self.hide()
-        register = RegisterDialog()
+        RegisterDialog(self)
 
 
 
