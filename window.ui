@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>762</width>
-    <height>549</height>
+    <width>761</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,9 +70,9 @@
     <item row="1" column="0">
      <widget class="QTabWidget" name="tabs">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="visualization_tab">
+      <widget class="QWidget" name="tab_visualization">
        <attribute name="title">
         <string>Visualizador de Projeto</string>
        </attribute>
@@ -178,10 +178,194 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="options_tab">
+      <widget class="QWidget" name="tab_options">
        <attribute name="title">
         <string>Opções</string>
        </attribute>
+       <widget class="QTabWidget" name="tab_options_holder">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>741</width>
+          <height>351</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab_geral">
+         <attribute name="title">
+          <string>Geral</string>
+         </attribute>
+         <widget class="QGroupBox" name="group_identification">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>281</width>
+            <height>181</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Identificação</string>
+          </property>
+          <widget class="QTextEdit" name="textEdit_3">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>130</y>
+             <width>261</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="placeholderText">
+            <string>Endereço</string>
+           </property>
+          </widget>
+          <widget class="QTextEdit" name="textEdit_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>261</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="placeholderText">
+            <string>Cliente</string>
+           </property>
+          </widget>
+          <widget class="QTextEdit" name="textEdit">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>261</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="placeholderText">
+            <string>Título do Edifício</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QGroupBox" name="group_description">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>190</y>
+            <width>281</width>
+            <height>131</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Descrição</string>
+          </property>
+          <widget class="QTextEdit" name="textEdit_6">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>261</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <property name="placeholderText">
+            <string>Descrição</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QGroupBox" name="group_calculus">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>10</y>
+            <width>281</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Modelo de cálculo</string>
+          </property>
+          <widget class="QRadioButton" name="radio_model_3d_frame">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>30</y>
+             <width>101</width>
+             <height>17</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Pórtico espacial</string>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="radio_model_3d_frame_with_slab">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>50</y>
+             <width>171</width>
+             <height>17</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Pórtico espacial com laje</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QGroupBox" name="group_pavements">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>110</y>
+            <width>281</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Pavimentos</string>
+          </property>
+          <widget class="QTextEdit" name="textEdit_4">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>131</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_3">
+         <attribute name="title">
+          <string>Tab 2</string>
+         </attribute>
+        </widget>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -192,7 +376,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>762</width>
+     <width>761</width>
      <height>21</height>
     </rect>
    </property>

@@ -58,7 +58,6 @@ if __name__ == "__main__":
     apply_stylesheet(window, theme='dark_teal.xml')
     window.showMaximized()
     window.show()
-    #log.printRenderChild(world.render)
     log.appendLog(PROGRAM_LOADED)
 
     window.check_model_existence()

@@ -1,0 +1,54 @@
+{
+    "materials": {
+        "1": {
+            "name": "C10",
+            "type": "Concrete",
+            "fck": 10000000.0,
+            "young_modulus_tangent": 17708754.896942925,
+            "young_modulus_secant": 15052441.662401486,
+            "dilatation_coefficient": 1e-05,
+            "yield_strain": 0.002,
+            "rupture_strain": 0.0035
+        },
+        "2": {
+            "name": "C20",
+            "type": "Concrete",
+            "fck": 20000000.0,
+            "young_modulus_tangent": 25043961.347997647,
+            "young_modulus_secant": 21287367.145797998,
+            "dilatation_coefficient": 1e-05,
+            "yield_strain": 0.002,
+            "rupture_strain": 0.0035
+        },
+        "3": {
+            "name": "C30",
+            "type": "Concrete",
+            "fck": 30000000.0,
+            "young_modulus_tangent": 30672463.220289305,
+            "young_modulus_secant": 26071593.73724591,
+            "dilatation_coefficient": 1e-05,
+            "yield_strain": 0.002,
+            "rupture_strain": 0.0035
+        },
+        "4": {
+            "name": "C40",
+            "type": "Concrete",
+            "fck": 40000000.0,
+            "young_modulus_tangent": 35417509.79388585,
+            "young_modulus_secant": 30104883.324802972,
+            "dilatation_coefficient": 1e-05,
+            "yield_strain": 0.002,
+            "rupture_strain": 0.0035
+        },
+        "5": {
+            "name": "C50",
+            "type": "Concrete",
+            "fck": 50000000.0,
+            "young_modulus_tangent": 39597979.74644666,
+            "young_modulus_secant": 33658282.78447966,
+            "dilatation_coefficient": 1e-05,
+            "yield_strain": 0.002,
+            "rupture_strain": 0.0035
+        }
+    }
+}
