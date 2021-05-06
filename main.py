@@ -28,7 +28,6 @@ from view.UCS import UCS
 from view.UserInterface import UserInterface
 from view.World import World
 from view.gui.CreateFileDialog import CreateFileDialog
-from view.gui.LoginDialog import LoginDialog
 from view.tools.Log import Log
 
 
@@ -39,7 +38,6 @@ if __name__ == "__main__":
     world = World()
     window = UserInterface()
     window.initialize(world)
-    login = LoginDialog(window)
     log = Log.instance()
     log.appendLog(PROGRAM_STARTED)
 
@@ -58,11 +56,11 @@ if __name__ == "__main__":
 
     """ Qt initialization """
     apply_stylesheet(window, theme='dark_teal.xml')
-    #window.showMaximized()
-    #window.show()
+    window.showMaximized()
+    window.show()
     #log.printRenderChild(world.render)
     log.appendLog(PROGRAM_LOADED)
 
-    #window.check_model_existence()
+    window.check_model_existence()
 
     sys.exit(app.exec())
