@@ -19,7 +19,7 @@ class MyApp(ShowBase):
         base.cam.set_pos(20, -20, 20)
         base.cam.look_at(0,0,0)
         #help info
-        self.inst1 = addInstructions(0.06, "MOUSE-1: click and hold")
+        self.inst1 = addInstructions(0.06, "MOUSE-LEFT: click and hold / MOUSE RIGHT : Draw line")
         self.inst2 = addInstructions(0.12, "X, Y, Z: change rotation axis")
         self.inst3 = addInstructions(0.18, "Vector")
         self.inst4 = addInstructions(0.24, "Last vector")
@@ -28,43 +28,38 @@ class MyApp(ShowBase):
         self.origin = Point3(0,0,0)
         #visual aid
         self.circle=self.make_circle()
-        self.circle.hide()
+        #mouse left or right click control
+        self.mouse_left_is_down = False
+        self.mouse_right_is_down = False
 
+        #temporary line between the mouse and the origin
+        self.aux_line = None
+        #the line you want to draw
         self.last_line = None
         #a line showing the current rotation axis
         self.line=None
         #the axis node, we rotate around this node
         self.axis=render.attach_new_node('axis')
         #list of current axis, overkill here, but used for moving
-        #when there are 2 movement axis(not in demo
-        self.active_axis=[]
-        self.toggle_axis('x')
-
+        self.active_axis='z'
+        self.update_axis(Point3(0,0,0))
         self.mouse_is_down=False
 
-
         #bind keys
-        self.accept('mouse3', self.on_mouse_down)
-        self.accept('mouse3-up', self.on_mouse_up)
+        self.accept('mouse1', self.on_mouse_left_down)
+        self.accept('mouse1-up', self.on_mouse_left_up)
+        self.accept('mouse3', self.on_mouse_right_down)
+        self.accept('mouse3-up', self.on_mouse_right_up)
         self.accept('x', self.toggle_axis, ['x'])
         self.accept('y', self.toggle_axis, ['y'])
         self.accept('z', self.toggle_axis, ['z'])
         #run task
         taskMgr.add(self.mouse_task, 'mouse_tsk')
 
-        #Add card
-        c = CardMaker('DrawingPlane')
-        color = (0.15, 0.15, 0.15, 1)
-        c.setFrameFullscreenQuad()
-        c.setColor(color)
-        """ Attach to render and rotate the card """
-        card = c.generate()
-        self.render.attachNewNode(card).lookAt(0, 0, -1)
-
-    def make_circle(self, segments = 360, thickness=2.0, radius=1.0):
+    def make_circle(self, segments = 360, thickness=2.0, radius=2.0):
         l=LineSegs()
         l.set_thickness(thickness)
-        l.move_to(Point3(0,0,0))
+        l.move_to(self.origin)
         l.draw_to((0, radius, 0))
         temp = NodePath('temp')
         for i in range(segments + 1):
@@ -74,31 +69,43 @@ class MyApp(ShowBase):
         temp.remove_node()
         return render.attach_new_node(l.create())
 
-    def on_mouse_down(self):
-        self.last_vec=None
-        self.last_hpr=None
-        self.mouse_is_down=True
+    def draw_node(self, position):
+        sphere = loader.loadModel("misc/sphere.egg")
+        sphere.reparentTo(render)
+        sphere.setScale(0.1)
+        sphere.setPos(position)
+        sphere.setColor(0, 0, 0)
+        return sphere
 
-    def on_mouse_up(self):
-        self.mouse_is_down=False
+    def on_mouse_left_down(self):
+        self.mouse_left_is_down = True
+        print('mouse left down')
+
+    def on_mouse_right_down(self):
+        self.mouse_right_is_down = True
+        print('mouse right down')
+        self.last_vec = None
+        self.mouse_is_down = True
+
+    def on_mouse_left_up(self):
+        self.mouse_left_is_down = False
+        print('mouse left up')
+
+    def on_mouse_right_up(self):
+        self.mouse_right_is_down = False
+        print('mouse right up')
         self.inst4.setText(str(self.last_vec))
 
         l = LineSegs()
-        l.move_to(Point3(0, 0, 0))
-        l.draw_to((self.last_line.x, self.last_line.y, self.last_line.z))
+        self.draw_node(self.last_line[0])
+        l.move_to(self.last_line[0])
+        self.draw_node(self.last_line[1])
+        l.draw_to(self.last_line[1])
         render.attach_new_node(l.create())
 
-        self.circle.hide()
-
     def toggle_axis(self, axis):
-        if axis in self.active_axis:
-            self.active_axis.pop(self.active_axis.index(axis))
-        else:
-            self.active_axis.append(axis)
-        while len(self.active_axis)>1:
-            axis=self.active_axis[0]
-            self.toggle_axis(axis)
-        self.update_axis(Point3(0,0,0))
+        self.active_axis = axis
+        self.update_axis(self.origin)
 
     def update_axis(self, point):
         '''Creates a plane to capture mouse clicks,
@@ -107,20 +114,18 @@ class MyApp(ShowBase):
         the current axis in self.active_axis.
         Also draws a line/vector to show the axis.
         '''
-        #self.axis.set_pos(Point3(0,0,0))
-        #point=self.axis.get_pos(render)
         if 'x' in self.active_axis:
             vec=self.axis.get_quat().get_right()
         elif 'y' in self.active_axis:
             vec=self.axis.get_quat().get_forward()
         elif 'z' in self.active_axis:
-           vec=self.axis.get_quat().get_up()
+            vec=self.axis.get_quat().get_up()
         #remove old line
         if self.line:
             self.line.remove_node()
         #draw new line
         if self.active_axis:
-            self.plane=Plane(vec, point)#also make the plane, kind of important...
+            self.plane=Plane(vec, point) # also make the plane, kind of important...
             l=LineSegs()
             l.set_thickness(2.0)
             l.move_to(point)
@@ -131,10 +136,9 @@ class MyApp(ShowBase):
 
     def mouse_task(self, task):
         '''Rotates self.model around self.axis based on mouse movement '''
-        if self.mouse_is_down and self.active_axis:
+        if self.active_axis:
             if base.mouseWatcherNode.has_mouse():
                 # get the mouse ray-plane intersection
-                # kudos to rdb
                 mpos = base.mouseWatcherNode.get_mouse()
                 pos3d = Point3()
                 near_point = Point3()
@@ -145,51 +149,43 @@ class MyApp(ShowBase):
                                               render.get_relative_point(base.cam, far_point)):
 
                     self.inst5.setText(str(pos3d))
-                    self.update_axis(pos3d)
-                    self.origin = pos3d
-                    # make a direction vector
-                    #vec = self.axis.get_pos() - pos3d
-                    # visual aid
-                    #self.circle.set_scale(vec.length())
-                    # make a direction vector
+                    if self.mouse_left_is_down:
+                        self.update_axis(pos3d)
+                        self.origin = pos3d
+                        self.circle.set_pos(self.origin)
+
                     vec = pos3d - self.axis.get_pos()
+                    angle_vector = pos3d - self.origin
                     # calculate the angle
                     angle = 0
-                    if self.active_axis[0] == 'x':
-                        angle = math.atan2(vec.y, vec.z)
-                    if self.active_axis[0] == 'y':
-                        angle = math.atan2(vec.x, vec.z)
-                    if self.active_axis[0] == 'z':
-                        angle = math.atan2(vec.x, vec.y)
+                    if self.active_axis == 'x':
+                        angle = math.atan2(angle_vector.y, angle_vector.z)
+                    if self.active_axis == 'y':
+                        angle = math.atan2(angle_vector.x, angle_vector.z)
+                    if self.active_axis == 'z':
+                        angle = math.atan2(angle_vector.x, angle_vector.y)
 
                     angle_in_degrees = round(math.degrees(angle))
+
                     if angle_in_degrees % 5 == 0:
                         if angle_in_degrees < 0:
                             angle_in_degrees += 360
+
                         self.inst3.setText(str(angle_in_degrees))
-                        # visual aid
-                        self.circle.set_scale(vec.length())
                         self.circle.look_at(pos3d, self.plane.get_normal())
-                        #improvement
-                        self.circle.set_pos(self.origin)
                         self.circle.show()
-                        self.last_line = LVecBase3f(vec.x,vec.y,vec.z)
+                        # remove if exists previous auxiliar line
+                        if self.aux_line : self.aux_line.removeAllGeoms()
+                        #draw the auxiliar line
+                        l = LineSegs()
+                        l.move_to(self.circle.get_pos())
+                        l.draw_to(vec)
+                        #store the auxiliar line
+                        self.aux_line = l.create()
+                        render.attach_new_node(self.aux_line)
+                        self.last_line = (self.circle.get_pos(),vec)
 
-
-
-                    # we just need the direction
-                    vec.normalize()
-
-
-
-                    # nothing more to do at this point if we have no stored vector
-                    if self.last_vec is None:
-                        self.last_vec = vec
-                        return task.again
-
-                    self.last_vec = vec
         return task.again
-
 
 app = MyApp()
 app.run()

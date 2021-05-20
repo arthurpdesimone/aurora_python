@@ -29,6 +29,9 @@ class MyApp(ShowBase):
         #visual aid
         self.circle=self.make_circle()
         self.circle.hide()
+        #mouse left or right click control
+        self.mouse_left_is_down = False
+        self.mouse_right_is_down = False
 
         self.last_line = None
         #a line showing the current rotation axis
@@ -44,6 +47,11 @@ class MyApp(ShowBase):
 
 
         #bind keys
+        self.accept('mouse1', self.on_mouse_left_down)
+        self.accept('mouse1-up', self.on_mouse_left_up)
+        self.accept('mouse3', self.on_mouse_right_down)
+        self.accept('mouse3-up', self.on_mouse_right_up)
+
         self.accept('mouse3', self.on_mouse_down)
         self.accept('mouse3-up', self.on_mouse_up)
         self.accept('x', self.toggle_axis, ['x'])
@@ -64,7 +72,7 @@ class MyApp(ShowBase):
     def make_circle(self, segments = 360, thickness=2.0, radius=1.0):
         l=LineSegs()
         l.set_thickness(thickness)
-        l.move_to(Point3(0,0,0))
+        l.move_to(self.origin)
         l.draw_to((0, radius, 0))
         temp = NodePath('temp')
         for i in range(segments + 1):
@@ -73,6 +81,24 @@ class MyApp(ShowBase):
             l.draw_to(p)
         temp.remove_node()
         return render.attach_new_node(l.create())
+
+    def on_mouse_left_down(self):
+        self.mouse_left_is_down = True
+        print('mouse left down')
+
+    def on_mouse_right_down(self):
+        self.mouse_right_is_down = True
+        print('mouse right down')
+
+    def on_mouse_left_up(self):
+        self.mouse_left_is_down = False
+        self.origin = Point3(0,0,0)
+        print('mouse left up')
+
+    def on_mouse_right_up(self):
+        self.mouse_right_is_down = False
+        print('mouse right up')
+
 
     def on_mouse_down(self):
         self.last_vec=None
@@ -145,8 +171,9 @@ class MyApp(ShowBase):
                                               render.get_relative_point(base.cam, far_point)):
 
                     self.inst5.setText(str(pos3d))
-                    self.update_axis(pos3d)
-                    self.origin = pos3d
+                    if self.mouse_left_is_down:
+                        self.update_axis(pos3d)
+                        self.origin = pos3d
                     # make a direction vector
                     #vec = self.axis.get_pos() - pos3d
                     # visual aid

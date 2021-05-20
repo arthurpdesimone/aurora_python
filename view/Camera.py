@@ -33,6 +33,14 @@ class Camera:
         self.showbase.accept("d", self.zoom_x_increase_const)
         self.showbase.accept("q", self.zoom_z_decrease_const)
         self.showbase.accept("e", self.zoom_z_increase_const)
+        self.showbase.accept("r", self.reset_camera)
+
+    def reset_camera(self):
+        """ Method to reset the camera to its initial position"""
+        self.cam.set_x(2)
+        self.cam.set_y(-10)
+        self.cam.set_z(2)
+        self.cam.set_hpr(0,0,0)
 
     def stop_navigating(self):
         """ Method to stop orbiting or panning """
