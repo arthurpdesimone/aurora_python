@@ -116,10 +116,13 @@ class MyApp(ShowBase):
         '''
         if 'x' in self.active_axis:
             vec=self.axis.get_quat().get_right()
+            self.circle.setHpr(0,0,90)
         elif 'y' in self.active_axis:
             vec=self.axis.get_quat().get_forward()
+            self.circle.setHpr(0, 90, 0)
         elif 'z' in self.active_axis:
             vec=self.axis.get_quat().get_up()
+            self.circle.setHpr(90, 0, 0)
         #remove old line
         if self.line:
             self.line.remove_node()
@@ -172,7 +175,12 @@ class MyApp(ShowBase):
                             angle_in_degrees += 360
 
                         self.inst3.setText(str(angle_in_degrees))
-                        self.circle.look_at(pos3d, self.plane.get_normal())
+                        self.inst4.setText(str(angle_vector.length()))
+                        if self.active_axis == 'x' or self.active_axis == 'z' or angle_vector.length() > 0:
+                            self.circle.look_at(pos3d, self.plane.get_normal())
+                        elif self.active_axis == 'y' and self.mouse_left_is_down:
+                            self.circle.setHpr(0,90,0)
+
                         self.circle.show()
                         # remove if exists previous auxiliar line
                         if self.aux_line : self.aux_line.removeAllGeoms()
