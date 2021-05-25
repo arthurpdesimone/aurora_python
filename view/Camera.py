@@ -23,6 +23,12 @@ class Camera:
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
+        self.accept_commands()
+        self.showbase.accept("remove_camera",self.remove_commands)
+        self.showbase.accept("accept_camera", self.accept_commands)
+
+    def accept_commands(self):
+        """ Key bindings to control the camera"""
         self.showbase.accept_once("mouse1", self.start_orbiting)
         self.showbase.accept_once("mouse3", self.start_panning)
         self.showbase.accept("wheel_up", self.zoom_step_in)
@@ -34,6 +40,21 @@ class Camera:
         self.showbase.accept("q", self.zoom_z_decrease_const)
         self.showbase.accept("e", self.zoom_z_increase_const)
         self.showbase.accept("r", self.reset_camera)
+
+
+    def remove_commands(self):
+        """ Remove all key bindings """
+        self.showbase.ignore("mouse1")
+        self.showbase.ignore("mouse3")
+        self.showbase.ignore("wheel_up")
+        self.showbase.ignore("wheel_down")
+        self.showbase.ignore("w")
+        self.showbase.ignore("a")
+        self.showbase.ignore("s")
+        self.showbase.ignore("d")
+        self.showbase.ignore("q")
+        self.showbase.ignore("e")
+        self.showbase.ignore("r")
 
     def reset_camera(self):
         """ Method to reset the camera to its initial position"""

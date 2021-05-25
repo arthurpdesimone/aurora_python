@@ -1,12 +1,15 @@
 import sys
 
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QWidget,QMessageBox
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget,QMessageBox,QCompleter
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
+from direct.showbase.MessengerGlobal import messenger
 from qt_material import QtStyleTools
 
 from lang.Language import *
 from model.Model import Model
+from model.command.Commands import commands
 from view.gui.CreateFileDialog import CreateFileDialog
 from view.gui.ImportDialogDXF import ImportDialogDXF
 from view.gui.OpenFileDialog import OpenFileDialog
@@ -30,6 +33,11 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         widget = QPanda3DWidget(world)
         layout.layout().addWidget(widget)
         world.set_parent(layout)
+        """ Create autocompleter on command """
+        completer = QCompleter(commands)
+        completer.setCaseSensitivity(Qt.CaseInsensitive)
+        self.command_line.setCompleter(completer)
+        self.command_line.returnPressed.connect(self.parse_command)
         """ Setup menus """
         self.setup_menu()
         """ Setup log text """
@@ -52,14 +60,15 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
                 if ".json" not in file: file = file + ".json"
                 self.create_or_open_file(file)
 
-
     def open_file(self):
+        """ Open file method"""
         dialog = OpenFileDialog()
         file = dialog.file
         if file != "":
             self.create_or_open_file(file)
 
     def create_or_open_file(self, file):
+        """ Create or open file method, including database initialization"""
         model = Model.instance()
         model.init_db(file)
         self.log.appendLog(FILE_OPENED + file)
@@ -83,3 +92,15 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
     def show_import_dialog_dxf(self):
         """ Method to show dialog to open a dialog to import DXF files"""
         ImportDialogDXF(self.showbase)
+
+    def parse_command(self):
+        """ Parse command according to the text at the command line"""
+        command = self.command_line.text()
+        self.log.appendLog(command)
+        """ Command switch"""
+        if command == "CAMERA_DESLIGAR":
+            messenger.send("remove_camera")
+        elif command == "CAMERA_LIGAR":
+            messenger.send("accept_camera")
+
+        self.command_line.setText("")

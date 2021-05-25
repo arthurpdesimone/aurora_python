@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.5: Drawing line 3D">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.6: Drawing line 3D">
+      <change afterPath="$PROJECT_DIR$/model/command/Commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/rotating line 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rotating line 3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +76,28 @@
       <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rotating line 3">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="autocompleter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/autocompleter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,27 +161,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rotating line" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/rotating line.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="s" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,16 +186,16 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.rotating line 2" />
       <item itemvalue="Python.rotating line 3" />
-      <item itemvalue="Python.rotating line" />
       <item itemvalue="Python.s" />
+      <item itemvalue="Python.autocompleter" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.autocompleter" />
         <item itemvalue="Python.rotating line 3" />
         <item itemvalue="Python.s" />
         <item itemvalue="Python.rotating line 2" />
-        <item itemvalue="Python.rotating line" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -204,13 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Working around elements and draw method">
-      <created>1613775609765</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1613775609766</updated>
     </task>
     <task id="LOCAL-00056" summary="Working around elements and draw method">
       <created>1613839735273</created>
@@ -548,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621544927569</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Version 0.2.6: Drawing line 3D">
+      <created>1621632037169</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1621632037184</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -565,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4" />
     <MESSAGE value="Making footing's draw possible" />
     <MESSAGE value="Making columns's draw possible" />
     <MESSAGE value="Making slab's draw possible" />
@@ -590,7 +592,8 @@
     <MESSAGE value="Version 0.2.3: Reverting logic do standalone open source app" />
     <MESSAGE value="Version 0.2.4: Drawing line 3D" />
     <MESSAGE value="Version 0.2.5: Drawing line 3D" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.5: Drawing line 3D" />
+    <MESSAGE value="Version 0.2.6: Drawing line 3D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.6: Drawing line 3D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
