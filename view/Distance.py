@@ -4,9 +4,8 @@ class Distance:
     """
     Class to calculate the distance between the cursor and a plane initially set to zero height (z=0)
     """
-    def __init__(self, showbase, UCS, window):
+    def __init__(self, UCS, window):
         self.window = window
-        self.showbase = showbase
         z = 0
         self.plane = Plane(Vec3(0, 0, 1), Point3(0, 0, z))
         self.model = UCS.draw_cross(0, 0)

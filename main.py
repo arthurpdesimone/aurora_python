@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     ucs = UCS(world)
     Grid(world)
-    distance = Distance(world, ucs, window)
+    distance = Distance(ucs, window)
     Camera(world)
 
     """ Add UCS attached to rotation of the model """

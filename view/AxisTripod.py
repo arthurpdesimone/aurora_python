@@ -34,7 +34,7 @@ class AxisTripod:
         showbase.task_mgr.do_method_later(.2, self.update_region_size, "update_region_size")
 
     def create_model(self):
-
+        """ Create the axis tripod"""
         vertex_format = GeomVertexFormat.get_v3c4()
 
         vertex_data = GeomVertexData("axis_tripod_data", vertex_format, Geom.UH_static)
@@ -42,6 +42,7 @@ class AxisTripod:
         col_writer = GeomVertexWriter(vertex_data, "color")
 
         lines = GeomLines(Geom.UH_static)
+        """ Create all the three axis at once"""
         for i in range(3):
             v_pos = VBase3()
             pos_writer.add_data3(v_pos)
