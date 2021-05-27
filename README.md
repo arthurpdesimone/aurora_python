@@ -30,6 +30,9 @@ Pynite dependencies
 * **matplotlib**: used for plotting member diagrams
 * **PrettyTable** : used to format tabular output
 
+To compile
+pyinstaller main.py --additional-hooks-dir=./pyinstaller_hooks --add-data ./window.ui;.
+
 
 ### **License**
-GNU General Public License v3.0
+MIT License

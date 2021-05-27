@@ -4,81 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.7: Accepting and sending commands">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.8: Cleanup docs and imports">
+      <change afterPath="$PROJECT_DIR$/main.spec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyinstaller_hooks/hook-panda3d.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/environment.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/doctrees/index.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/.buildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/dxf/DXF.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Beam.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Column.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Footing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/Slab.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/StructuralElement.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/model/footing/Footing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/App.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/AutoSizer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/AxisTripod.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Camera.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Distance.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Geometry.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/Grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UCS.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/UserInterface.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/World.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_modules/view/tools/Log.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_sources/index.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/basic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/badge_only.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/Roboto-Slab-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/Roboto-Slab-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/Roboto-Slab-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/Roboto-Slab-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-bold-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-bold-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-normal-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-normal-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-normal.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/fonts/lato-normal.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/css/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/doctools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/documentation_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/jquery-3.5.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/js/badge_only.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/js/html5shiv-printshiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/js/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/language_data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/searchtools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/underscore-1.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/_static/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/genindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/objects.inv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/py-modindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/html/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/make.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/AxisTripod.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/AxisTripod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Distance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,28 +59,28 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/main" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\dist\main" />
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python\gui" />
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\database" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\server" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\view\gui" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\tests" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view\tools" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\model" />
       <recent name="D:\pendragon\education\research\Aurora\aurora_python\view" />
-      <recent name="D:\pendragon\education\research\Aurora\aurora_python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rotating line 3">
+  <component name="RunManager" selected="Python.main">
     <configuration name="autocompleter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -252,16 +187,16 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.autocompleter" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.rotating line 2" />
       <item itemvalue="Python.rotating line 3" />
       <item itemvalue="Python.s" />
-      <item itemvalue="Python.autocompleter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.rotating line 3" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.rotating line 3" />
         <item itemvalue="Python.autocompleter" />
         <item itemvalue="Python.s" />
         <item itemvalue="Python.rotating line 2" />
@@ -276,13 +211,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Making geometries drawable">
-      <created>1613857176728</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1613857176734</updated>
     </task>
     <task id="LOCAL-00058" summary="Making geometries drawable">
       <created>1613868868511</created>
@@ -620,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621960736627</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Version 0.2.8: Cleanup docs and imports">
+      <created>1622071443337</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1622071443370</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -637,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Making columns's draw possible" />
     <MESSAGE value="Making slab's draw possible" />
     <MESSAGE value="Minor changes on documentation" />
     <MESSAGE value="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples" />
@@ -662,7 +596,8 @@
     <MESSAGE value="Version 0.2.5: Drawing line 3D" />
     <MESSAGE value="Version 0.2.6: Drawing line 3D" />
     <MESSAGE value="Version 0.2.7: Accepting and sending commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.7: Accepting and sending commands" />
+    <MESSAGE value="Version 0.2.8: Cleanup docs and imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.8: Cleanup docs and imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

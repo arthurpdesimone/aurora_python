@@ -12,6 +12,7 @@ import sys
 from PyNite.Node3D import Node3D
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
+from panda3d.core import loadPrcFile
 from qt_material import apply_stylesheet
 
 from database.DatabaseManager import DatabaseManager
@@ -31,8 +32,8 @@ from view.gui.CreateFileDialog import CreateFileDialog
 from view.tools.Log import Log
 
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     """ Initialize User Interface """
     world = World()
