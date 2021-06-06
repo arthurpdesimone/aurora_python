@@ -1,11 +1,12 @@
-from panda3d.core import NodePath, LineSegs, TextNode, VBase4, VBase3
-
+from panda3d.core import TextNode, VBase4, VBase3
+from panda3d.core import LineSegs, NodePath
 
 class UCS:
     """ Create an UCS symbol on point (0,0,0) and draw a mini-UCS at the mouse position """
-    def __init__(self, showbase):
+
+    def __init__(self,world):
         self.size = 1
-        self.render = showbase.render
+        self.render = world.showbase.render
         self.create_ucs(5)
 
     def create_ucs(self, thickness=1):
@@ -18,12 +19,12 @@ class UCS:
         ls.setThickness(thickness)
 
         """ Draw three axes at once including the text"""
-        label = ["x","y","z"]
+        label = ["x", "y", "z"]
         for i in range(3):
-            color = VBase4(0,0,0,1)
+            color = VBase4(0, 0, 0, 1)
             color[i] = 1
             ls.setColor(color)
-            ls.moveTo(0,0,0)
+            ls.moveTo(0, 0, 0)
             position = VBase3()
             position[i] = self.size
             ls.drawTo(position)
@@ -41,8 +42,7 @@ class UCS:
         node = ls.create()
         NodePath(node).reparentTo(self.render)
 
-
-    def draw_cross(self,x,z,thickness=3):
+    def draw_cross(self, x, z, thickness=3):
         """ Method to create a tripod following the mouse cursor """
 
         ls = LineSegs('UCS mouse')

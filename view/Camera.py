@@ -17,7 +17,6 @@ class Camera:
         self.cam_lens = showbase.camLens
         self.cam_target = showbase.render.attach_new_node("Target")
         self.cam.reparent_to(self.cam_target)
-        self.cam.set_y(-10.)
         self.mouse_prev = Point2()
         w, h = showbase.win.get_x_size(), showbase.win.get_y_size()
         self.orbit_speed = (w * .15, h * .15)

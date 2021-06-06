@@ -1,24 +1,22 @@
 from panda3d.core import LineSegs, NodePath,CardMaker, GeomNode
-
-from view.AxisTripod import AxisTripod
 from view.Geometry import makeLine
-
 
 class Grid:
     """
     Class to draw a simple grid in the scene,
     this class also has a method to draw a plane to serve as reference to drawing
     """
-    def __init__(self, showbase):
+
+    def __init__(self,world):
         """
         Constructor method
         """
-        self.showbase = showbase
-        self.render = showbase.render
+        self.showbase = world.showbase
+        self.render = self.showbase.render
         self.draw_grid()
         self.draw_plane()
 
-    def draw_grid(self, lines=100, spacing=1.0, thickness=1, color = (0.1, 0.1, 0.1, 0.1), z_shift=0.05):
+    def draw_grid(self, lines=100, spacing=1.0, thickness=1, color=(0.1, 0.1, 0.1, 0.1), z_shift=0.05):
         """Method to draw a simple finite grid in the scene
 
         :param lines: Number of lines
@@ -36,9 +34,9 @@ class Grid:
         ls.setThickness(thickness)
         ls.setColor(color)
 
-        for i in range(0,lines):
+        for i in range(0, lines):
             """ X line drawing """
-            ls = makeLine(0, i*spacing, z_shift, lines, i*spacing, z_shift, ls)
+            ls = makeLine(0, i * spacing, z_shift, lines, i * spacing, z_shift, ls)
             """ Y line drawing """
             ls = makeLine(i * spacing, 0, z_shift, i * spacing, lines, z_shift, ls)
 
@@ -46,10 +44,7 @@ class Grid:
         nodepath = NodePath(node)
         nodepath.reparentTo(self.render)
 
-
-
-
-    def draw_plane(self,a=(0,0),b=(100,100),color=(0.15,0.15,0.15,1)):
+    def draw_plane(self, a=(0, 0), b=(100, 100), color=(0.15, 0.15, 0.15, 1)):
         """ Method to draw a plane using :class:`panda3d.core.CardMaker`
 
         :param a: The card's initial point
@@ -61,7 +56,7 @@ class Grid:
         """
 
         c = CardMaker('DrawingPlane')
-        c.setFrame(a[0],b[0],a[1],b[1])
+        c.setFrame(a[0], b[0], a[1], b[1])
         c.setColor(color)
         """ Attach to render and rotate the card """
         card = c.generate()
