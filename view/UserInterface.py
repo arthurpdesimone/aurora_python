@@ -111,5 +111,7 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
             messenger.send("remove_camera")
         elif command == "CAMERA_LIGAR":
             messenger.send("accept_camera")
+        elif command == "LINHA":
+            messenger.send("line")
 
         self.command_line.setText("")

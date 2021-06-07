@@ -23,6 +23,7 @@ from model.Model import Model
 from view.AxisTripod import AxisTripod
 from view.Camera import Camera
 from view.Distance import Distance
+from view.Drawing import Drawing
 from view.Grid import Grid
 from view.UCS import UCS
 from view.UserInterface import UserInterface
@@ -32,7 +33,8 @@ from view.gui.Themes import DARK_TEAL
 from view.tools.Log import Log
 
 
-
+def except_hook(cls, exception, traceback):
+    sys.__excepthook__(cls, exception, traceback)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -46,6 +48,7 @@ if __name__ == "__main__":
     Grid(world)
     Distance(ucs, window)
     Camera(world)
+    Drawing(world)
 
     """ Add UCS attached to rotation of the model """
     tripod = AxisTripod(world)
@@ -58,5 +61,8 @@ if __name__ == "__main__":
     log.appendLog(PROGRAM_LOADED)
 
     window.check_model_existence()
+    """ https://stackoverflow.com/questions/33736819/pyqt-no-error-msg-traceback-on-exit """
+    sys.excepthook = except_hook
 
+    """ App initialization """
     sys.exit(app.exec())
