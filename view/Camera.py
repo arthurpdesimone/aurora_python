@@ -23,6 +23,7 @@ class Camera:
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
         self.accept_commands()
+        self.is_camera_enabled = True
         self.showbase.accept("remove_camera",self.remove_commands)
         self.showbase.accept("accept_camera", self.accept_commands)
 
@@ -39,7 +40,7 @@ class Camera:
         self.showbase.accept("q", self.zoom_z_decrease_const)
         self.showbase.accept("e", self.zoom_z_increase_const)
         self.showbase.accept("r", self.reset_camera)
-
+        self.is_camera_enabled=True
 
     def remove_commands(self):
         """ Remove all key bindings """
@@ -54,6 +55,7 @@ class Camera:
         self.showbase.ignore("q")
         self.showbase.ignore("e")
         self.showbase.ignore("r")
+        self.is_camera_enabled = False
 
     def reset_camera(self):
         """ Method to reset the camera to its initial position"""
@@ -61,6 +63,7 @@ class Camera:
         self.cam.set_y(-10)
         self.cam.set_z(2)
         self.cam.set_hpr(0,0,0)
+        self.is_camera_enabled = True
 
     def stop_navigating(self):
         """ Method to stop orbiting or panning """

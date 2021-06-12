@@ -48,6 +48,9 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         self.log.sync_text_area(log_text)
         """ Show hotkey help"""
         self.show_hotkey_dialog()
+        #""" Children change render """
+        #self.showbase.accept("children_change")
+
 
     def check_model_existence(self):
         """ Prompt the user if he wants to create a new file, if so opens a dialog"""
@@ -115,3 +118,6 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
             messenger.send("line")
 
         self.command_line.setText("")
+
+    def update_children_render(self):
+        pass

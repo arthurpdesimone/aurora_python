@@ -176,6 +176,11 @@
             <string>Plantas</string>
            </property>
           </item>
+          <item>
+           <property name="text">
+            <string>Renderizador</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item>

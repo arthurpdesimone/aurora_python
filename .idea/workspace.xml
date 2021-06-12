@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.10: Create Keyboard with hotkeys">
-      <change afterPath="$PROJECT_DIR$/view/Drawing.py" afterDir="false" />
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.11: First 3D lines drew on showbase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotkeys.ui" beforeDir="false" afterPath="$PROJECT_DIR$/hotkeys.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Drawing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/UCS.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UCS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/gui/HotkeyDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/gui/HotkeyDialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,11 +185,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.ButtonHover" />
       <item itemvalue="Python.autocompleter" />
       <item itemvalue="Python.grid" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.rotating line 3" />
-      <item itemvalue="Python.ButtonHover" />
     </list>
     <recent_temporary>
       <list>
@@ -208,13 +209,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Making geometries drawable">
-      <created>1613931855882</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1613931855884</updated>
     </task>
     <task id="LOCAL-00061" summary="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4">
       <created>1613935750359</created>
@@ -552,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623015546307</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Version 0.2.11: First 3D lines drew on showbase">
+      <created>1623093632355</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1623093632356</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -563,7 +564,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -572,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Integrating Panda3D to PythonQt and material design&#10;https://discourse.panda3d.org/t/occlusion-not-working-with-qpanda3d/25474/3&#10;&#10;https://pypi.org/project/qt-material/#run-examples" />
     <MESSAGE value="Integrating Panda3D to PythonQt and material design" />
     <MESSAGE value="Version 0.1: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.1: Cleaning up old test stuff and Panda3D from early versions." />
@@ -597,17 +614,11 @@
     <MESSAGE value="Version 0.2.8: Cleanup docs and imports" />
     <MESSAGE value="Version 0.2.9: Enable the creation of an windows executable" />
     <MESSAGE value="Version 0.2.10: Create Keyboard with hotkeys" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.10: Create Keyboard with hotkeys" />
+    <MESSAGE value="Version 0.2.11: First 3D lines drew on showbase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.11: First 3D lines drew on showbase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/Drawing.py</url>
-          <line>123</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
