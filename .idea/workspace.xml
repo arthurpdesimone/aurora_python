@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.11: First 3D lines drew on showbase">
+    <list default="true" id="010f81d8-74df-4d7e-a07c-fe72cad5097a" name="Default Changelist" comment="Version 0.2.12: First 3D lines drew on showbase">
+      <change afterPath="$PROJECT_DIR$/tests/Treeview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/Language.py" beforeDir="false" afterPath="$PROJECT_DIR$/lang/Language.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/Drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/Drawing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/UCS.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UCS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/UserInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/UserInterface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/World.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/World.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/tools/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/tools/Log.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="autocompleter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="RenderTreeView" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aurora_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +113,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/autocompleter.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/RenderTreeView.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Treeview" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aurora_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/Treeview.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,41 +185,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rotating line 3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aurora_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/rotating line 3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.ButtonHover" />
-      <item itemvalue="Python.autocompleter" />
+      <item itemvalue="Python.RenderTreeView" />
+      <item itemvalue="Python.Treeview" />
       <item itemvalue="Python.grid" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.rotating line 3" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Treeview" />
+        <item itemvalue="Python.RenderTreeView" />
         <item itemvalue="Python.ButtonHover" />
         <item itemvalue="Python.grid" />
-        <item itemvalue="Python.rotating line 3" />
-        <item itemvalue="Python.autocompleter" />
       </list>
     </recent_temporary>
   </component>
@@ -209,13 +210,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612060810964</updated>
-    </task>
-    <task id="LOCAL-00061" summary="makePolygon function created&#10;&#10;https://discourse.panda3d.org/t/triangulation-3d-not-working/27277/4">
-      <created>1613935750359</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1613935750359</updated>
     </task>
     <task id="LOCAL-00062" summary="Making footing's draw possible">
       <created>1613956456076</created>
@@ -553,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623093632356</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Version 0.2.12: First 3D lines drew on showbase">
+      <created>1623518901206</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1623518901207</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -590,7 +591,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Integrating Panda3D to PythonQt and material design" />
     <MESSAGE value="Version 0.1: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.1: Cleaning up old test stuff and Panda3D from early versions." />
     <MESSAGE value="Version 0.1.2: Cleaning up old test stuff and Panda3D from early versions." />
@@ -615,7 +615,8 @@
     <MESSAGE value="Version 0.2.9: Enable the creation of an windows executable" />
     <MESSAGE value="Version 0.2.10: Create Keyboard with hotkeys" />
     <MESSAGE value="Version 0.2.11: First 3D lines drew on showbase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.11: First 3D lines drew on showbase" />
+    <MESSAGE value="Version 0.2.12: First 3D lines drew on showbase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.2.12: First 3D lines drew on showbase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

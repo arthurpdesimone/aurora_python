@@ -28,7 +28,7 @@ class UCS:
             position = VBase3()
             position[i] = self.size
             ls.drawTo(position)
-            text_node = TextNode("UCS/"+label[i])
+            text_node = TextNode("UCS-"+label[i])
             text = label[i]
             text_node.setText(text)
             text_node.setTextColor(color)

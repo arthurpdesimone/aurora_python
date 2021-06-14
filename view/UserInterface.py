@@ -2,7 +2,7 @@ import sys
 
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget,QMessageBox,QCompleter
+from PyQt5.QtWidgets import QWidget, QMessageBox, QCompleter, QTreeWidget, QTreeWidgetItem
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
 from direct.showbase.MessengerGlobal import messenger
 from qt_material import QtStyleTools
@@ -24,6 +24,7 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
     def __init__(self,world):
         super(UserInterface, self).__init__()  # Call the inherited classes __init__ method
         self.world = world
+        self.showbase = world.showbase
         self.initialize()
 
     def initialize(self):
@@ -48,8 +49,8 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         self.log.sync_text_area(log_text)
         """ Show hotkey help"""
         self.show_hotkey_dialog()
-        #""" Children change render """
-        #self.showbase.accept("children_change")
+        """ Children change render """
+        self.showbase.accept("children_change", self.update_children_render)
 
 
     def check_model_existence(self):
@@ -120,4 +121,37 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         self.command_line.setText("")
 
     def update_children_render(self):
-        pass
+        """ Clean the render children"""
+        self.clean_treeview_render()
+        """ Method to update render children on gui"""
+        item_list = self.showbase.render.getChildren()
+        for render_child in item_list:
+            """ Loop through all the childs of the render"""
+            root = self.navigator.invisibleRootItem()
+            child_count = root.childCount()
+
+            """ Loop through all the childs of the navigator"""
+            for i in range(child_count):
+                item = root.child(i)
+                text_item = item.text(0)  # text at first (0) column
+
+                """ Check if it is stopped at render position and 
+                add the child"""
+                if text_item == RENDER:
+                    tree_item = QTreeWidgetItem()
+                    tree_item.setText(0,render_child.getName())
+                    item.addChild(tree_item)
+
+    def clean_treeview_render(self):
+        """ Loop through all the childs of the render"""
+        root = self.navigator.invisibleRootItem()
+        child_count = root.childCount()
+        """ Loop through all the childs of the navigator"""
+        for i in range(child_count):
+            item = root.child(i)
+            text_item = item.text(0)  # text at first (0) column
+
+            """ Check if there is previous children and delete them"""
+            if item.childCount() > 0 and text_item == RENDER:
+                for idx in range(item.childCount()):
+                    root.removeChild(item.child(idx))

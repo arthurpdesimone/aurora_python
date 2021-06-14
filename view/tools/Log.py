@@ -30,9 +30,11 @@ class Log:
     def sync_text_area(self,text_area):
         self.text_area = text_area
 
-    def printRenderChild(self,render):
+    def render_children(self,render):
+        list_children = list()
         for children in render.getChildren():
-            print(children)
+            list_children.append(children.getName())
+        return list_children
 
     @classmethod
     def instance(cls):

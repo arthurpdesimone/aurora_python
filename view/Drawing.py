@@ -21,6 +21,7 @@ class Drawing():
         self.mouse_right_is_down = False
         # temporary line between the mouse and the origin
         self.aux_line = None
+        self.aux_line_node = None
         # the line you want to draw
         self.last_line = None
         # a line showing the current rotation axis
@@ -69,7 +70,7 @@ class Drawing():
         self.mouse_right_is_down = False
         print('mouse right up')
 
-        l = LineSegs()
+        l = LineSegs("LINE DEFFINitive")
         self.draw_node(self.last_line[0])
         l.move_to(self.last_line[0])
         self.draw_node(self.last_line[1])
@@ -102,7 +103,7 @@ class Drawing():
         # draw new line
         if self.active_axis:
             self.plane = Plane(vec, point)  # also make the plane, kind of important...
-            l = LineSegs()
+            l = LineSegs('eixo')
             l.set_thickness(2.0)
             l.move_to(point)
             l.draw_to((point + vec))
@@ -154,14 +155,16 @@ class Drawing():
 
                         self.circle.show()
                         # remove if exists previous auxiliar line
-                        if self.aux_line: self.aux_line.removeAllGeoms()
+                        if self.aux_line:
+                            self.aux_line.removeAllGeoms()
+                            self.aux_line_node.removeNode()
                         # draw the auxiliar line
-                        l = LineSegs()
+                        l = LineSegs("LINE")
                         l.move_to(self.circle.get_pos())
                         l.draw_to(vec)
                         # store the auxiliar line
                         self.aux_line = l.create()
-                        render.attach_new_node(self.aux_line)
+                        self.aux_line_node = render.attach_new_node(self.aux_line)
                         self.last_line = (self.circle.get_pos(), vec)
 
         return task.again

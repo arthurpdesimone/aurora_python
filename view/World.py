@@ -1,12 +1,17 @@
 
 from QPanda3D.Panda3DWorld import Panda3DWorld
 
+from lang.Language import RENDER_CHANGED
+from view.tools.Log import Log
+
+
 class World(Panda3DWorld):
     """ Class to control the whole panda 3d world
     This class contains:
     * An UCS (universal coordinate system) symbol class to orient the user
     * A grid class to draw a 100x100 grid with given line spacing
     """
+    log = Log.instance()
 
     def __init__(self):
         Panda3DWorld.__init__(self)
@@ -26,9 +31,8 @@ class World(Panda3DWorld):
         old = len(self.showbase.render.getChildren())
         new = len(self.temp_render_children)
         print(f'Old {old} new {new}')
-        if len(self.showbase.render.getChildren()) != len(self.temp_render_children):
-            print("Render mudou")
-            for child in self.showbase.render.getChildren():
-                print(child.getName())
+        if old != new:
+            self.log.appendLog(RENDER_CHANGED)
+            self.messenger.send("children_change")
         self.temp_render_children = self.showbase.render.getChildren()
         return task.again
