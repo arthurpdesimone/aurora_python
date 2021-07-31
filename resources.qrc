@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="ui">
+    <file>window.ui</file>
+    <file>hotkeys.ui</file>
+  </qresource>
+</RCC>

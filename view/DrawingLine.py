@@ -2,9 +2,14 @@ import math
 
 from panda3d.core import LineSegs, NodePath, Point3, Plane
 
+from view.tools.Log import Log
 
-class Drawing():
-    def __init__(self, world):
+
+class DrawingLine():
+    log = Log.instance()
+
+    def __init__(self, world, window):
+        self.window = window
         self.showbase = world.showbase
         self.showbase.accept("line",self.command_line)
 
@@ -33,7 +38,14 @@ class Drawing():
         self.update_axis(Point3(0, 0, 0))
         self.mouse_is_down = False
 
-        # bind keys
+        self.bind_keys()
+        """ Escape binded function """
+        self.showbase.accept('escape', self.unbind_keys)
+        # run task
+        taskMgr.add(self.mouse_task, 'mouse_tsk')
+
+    def bind_keys(self):
+        """Method to bind useful keys to drawing"""
         self.showbase.accept('mouse1', self.on_mouse_left_down)
         self.showbase.accept('mouse1-up', self.on_mouse_left_up)
         self.showbase.accept('mouse2', self.on_mouse_right_down)
@@ -41,8 +53,18 @@ class Drawing():
         self.showbase.accept('x', self.toggle_axis, ['x'])
         self.showbase.accept('y', self.toggle_axis, ['y'])
         self.showbase.accept('z', self.toggle_axis, ['z'])
-        # run task
-        taskMgr.add(self.mouse_task, 'mouse_tsk')
+
+    def unbind_keys(self):
+        """ Remove all key bindings """
+        self.log.appendLog("Escape pressionado, desassociando criação de linhas")
+        taskMgr.remove('mouse_tsk')
+        self.showbase.ignore('mouse1')
+        self.showbase.ignore('mouse1-up')
+        self.showbase.ignore('mouse2')
+        self.showbase.ignore('mouse2-up')
+        self.showbase.ignore('x')
+        self.showbase.ignore('y')
+        self.showbase.ignore('z')
 
     def draw_node(self, position):
         sphere = loader.loadModel("misc/sphere.egg")
@@ -70,7 +92,7 @@ class Drawing():
         self.mouse_right_is_down = False
         print('mouse right up')
 
-        l = LineSegs("LINE DEFFINitive")
+        l = LineSegs("Line")
         self.draw_node(self.last_line[0])
         l.move_to(self.last_line[0])
         self.draw_node(self.last_line[1])
@@ -115,20 +137,23 @@ class Drawing():
         '''Rotates self.model around self.axis based on mouse movement '''
         if self.active_axis:
             if base.mouseWatcherNode.hasMouse():
-                # get the mouse ray-plane intersection
+                """Get the mouse ray-plane intersection"""
                 mpos = base.mouseWatcherNode.getMouse()
                 pos3d = Point3()
                 near_point = Point3()
                 far_point = Point3()
                 base.camLens.extrude(mpos, near_point, far_point)
+                """Check if mouse intersects virtual plane """
                 if self.plane.intersects_line(pos3d,
                                               render.get_relative_point(base.cam, near_point),
                                               render.get_relative_point(base.cam, far_point)):
 
+                    """If mouse left is down update axis reference"""
                     if self.mouse_left_is_down:
                         self.update_axis(pos3d)
                         self.origin = pos3d
                         self.circle.set_pos(self.origin)
+                        self.window.update_statusbar(str(self.origin))
 
                     vec = pos3d - self.axis.get_pos()
                     angle_vector = pos3d - self.origin
@@ -159,7 +184,7 @@ class Drawing():
                             self.aux_line.removeAllGeoms()
                             self.aux_line_node.removeNode()
                         # draw the auxiliar line
-                        l = LineSegs("LINE")
+                        l = LineSegs("Auxiliary line")
                         l.move_to(self.circle.get_pos())
                         l.draw_to(vec)
                         # store the auxiliar line
@@ -171,7 +196,8 @@ class Drawing():
 
 
     def make_circle(self, segments = 360, thickness=2.0, radius=1.0):
-        l=LineSegs('auxiliary circle')
+        """ Draw a circle to auxiliate a line drawing """
+        l=LineSegs('Auxiliary circle')
         l.set_thickness(thickness)
         l.move_to(self.origin)
         l.draw_to((0, radius, 0))

@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QMessageBox, QCompleter, QTreeWidget, QTreeWidgetItem
 from QPanda3D.QPanda3DWidget import QPanda3DWidget
@@ -29,7 +29,11 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
 
     def initialize(self):
         """ Method to open and attach panda3d widget to UI"""
-        self.main = uic.loadUi('window.ui', self)  # Load the .ui file
+        """ Load using resources file"""
+        fileh = QtCore.QFile(':/ui/window.ui')
+        fileh.open(QtCore.QFile.ReadOnly)
+        self.main = uic.loadUi(fileh, self)
+        fileh.close()
         self.showbase = self.world.showbase
         """ Place Panda Qt Widget"""
         layouts = self.findChildren(QWidget, 'visualization')
@@ -95,8 +99,8 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         menu_load_dxf = self.menu_load_dxf
         menu_load_dxf.triggered.connect(self.show_import_dialog_dxf)
 
-    def update_statusbar(self, point):
-        self.statusBar().showMessage("Mouse position : "+point)
+    def update_statusbar(self, message):
+        self.statusBar().showMessage(message)
 
     def show_import_dialog_dxf(self):
         """ Method to show dialog to open a dialog to import DXF files"""
@@ -125,6 +129,7 @@ class UserInterface(QtWidgets.QMainWindow, QtStyleTools):
         self.clean_treeview_render()
         """ Method to update render children on gui"""
         item_list = self.showbase.render.getChildren()
+        print(str(item_list))
         for render_child in item_list:
             """ Loop through all the childs of the render"""
             root = self.navigator.invisibleRootItem()

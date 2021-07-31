@@ -33,7 +33,7 @@ class Distance:
                 # Round the point
                 pos3d = Point3(round(pos3d.x,0),round(pos3d.y,0),round(pos3d.z,0))
                 status3d = '[' + str(pos3d.x) + ',' + str(pos3d.y) + ',' + str(pos3d.z)+ ']'
-                self.window.update_statusbar(status3d)
+                #self.window.update_statusbar(status3d)
                 self.model.setPos(render, pos3d)
                 self.position = pos3d
         return task.again

@@ -23,7 +23,7 @@ from model.Model import Model
 from view.AxisTripod import AxisTripod
 from view.Camera import Camera
 from view.Distance import Distance
-from view.Drawing import Drawing
+from view.DrawingLine import DrawingLine
 from view.Grid import Grid
 from view.UCS import UCS
 from view.UserInterface import UserInterface
@@ -47,8 +47,8 @@ if __name__ == "__main__":
     ucs = UCS(world)
     Grid(world)
     Distance(ucs, window)
-    Camera(world)
-    Drawing(world)
+    Camera()
+    DrawingLine(world,window)
 
     """ Add UCS attached to rotation of the model """
     tripod = AxisTripod(world)

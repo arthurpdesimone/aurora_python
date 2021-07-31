@@ -1,4 +1,4 @@
-from PyQt5 import uic
+from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QDialog, QPushButton
 from qt_material import apply_stylesheet
 from view.gui.Themes import *
@@ -6,7 +6,12 @@ from view.gui.Themes import *
 class HotkeyDialog(QDialog):
     def __init__(self):
         super(HotkeyDialog, self).__init__()
-        self.main = uic.loadUi('hotkeys.ui', self)
+        """ Load using resources file"""
+        fileh = QtCore.QFile(':/ui/hotkeys.ui')
+        fileh.open(QtCore.QFile.ReadOnly)
+        self.main = uic.loadUi(fileh, self)
+        fileh.close()
+
         apply_stylesheet(self, theme=DARK_TEAL)
         """ Highlight all the buttons """
         buttons = self.main.findChildren(QPushButton)

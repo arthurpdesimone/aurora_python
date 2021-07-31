@@ -8,26 +8,25 @@ class Camera:
     """ Class to control the camera of the showbase """
     log = Log.instance()
 
-    def __init__(self, showbase):
-        self.showbase = showbase
-        self.task_mgr = showbase.task_mgr
-        self.mouse_watcher = showbase.mouseWatcherNode
-        self.world = showbase.render
-        self.cam = showbase.camera
-        self.cam_lens = showbase.camLens
-        self.cam_target = showbase.render.attach_new_node("Target")
+    def __init__(self):
+        self.showbase = base
+        self.task_mgr = base.task_mgr
+        self.mouse_watcher = base.mouseWatcherNode
+        self.world = base.render
+        self.cam = base.camera
+        self.cam_lens = base.camLens
+        self.cam_target = base.render.attach_new_node("Target")
         self.cam.reparent_to(self.cam_target)
         self.mouse_prev = Point2()
-        w, h = showbase.win.get_x_size(), showbase.win.get_y_size()
+        w, h = base.win.get_x_size(), base.win.get_y_size()
         self.orbit_speed = (w * .15, h * .15)
         self.pan_start_pos = Point3()
         self.zoom_step_factor = 10  # additional zoom step multiplier
-        self.accept_commands()
-        self.is_camera_enabled = True
-        self.showbase.accept("remove_camera",self.remove_commands)
-        self.showbase.accept("accept_camera", self.accept_commands)
+        self.bind_keys()
+        self.showbase.accept("remove_camera",self.unbind_keys)
+        self.showbase.accept("accept_camera", self.bind_keys)
 
-    def accept_commands(self):
+    def bind_keys(self):
         """ Key bindings to control the camera"""
         self.showbase.accept_once("mouse1", self.start_orbiting)
         self.showbase.accept_once("mouse3", self.start_panning)
@@ -42,7 +41,7 @@ class Camera:
         self.showbase.accept("r", self.reset_camera)
         self.is_camera_enabled=True
 
-    def remove_commands(self):
+    def unbind_keys(self):
         """ Remove all key bindings """
         self.showbase.ignore("mouse1")
         self.showbase.ignore("mouse3")

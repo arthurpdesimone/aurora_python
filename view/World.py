@@ -25,12 +25,13 @@ class World(Panda3DWorld):
         self.children = self.showbase.render.getChildren()
         """ Temporary children """
         self.temp_render_children = list()
-        taskMgr.doMethodLater(5,self.get_world_children, "_World__get_world_children")
+        taskMgr.doMethodLater(1,self.get_world_children, "_World__get_world_children")
 
     def get_world_children(self,task):
         old = len(self.showbase.render.getChildren())
         new = len(self.temp_render_children)
         print(f'Old {old} new {new}')
+        #print(self.messenger.detailed_repr())
         if old != new:
             self.log.appendLog(RENDER_CHANGED)
             self.messenger.send("children_change")
